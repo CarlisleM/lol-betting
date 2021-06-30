@@ -20,7 +20,7 @@ const getAllUpcomingGames = (req, res) => {
 // const getGamesString = "SELECT * FROM games, match_results where id = game_id ORDER BY game_date;";
 
 const getAllGames = (req, res) => {
-  pool.query("SELECT * FROM games;") 
+  pool.query("SELECT * FROM games, match_results where id = game_id ORDER BY game_date;") 
     .then(gamesResults => {
       let games = gamesResults.rows;
       res.json({ games })
