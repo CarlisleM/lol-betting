@@ -28,17 +28,17 @@ const getAllUpcomingGames = (req, res) => {
 }
 
 const getAllGames = (req, res) => {
-  const getString = "SELECT * FROM games, match_results where id = game_id ORDER BY game_date";
-  const countString = "SELECT count(*) FROM games, match_results where id = game_id ORDER BY game_date" 
-  pool.query(getString) // send query to select all rows from the 'my_activities' table 
-    .then(activityResults => {
-      let activities = activityResults.rows;
-      pool.query(countString) // send query to get total row count from the 'my_activities' table
-        .then(countResult => {
-          let count = countResult.rows[0].count;
-          console.log('Activities List:', activities);
+  const getGamesString = "SELECT * FROM games, match_results where id = game_id ORDER BY game_date;";
+  const countGamesString = "SELECT count(*) FROM games, match_results where id = game_id ORDER BY game_date;" 
+  pool.query(getGamesString) // send query to select all rows from the 'my_activities' table 
+    .then(gamesResults => {
+      let games = gamesResults.rows;
+      pool.query(countGamesString) // send query to get total row count from the 'my_activities' table
+        .then(countGamesResult => {
+          let count = countGamesResult.rows[0].count;
+          console.log('Activities List:', games);
           console.log(`Activities Count: ${count}`);
-          res.json({ activities, count})
+          res.json({ games, count})
           // res.render('index', { activities: activities, count: count }); // render index.ejs, and send activity and count results to index.ejs
           // TODO: Send info to frontend 
         })
