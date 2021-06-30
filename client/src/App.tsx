@@ -5,6 +5,7 @@ import TeamSelect from './components/TeamSelect'
 import TeamMatchData from './components/TeamMatchData'
 import StatisticalAnalysis from './components/StatisticalAnalysis'
 import { useEffect, useState } from 'react'
+// import upcomingService from '../../services/requests'
 
 const Container = styled.div`
 	display: flex;
@@ -72,17 +73,25 @@ const MatchScheduleBarContainer = styled.div`
 `
 
 function App() {
-	const [data, setData] = useState(null)
+	// const [data, setData] = useState(null)
 	const [data2, setData2] = useState(null)
 
 	useEffect(() => {
-		fetch('/api')
+		fetch('/api/upcoming')
 			.then((res) => res.json())
 			.then((data2) => setData2(data2))
-		fetch('/games')
-			.then((res) => res.json())
-			.then((data) => setData(data))
+		// fetch('/games')
+		// 	.then((res) => res.json())
+		// 	.then((data) => setData(data))
 	}, [])
+
+	// const [upcoming, setUpcoming] = useState([])
+
+	// useEffect(() => {
+	// 	upcomingService.getAllUpcomingGames().then((data: any) => {
+	// 		setUpcoming(data.upcoming)
+	// 	})
+	// }, [])
 
 	return (
 		<div className='App'>
@@ -96,9 +105,9 @@ function App() {
 					<Teams>
 						{/* Team One */}
 						<IndividualTeamContainer>
-							{console.log(data2)}
+							{/* {console.log(data2)}
 							{console.log(data)}
-							<p>{!data ? 'Loading...' : data}</p>
+							<p>{!data ? 'Loading...' : data}</p> */}
 							<TeamSelectContainer>
 								<TeamSelect></TeamSelect>
 							</TeamSelectContainer>
@@ -123,6 +132,7 @@ function App() {
 				</CenterInformationContainer>
 				{/* Right Side Bar */}
 				<MatchScheduleBarContainer>
+					{data2}
 					<MatchScheduleBar></MatchScheduleBar>
 				</MatchScheduleBarContainer>
 			</Container>
