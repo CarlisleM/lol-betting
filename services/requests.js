@@ -8,9 +8,9 @@ const pool = new Pool({ // create connection to database
   }
 });
 
-const getAllActivities = (req, res) => {
-  const getString = 'SELECT * FROM my_activities'; // select all rows from the 'my_activities' table
-  const countString = 'SELECT count(*) FROM my_activities' // get total row count from the 'my_activities' table
+const getAllUpcomingGames = (req, res) => {
+  const getString = "SELECT * FROM upcoming WHERE (game_date = DATE(NOW()) AND (TO_TIMESTAMP(match_time,'HH24:MI:SS')::TIME > timezone('PDT', NOW())::TIME(0))) OR game_date > DATE(NOW());"; // select all rows from the 'my_activities' table
+  const countString = "SELECT count(*) FROM upcoming WHERE (game_date = DATE(NOW()) AND (TO_TIMESTAMP(match_time,'HH24:MI:SS')::TIME > timezone('PDT', NOW())::TIME(0))) OR game_date > DATE(NOW());" // get total row count from the 'my_activities' table
   pool.query(getString) // send query to select all rows from the 'my_activities' table 
     .then(activityResults => {
       let activities = activityResults.rows;
@@ -51,4 +51,4 @@ const deleteAllActivites = (req, res) => {
     .catch(err => console.log(err));  
 }
 
-module.exports = { getSingleActivity, addActivityToDB, getAllActivities, deleteAllActivites }
+module.exports = { getSingleActivity, addActivityToDB, getAllUpcomingGames, deleteAllActivites }

@@ -14,9 +14,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.get('/api/activities', (req, res) => { // route root directory ('/' is this file (app.js))
+app.get('/api/upcoming', (req, res) => { // route root directory ('/' is this file (app.js))
 
-  services.getAllActivities(req, res);
+  services.getAllUpcomingGames(req, res);
 });
 
 app.post('/api/activities', (req, res) => {
