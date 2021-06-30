@@ -17,7 +17,7 @@ app.get('/api/upcoming', (req, res) => { // route root directory ('/' is this fi
   services.getAllUpcomingGames(req, res);
 });
 
-app.post('/api/games', (req, res) => {
+app.get('/api/games', (req, res) => {
   services.getAllGames(req, res);
 });
 
