@@ -27,9 +27,12 @@ const getAllUpcomingGames = (req, res) => {
     .catch(err => console.log(err));
 }
 
+// const getGamesString = "SELECT * FROM games, match_results where id = game_id ORDER BY game_date;";
+// const countGamesString = "SELECT count(*) FROM games, match_results where id = game_id ORDER BY game_date;" 
+
 const getAllGames = (req, res) => {
-  const getGamesString = "SELECT * FROM games, match_results where id = game_id ORDER BY game_date;";
-  const countGamesString = "SELECT count(*) FROM games, match_results where id = game_id ORDER BY game_date;" 
+  const getGamesString = "SELECT * FROM games;";
+  const countGamesString = "SELECT count(*) FROM games;" 
   pool.query(getGamesString) // send query to select all rows from the 'my_activities' table 
     .then(gamesResults => {
       let games = gamesResults.rows;
