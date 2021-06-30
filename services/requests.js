@@ -11,6 +11,25 @@ const pool = new Pool({ // create connection to database
 const getAllUpcomingGames = (req, res) => {
   const getString = "SELECT * FROM upcoming WHERE (game_date = DATE(NOW()) AND (TO_TIMESTAMP(match_time,'HH24:MI:SS')::TIME > timezone('PDT', NOW())::TIME(0))) OR game_date > DATE(NOW());"; // select all rows from the 'my_activities' table
   const countString = "SELECT count(*) FROM upcoming WHERE (game_date = DATE(NOW()) AND (TO_TIMESTAMP(match_time,'HH24:MI:SS')::TIME > timezone('PDT', NOW())::TIME(0))) OR game_date > DATE(NOW());" // get total row count from the 'my_activities' table
+  pool.query(getString)
+    .then(activityResults => {
+      let activities = activityResults.rows;
+      pool.query(countString)
+        .then(countResult => {
+          let count = countResult.rows[0].count;
+          console.log('Activities List:', activities);
+          console.log(`Activities Count: ${count}`);
+          res.json({ activities, count})
+          // res.render('index', { activities: activities, count: count }); // render index.ejs, and send activity and count results to index.ejs
+          // TODO: Send info to frontend 
+        })
+    })
+    .catch(err => console.log(err));
+}
+
+const getAllGames = (req, res) => {
+  const getString = "SELECT * FROM games, match_results where id = game_id ORDER BY game_date";
+  const countString = "SELECT count(*) FROM games, match_results where id = game_id ORDER BY game_date" 
   pool.query(getString) // send query to select all rows from the 'my_activities' table 
     .then(activityResults => {
       let activities = activityResults.rows;
@@ -27,28 +46,4 @@ const getAllUpcomingGames = (req, res) => {
     .catch(err => console.log(err));
 }
 
-const getSingleActivity = (req, res) => {
-  fetch('https://www.boredapi.com/api/activity') // fetch activity from bored API - https://www.boredapi.com/about
-    .then(data => data.json()) // return a promise containing the response
-    .then(json => res.json(json)) // extract the JSON body content from the response (specifically the activity value) and sends it to the client
-    .catch((err) => console.log(err)) // log errors to the console
-}
-
-const addActivityToDB = (req, res) => {
-  const activity = [ req.body.activity ]
-
-  const addString = 'INSERT INTO my_activities (activity) VALUES ($1) RETURNING *'; // insert value into my_activities' table
-
-  pool.query(addString, activity)
-    .then(result => res.json(result))
-    .catch(err => console.log(err));
-}
-
-const deleteAllActivites = (req, res) => {
-  const removeString = 'DELETE FROM my_activities'; // delete all items in the 'my_activities' table
-  pool.query(removeString) // send query delete all items in the 'my_activities' table
-    .then(res.send('All activities cleared!')) // send confirmation to the browser
-    .catch(err => console.log(err));  
-}
-
-module.exports = { getSingleActivity, addActivityToDB, getAllUpcomingGames, deleteAllActivites }
+module.exports = { getAllUpcomingGames, getAllGames }

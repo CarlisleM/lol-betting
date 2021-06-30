@@ -13,22 +13,12 @@ app.use(express.static('build')); // serve static files (css & js) from the 'pub
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 app.get('/api/upcoming', (req, res) => { // route root directory ('/' is this file (app.js))
-
   services.getAllUpcomingGames(req, res);
 });
 
-app.post('/api/activities', (req, res) => {
-  services.addActivityToDB(req, res);
-});
-
-app.get('/api/activities/new', (req, res) => {
-  services.getSingleActivity(req, res);
-});
-
-app.get('/api/activities/delete', (req, res) => {
-  services.deleteAllActivites(req, res);
+app.post('/api/games', (req, res) => {
+  services.getAllGames(req, res);
 });
 
 app.listen(PORT, () => { // start server and listen on specified port
