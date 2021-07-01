@@ -30,37 +30,34 @@ const LeagueBar = () => {
 		require('../images/leagues/cblol.png').default,
 	]
 
-	// const [upcomingGames, setUpcomingGames] = useState<any>(null)
-	// const [filteredUpcomingGames, setFilteredUpcomingGames] = useState<any>([])
+	const [upcomingGames, setUpcomingGames] = useState<any>(null)
+	const [filteredUpcomingGames, setFilteredUpcomingGames] = useState<any>([])
 
-	// useEffect(() => {
-	// 	fetch('/api/upcoming')
-	// 		.then((res) => res.json())
-	// 		.then((upcomingGamesResults) => setUpcomingGames(upcomingGamesResults))
-	// }, [])
+	useEffect(() => {
+		fetch('/api/upcoming')
+			.then((res) => res.json())
+			.then((upcomingGamesResults) => setUpcomingGames(upcomingGamesResults))
+	}, [])
 
-	// const selectedLeague = 1
-
-	// let testUpcoming = apiUpcoming.filter(
-	// 	(upcomingGame: any) => upcomingGame.league_id === selectedLeague
-	// )
-
-	// const getUpcomingGamesById = (selectedLeague: number) => {
-	// 	upcomingGames !== null &&
-	// 		setFilteredUpcomingGames(
-	// 			upcomingGames.filter(
-	// 				(upcomingGame: any) => upcomingGame.league_id === selectedLeague
-	// 			)
-	// 		)
-	// }
+	const getUpcomingGamesById = (selectedLeague: number | null) => {
+		console.log('entered: ', selectedLeague)
+		upcomingGames !== null &&
+			setFilteredUpcomingGames(
+				upcomingGames.filter(
+					(upcomingGame: any) => upcomingGame.league_id === selectedLeague
+				)
+			)
+		RootStore.updateUpcomingGames(filteredUpcomingGames)
+		console.log(RootStore.upcomingGames)
+	}
 
 	return (
 		<>
-			{console.log(sampleDataStructure)}
 			{leagues.map((league, index) => (
 				<League
 					key={index}
 					onClick={() => {
+						getUpcomingGamesById(index + 1)
 						RootStore.updateSelectedLeague(index + 1)
 					}}
 				>

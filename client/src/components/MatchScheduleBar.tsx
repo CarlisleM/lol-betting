@@ -5474,14 +5474,14 @@ const MatchScheduleBar = () => {
 		},
 	]
 
-	const [upcomingGames, setUpcomingGames] = useState<any>(null)
-	const [filteredUpcomingGames, setFilteredUpcomingGames] = useState<any>([])
+	// const [upcomingGames, setUpcomingGames] = useState<any>(null)
+	// const [filteredUpcomingGames, setFilteredUpcomingGames] = useState<any>([])
 
-	useEffect(() => {
-		fetch('/api/upcoming')
-			.then((res) => res.json())
-			.then((upcomingGamesResults) => setUpcomingGames(upcomingGamesResults))
-	}, [])
+	// useEffect(() => {
+	// 	fetch('/api/upcoming')
+	// 		.then((res) => res.json())
+	// 		.then((upcomingGamesResults) => setUpcomingGames(upcomingGamesResults))
+	// }, [])
 
 	// const selectedLeague = 1
 
@@ -5489,30 +5489,31 @@ const MatchScheduleBar = () => {
 	// 	(upcomingGame: any) => upcomingGame.league_id === selectedLeague
 	// )
 
-	const getUpcomingGamesById = (selectedLeague: number | null) => {
-		upcomingGames !== null &&
-			setFilteredUpcomingGames(
-				upcomingGames.filter(
-					(upcomingGame: any) => upcomingGame.league_id === selectedLeague
-				)
-			)
-	}
+	// const getUpcomingGamesById = (selectedLeague: number | null) => {
+	// 	upcomingGames !== null &&
+	// 		setFilteredUpcomingGames(
+	// 			upcomingGames.filter(
+	// 				(upcomingGame: any) => upcomingGame.league_id === selectedLeague
+	// 			)
+	// 		)
+	// }
 
 	const TestName = () => {
 		return (
 			<>
-				<div
+				{/* <div
 					style={{ width: '100%', height: '50px', backgroundColor: 'pink' }}
 					onClick={() => getUpcomingGamesById(RootStore.currentLeague)}
-				></div>
-				{filteredUpcomingGames.length > 0 &&
-					filteredUpcomingGames.map((match: any, matchIndex: number) => (
+				></div> */}
+				{RootStore.upcomingGames &&
+					RootStore.upcomingGames.length > 0 &&
+					RootStore.upcomingGames.map((match: any, matchIndex: number) => (
 						<>
 							{matchIndex === 0 ? (
 								<MatchWeek>Week {match.match_week}</MatchWeek>
 							) : (
-								filteredUpcomingGames[matchIndex].match_week >
-									filteredUpcomingGames[matchIndex - 1].match_week && (
+								RootStore.upcomingGames[matchIndex]!.match_week >
+									RootStore.upcomingGames[matchIndex - 1]!.match_week && (
 									<MatchWeek>Week {match.match_week}</MatchWeek>
 								)
 							)}
