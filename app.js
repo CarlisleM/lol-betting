@@ -17,8 +17,6 @@ app.get('/*', function(req,res) {
   res.sendFile(path.join(__dirname+'/build/index.html'));
 });
 
-app.get('/', (_, res) => res.send('Hello World!'))
-
 app.get('/api/upcoming', (req, res) => { 
   services.getAllUpcomingGames(req, res);
 });
