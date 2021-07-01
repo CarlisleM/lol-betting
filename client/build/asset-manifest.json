@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/static/js/main.f7c33f60.chunk.js",
+    "main.js.map": "/static/js/main.f7c33f60.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.add2ae19.js",
+    "runtime-main.js.map": "/static/js/runtime-main.add2ae19.js.map",
+    "static/js/2.1034238d.chunk.js": "/static/js/2.1034238d.chunk.js",
+    "static/js/2.1034238d.chunk.js.map": "/static/js/2.1034238d.chunk.js.map",
+    "static/js/3.8748fb20.chunk.js": "/static/js/3.8748fb20.chunk.js",
+    "static/js/3.8748fb20.chunk.js.map": "/static/js/3.8748fb20.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.1034238d.chunk.js.LICENSE.txt": "/static/js/2.1034238d.chunk.js.LICENSE.txt",
+    "static/media/cblol.png": "/static/media/cblol.1cbb7f8f.png",
+    "static/media/lck.png": "/static/media/lck.48d65f5d.png",
+    "static/media/lcs.png": "/static/media/lcs.7d64d128.png",
+    "static/media/lec.png": "/static/media/lec.753c08c0.png",
+    "static/media/lfl.png": "/static/media/lfl.10128592.png",
+    "static/media/ljl.png": "/static/media/ljl.c09b02dd.png",
+    "static/media/lla.png": "/static/media/lla.b049951a.png",
+    "static/media/na_academy.png": "/static/media/na_academy.0e900e35.png",
+    "static/media/opl.png": "/static/media/opl.46cb5a82.png",
+    "static/media/pcs.png": "/static/media/pcs.181b048a.png",
+    "static/media/superliga.png": "/static/media/superliga.00230cdc.png",
+    "static/media/tcl.png": "/static/media/tcl.03bdd08b.png",
+    "static/media/ultraliga.png": "/static/media/ultraliga.16642750.png",
+    "static/media/vcs.png": "/static/media/vcs.f4e7d409.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.add2ae19.js",
+    "static/js/2.1034238d.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.f7c33f60.chunk.js"
+  ]
+}
