@@ -7,9 +7,12 @@
     "node": "14.15.3"
   },
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:ui": "rm -rf build && cd ./client && npm run build --prod && cp -r build ../"
+    "build-ts": "tsc",
+    "postinstall": "npm run build-ts",
+    "start": "npm run serve",
+    "serve": "node app.js",
+    "watch-node": "nodemon app.js",
+    "watch-ts": "tsc -w"
   },
   "author": "",
   "license": "ISC",

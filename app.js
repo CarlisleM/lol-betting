@@ -13,9 +13,11 @@ app.use(express.static('build'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/*', function(req,res) {
-  res.sendFile(path.join(__dirname+'/client/src/App.tsx'));
-});
+// app.get('/*', function(req,res) {
+//   res.sendFile(path.join(__dirname+'/client/src/App.tsx'));
+// });
+
+app.get('/', (_, res) => res.send('Hello World!'))
 
 app.get('/api/upcoming', (req, res) => { 
   services.getAllUpcomingGames(req, res);
