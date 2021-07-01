@@ -13,16 +13,17 @@ app.use(express.static('build'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', function(req,res) {
-  res.sendFile(path.join(__dirname+'/build/index.html'));
-});
-
 app.get('/api/upcoming', (req, res) => { 
   services.getAllUpcomingGames(req, res);
 });
 
 app.get('/api/games', (req, res) => {
   services.getAllGames(req, res);
+});
+
+// Must go last
+app.get('/*', function(req,res) {
+  res.sendFile(path.join(__dirname+'/build/index.html'));
 });
 
 app.listen(PORT, () => { 
