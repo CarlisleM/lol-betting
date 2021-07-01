@@ -74,16 +74,16 @@ const MatchScheduleBarContainer = styled.div`
 
 function App() {
 	// const [data, setData] = useState(null)
-	const [data2, setData2] = useState(null)
+	// const [data2, setData2] = useState(null)
 
-	useEffect(() => {
-		fetch('/api/upcoming')
-			.then((res) => res.json())
-			.then((data2) => setData2(data2))
-		// fetch('/games')
-		// 	.then((res) => res.json())
-		// 	.then((data) => setData(data))
-	}, [])
+	// useEffect(() => {
+	// 	fetch('/api/upcoming')
+	// 		.then((res) => res.json())
+	// 		.then((data2) => setData2(data2))
+	// 	// fetch('/games')
+	// 	// 	.then((res) => res.json())
+	// 	// 	.then((data) => setData(data))
+	// }, [])
 
 	// const [upcoming, setUpcoming] = useState([])
 
@@ -132,7 +132,7 @@ function App() {
 				</CenterInformationContainer>
 				{/* Right Side Bar */}
 				<MatchScheduleBarContainer>
-					{data2}
+					{/* {data2} */}
 					<MatchScheduleBar></MatchScheduleBar>
 				</MatchScheduleBarContainer>
 			</Container>
