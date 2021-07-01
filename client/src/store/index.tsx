@@ -4,19 +4,17 @@ import League from './models/league'
 const Store = types
 	.model({
 		leagues: types.array(League),
-		currentLeague: types.maybeNull(types.reference(League)),
+		currentLeague: types.maybeNull(types.number),
 	})
 
 	.actions((self) => ({
 		updateSelectedLeague: (leagueId: number) => {
-			console.log(self.leagues)
-			self.currentLeague =
-				self.leagues.find((league) => league.id === leagueId) || null
+			self.currentLeague = leagueId
 		},
 	}))
 	.actions((self) => ({}))
 
-const RootStore = Store.create({})
+const RootStore = Store.create()
 
 export default RootStore
 

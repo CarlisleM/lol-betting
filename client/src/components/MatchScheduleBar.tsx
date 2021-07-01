@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import RootStore from '../store'
 
 const MatchWeek = styled.div`
 	display: flex;
@@ -5488,7 +5489,7 @@ const MatchScheduleBar = () => {
 	// 	(upcomingGame: any) => upcomingGame.league_id === selectedLeague
 	// )
 
-	const getUpcomingGamesById = (selectedLeague: number) => {
+	const getUpcomingGamesById = (selectedLeague: number | null) => {
 		upcomingGames !== null &&
 			setFilteredUpcomingGames(
 				upcomingGames.filter(
@@ -5502,7 +5503,7 @@ const MatchScheduleBar = () => {
 			<>
 				<div
 					style={{ width: '100%', height: '50px', backgroundColor: 'pink' }}
-					onClick={() => getUpcomingGamesById(1)}
+					onClick={() => getUpcomingGamesById(RootStore.currentLeague)}
 				></div>
 				{filteredUpcomingGames.length > 0 &&
 					filteredUpcomingGames.map((match: any, matchIndex: number) => (
@@ -5524,13 +5525,19 @@ const MatchScheduleBar = () => {
 											: 'none',
 								}}
 							>
-								<MatchScheduleTeamLogo>{testLogoImage}</MatchScheduleTeamLogo>
+								<MatchScheduleTeamLogo>
+									{testLogoImage}
+									{match.blue_team}
+								</MatchScheduleTeamLogo>
 								<MatchScheduleTime>
 									<span>{match.match_day}</span>
 									<span>{match.match_time}</span>
 									<span>{match.game_date.split('T')[0]}</span>
 								</MatchScheduleTime>
-								<MatchScheduleTeamLogo>{testLogoImage}</MatchScheduleTeamLogo>
+								<MatchScheduleTeamLogo>
+									{testLogoImage}
+									{match.red_team}
+								</MatchScheduleTeamLogo>
 							</MatchSchedule>
 						</>
 					))}
