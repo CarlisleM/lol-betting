@@ -11,8 +11,8 @@ const pool = new Pool({ // create connection to database
 const getAllUpcomingGames = (req, res) => {
   pool.query("SELECT * FROM upcoming WHERE (game_date = DATE(NOW()) AND (TO_TIMESTAMP(match_time,'HH24:MI:SS')::TIME > timezone('PDT', NOW())::TIME(0))) OR game_date > DATE(NOW());")
     .then(upcomingGamesResults => {
-      let upcomingGames = upcomingGamesResults.rows;
-      res.json({ upcomingGames })
+      // let upcomingGames = upcomingGamesResults.rows;
+      res.json(upcomingGamesResults.rows)
     })
     .catch(err => console.log(err));
 }
