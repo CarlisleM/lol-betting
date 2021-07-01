@@ -4,7 +4,7 @@ import LeagueBar from './components/LeagueBar'
 import TeamSelect from './components/TeamSelect'
 import TeamMatchData from './components/TeamMatchData'
 import StatisticalAnalysis from './components/StatisticalAnalysis'
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 // import upcomingService from '../../services/requests'
 
 const Container = styled.div`
