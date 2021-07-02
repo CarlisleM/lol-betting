@@ -5,6 +5,7 @@ import TeamSelect from './components/TeamSelect'
 import TeamMatchData from './components/TeamMatchData'
 import StatisticalAnalysis from './components/StatisticalAnalysis'
 import { useEffect, useState } from 'react'
+import RootStore from './store'
 // import { useEffect, useState } from 'react'
 // import upcomingService from '../../services/requests'
 
@@ -128,14 +129,14 @@ function App() {
 					<Teams>
 						{/* Team One */}
 						<IndividualTeamContainer>
-							{/* {console.log(data2)}
-							{console.log(data)}
-							<p>{!data ? 'Loading...' : data}</p> */}
 							<TeamSelectContainer>
 								<TeamSelect></TeamSelect>
 							</TeamSelectContainer>
 							<TeamDataContainer>
-								<TeamMatchData></TeamMatchData>
+								<TeamMatchData
+									team={RootStore.selectedTeamOne}
+									games={games}
+								></TeamMatchData>
 							</TeamDataContainer>
 						</IndividualTeamContainer>
 						{/* Team Two */}
@@ -144,7 +145,10 @@ function App() {
 								<TeamSelect></TeamSelect>
 							</TeamSelectContainer>
 							<TeamDataContainer>
-								<TeamMatchData></TeamMatchData>
+								<TeamMatchData
+									team={RootStore.selectedTeamTwo}
+									games={games}
+								></TeamMatchData>
 							</TeamDataContainer>
 						</IndividualTeamContainer>
 					</Teams>

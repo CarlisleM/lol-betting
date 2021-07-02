@@ -22,11 +22,15 @@ interface Props {
 
 const LeagueBar = (props: Props) => {
 	const leagueLogo = (leagueName: any) => (
-		<img
-			style={{ objectFit: 'contain', width: '90%', height: '90%' }}
-			src={require(`../images/leagues/${leagueName.toLowerCase()}.png`).default}
-			alt={`${leagueName}`}
-		/>
+		<Logo>
+			<img
+				style={{ objectFit: 'contain', width: '90%', height: '90%' }}
+				src={
+					require(`../images/leagues/${leagueName.toLowerCase()}.png`).default
+				}
+				alt={`${leagueName}`}
+			/>
+		</Logo>
 	)
 
 	return (
@@ -39,7 +43,7 @@ const LeagueBar = (props: Props) => {
 							RootStore.updateSelectedLeague(league.id)
 						}}
 					>
-						<Logo>{leagueLogo(league.name)}</Logo>
+						{leagueLogo(league.name)}
 					</League>
 				))}
 		</>

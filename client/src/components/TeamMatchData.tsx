@@ -1,4 +1,6 @@
+import { Observer } from 'mobx-react'
 import styled from 'styled-components'
+import RootStore from '../store'
 
 const TableContainer = styled.div`
 	display: flex;
@@ -62,7 +64,12 @@ const TableFooterContainer = styled.div`
 	display: flex;
 `
 
-const TeamMatchData = () => {
+interface Props {
+	team: any
+	games: any
+}
+
+const TeamMatchData = (props: Props) => {
 	const results = [
 		'1',
 		'1',
@@ -101,85 +108,124 @@ const TeamMatchData = () => {
 				<TableHeader>W/L</TableHeader>
 			</TableHeaderContainer>
 
+			{RootStore.selectedTeamOne}
+
 			<TableBodyContainer>
-				{results.map((result, index) => (
-					<TableBodyRow>
-						<TableBody
-							style={{
-								width: 100,
-								borderLeft: '1px solid black',
-								borderBottom:
-									index < results.length - 1 ? '1px solid black' : 'none',
-							}}
-						>
-							2021-06-04
-						</TableBody>
-						<TableBody
-							style={{
-								backgroundColor: 'salmon',
-								borderBottom:
-									index < results.length - 1 ? '1px solid black' : 'none',
-							}}
-						>
-							tsm
-						</TableBody>
-						<TableBody
-							style={{
-								backgroundColor: 'salmon',
-								borderBottom:
-									index < results.length - 1 ? '1px solid black' : 'none',
-							}}
-						>
-							X
-						</TableBody>
-						<TableBody
-							style={{
-								backgroundColor: 'lightgreen',
-								borderBottom:
-									index < results.length - 1 ? '1px solid black' : 'none',
-							}}
-						>
-							X
-						</TableBody>
-						<TableBody
-							style={{
-								backgroundColor: 'lightgreen',
-								borderBottom:
-									index < results.length - 1 ? '1px solid black' : 'none',
-							}}
-						>
-							/
-						</TableBody>
-						<TableBody
-							style={{
-								backgroundColor: 'salmon',
-								borderBottom:
-									index < results.length - 1 ? '1px solid black' : 'none',
-							}}
-						>
-							X
-						</TableBody>
-						<TableBody
-							style={{
-								width: 60,
-								backgroundColor: 'lightgreen',
-								borderBottom:
-									index < results.length - 1 ? '1px solid black' : 'none',
-							}}
-						>
-							/
-						</TableBody>
-						<TableBody
-							style={{
-								backgroundColor: 'salmon',
-								borderBottom:
-									index < results.length - 1 ? '1px solid black' : 'none',
-							}}
-						>
-							/
-						</TableBody>
-					</TableBodyRow>
-				))}
+				<Observer>
+					{() => (
+						<>
+							{props.games !== null &&
+								props.team !== null &&
+								props.games.filter(
+									(game: any) =>
+										game.blue_team === props.team ||
+										game.red_team === props.team
+								).length > 0 &&
+								props.games
+									.filter(
+										(game: any) =>
+											game.blue_team === props.team ||
+											game.red_team === props.team
+									)
+									.map((match: any, index: number) => (
+										<TableBodyRow>
+											<TableBody
+												style={{
+													width: 100,
+													borderLeft: '1px solid black',
+													borderBottom:
+														index < props.games.length - 1
+															? '1px solid black'
+															: 'none',
+												}}
+											>
+												{match.game_date.split('T')[0]}
+											</TableBody>
+											<TableBody
+												style={{
+													backgroundColor: 'salmon',
+													borderBottom:
+														index < props.games.length - 1
+															? '1px solid black'
+															: 'none',
+												}}
+											>
+												{props.team === match.blue_team
+													? match.red_team
+													: match.blue_team}
+											</TableBody>
+											<TableBody
+												style={{
+													backgroundColor: 'salmon',
+													borderBottom:
+														index < props.games.length - 1
+															? '1px solid black'
+															: 'none',
+												}}
+											>
+												{match.first_blood}
+											</TableBody>
+											<TableBody
+												style={{
+													backgroundColor: 'lightgreen',
+													borderBottom:
+														index < props.games.length - 1
+															? '1px solid black'
+															: 'none',
+												}}
+											>
+												{match.first_tower}
+											</TableBody>
+											<TableBody
+												style={{
+													backgroundColor: 'lightgreen',
+													borderBottom:
+														index < props.games.length - 1
+															? '1px solid black'
+															: 'none',
+												}}
+											>
+												{match.first_dragon}
+											</TableBody>
+											<TableBody
+												style={{
+													backgroundColor: 'salmon',
+													borderBottom:
+														index < props.games.length - 1
+															? '1px solid black'
+															: 'none',
+												}}
+											>
+												{match.first_inhibitor}
+											</TableBody>
+											<TableBody
+												style={{
+													width: 60,
+													backgroundColor: 'lightgreen',
+													borderBottom:
+														index < props.games.length - 1
+															? '1px solid black'
+															: 'none',
+												}}
+											>
+												{match.first_baron}
+											</TableBody>
+											<TableBody
+												style={{
+													backgroundColor: 'salmon',
+													borderBottom:
+														index < props.games.length - 1
+															? '1px solid black'
+															: 'none',
+												}}
+											>
+												{match.winner}
+											</TableBody>
+										</TableBodyRow>
+									))}
+						</>
+					)}
+				</Observer>
 			</TableBodyContainer>
 
 			<TableFooterContainer>

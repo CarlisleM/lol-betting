@@ -1,20 +1,21 @@
-import { cast, Instance, types } from 'mobx-state-tree'
-import League from './models/league'
-import Upcoming, { IUpcoming } from './models/upcoming'
+import { Instance, types } from 'mobx-state-tree'
 
 const Store = types
 	.model({
-		leagues: types.array(League),
 		currentLeague: types.maybeNull(types.number),
-		upcomingGames: types.array(types.maybeNull(Upcoming)),
+		selectedTeamOne: types.maybeNull(types.string),
+		selectedTeamTwo: types.maybeNull(types.string),
 	})
 
 	.actions((self) => ({
 		updateSelectedLeague: (leagueId: number) => {
 			self.currentLeague = leagueId
 		},
-		updateUpcomingGames: (upcomingGamesResult: IUpcoming[]) => {
-			self.upcomingGames = cast(upcomingGamesResult)
+		updateSelectedTeamOne: (team: string) => {
+			self.selectedTeamOne = team
+		},
+		updateSelectedTeamTwo: (team: string) => {
+			self.selectedTeamTwo = team
 		},
 	}))
 

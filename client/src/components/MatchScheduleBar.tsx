@@ -18,6 +18,11 @@ const MatchSchedule = styled.div`
 	width: 100%;
 	height: 80px;
 	border-bottom: 1px solid black;
+	cursor: pointer;
+
+	&:hover {
+		background-color: #f8f8f8;
+	}
 `
 
 const MatchScheduleTeamLogo = styled.div`
@@ -103,14 +108,16 @@ const MatchScheduleBar = (props: Props) => {
 															? '1px solid black'
 															: 'none',
 												}}
-												onClick={() =>
+												onClick={() => {
 													console.log(
 														'Selected ' +
 															match.blue_team +
 															' vs ' +
 															match.red_team
 													)
-												}
+													RootStore.updateSelectedTeamOne(match.blue_team)
+													RootStore.updateSelectedTeamTwo(match.red_team)
+												}}
 											>
 												<MatchScheduleTeamLogo>
 													{teamLogo(match.blue_team)}
