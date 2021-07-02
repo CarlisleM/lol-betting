@@ -21,7 +21,7 @@ const MatchSchedule = styled.div`
 	cursor: pointer;
 
 	&:hover {
-		background-color: #f8f8f8;
+		background-color: #f5f5f5;
 	}
 `
 

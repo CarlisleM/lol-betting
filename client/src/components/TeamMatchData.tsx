@@ -1,6 +1,6 @@
-import { Observer } from 'mobx-react'
 import styled from 'styled-components'
 import RootStore from '../store'
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons-svg'
 
 const TableContainer = styled.div`
 	display: flex;
@@ -70,28 +70,17 @@ interface Props {
 }
 
 const TeamMatchData = (props: Props) => {
-	const results = [
-		'1',
-		'1',
-		'1',
-		'1',
-		'1',
-		'1',
-		'1',
-		'1',
-		'1',
-		'1',
-		'1',
-		'1',
-		'1',
-		'1',
-		'1',
-		'1',
-		'1',
-		'1',
-		'1',
-		'1',
-	]
+	const countOccurrences = (arr: any, team: any, key: string) => {
+		let count = 0
+
+		arr.forEach((element: any) => {
+			if (element[key] === team) {
+				count += 1
+			}
+		})
+
+		return count
+	}
 
 	return (
 		<TableContainer>
@@ -107,9 +96,6 @@ const TeamMatchData = (props: Props) => {
 				<TableHeader style={{ width: 60 }}>FBaron</TableHeader>
 				<TableHeader>W/L</TableHeader>
 			</TableHeaderContainer>
-
-			{RootStore.selectedTeamOne}
-
 			<TableBodyContainer>
 				{props.games !== null &&
 					props.team !== null &&
@@ -158,7 +144,9 @@ const TeamMatchData = (props: Props) => {
 												: 'none',
 									}}
 								>
-									{match.first_blood}
+									{props.team === match.first_blood
+										? CheckOutlined
+										: CloseOutlined}
 								</TableBody>
 								<TableBody
 									style={{
@@ -169,7 +157,9 @@ const TeamMatchData = (props: Props) => {
 												: 'none',
 									}}
 								>
-									{match.first_tower}
+									{props.team === match.first_tower
+										? CheckOutlined
+										: CloseOutlined}
 								</TableBody>
 								<TableBody
 									style={{
@@ -180,7 +170,9 @@ const TeamMatchData = (props: Props) => {
 												: 'none',
 									}}
 								>
-									{match.first_dragon}
+									{props.team === match.first_dragon
+										? CheckOutlined
+										: CloseOutlined}
 								</TableBody>
 								<TableBody
 									style={{
@@ -191,7 +183,9 @@ const TeamMatchData = (props: Props) => {
 												: 'none',
 									}}
 								>
-									{match.first_inhibitor}
+									{props.team === match.first_inhibitor
+										? CheckOutlined
+										: CloseOutlined}
 								</TableBody>
 								<TableBody
 									style={{
@@ -203,7 +197,9 @@ const TeamMatchData = (props: Props) => {
 												: 'none',
 									}}
 								>
-									{match.first_baron}
+									{props.team === match.first_baron
+										? CheckOutlined
+										: CloseOutlined}
 								</TableBody>
 								<TableBody
 									style={{
@@ -214,22 +210,87 @@ const TeamMatchData = (props: Props) => {
 												: 'none',
 									}}
 								>
-									{match.winner}
+									{props.team === match.winner ? CheckOutlined : CloseOutlined}
 								</TableBody>
 							</TableBodyRow>
 						))}
 			</TableBodyContainer>
 
 			<TableFooterContainer>
-				<TableFooter style={{ width: 151, borderLeft: '1px solid black' }}>
-					0%
+				<TableFooter style={{ width: 151, borderLeft: '1px solid black' }} />
+				<TableFooter>
+					{/* Account for 0% as it will show 00%, also account for if there are less than 10 games */}
+					{`${countOccurrences(
+						props.games
+							.filter(
+								(game: any) =>
+									game.blue_team === props.team || game.red_team === props.team
+							)
+							.slice(-10),
+						props.team,
+						'first_blood'
+					)}0%`}
 				</TableFooter>
-				<TableFooter>0%</TableFooter>
-				<TableFooter>0%</TableFooter>
-				<TableFooter>0%</TableFooter>
-				<TableFooter>0%</TableFooter>
-				<TableFooter style={{ width: 60 }}>0%</TableFooter>
-				<TableFooter>0%</TableFooter>
+				<TableFooter>
+					{`${countOccurrences(
+						props.games
+							.filter(
+								(game: any) =>
+									game.blue_team === props.team || game.red_team === props.team
+							)
+							.slice(-10),
+						props.team,
+						'first_tower'
+					)}0%`}
+				</TableFooter>
+				<TableFooter>
+					{`${countOccurrences(
+						props.games
+							.filter(
+								(game: any) =>
+									game.blue_team === props.team || game.red_team === props.team
+							)
+							.slice(-10),
+						props.team,
+						'first_dragon'
+					)}0%`}
+				</TableFooter>
+				<TableFooter>
+					{`${countOccurrences(
+						props.games
+							.filter(
+								(game: any) =>
+									game.blue_team === props.team || game.red_team === props.team
+							)
+							.slice(-10),
+						props.team,
+						'first_inhibitor'
+					)}0%`}
+				</TableFooter>
+				<TableFooter style={{ width: 60 }}>
+					{`${countOccurrences(
+						props.games
+							.filter(
+								(game: any) =>
+									game.blue_team === props.team || game.red_team === props.team
+							)
+							.slice(-10),
+						props.team,
+						'first_baron'
+					)}0%`}
+				</TableFooter>
+				<TableFooter>
+					{`${countOccurrences(
+						props.games
+							.filter(
+								(game: any) =>
+									game.blue_team === props.team || game.red_team === props.team
+							)
+							.slice(-10),
+						props.team,
+						'winner'
+					)}0%`}
+				</TableFooter>
 			</TableFooterContainer>
 		</TableContainer>
 	)
