@@ -166,9 +166,7 @@ const TeamMatchData = (props: Props) => {
 														: 'none',
 											}}
 										>
-											{props.team === match.first_blood
-												? CheckOutlined
-												: CloseOutlined}
+											{props.team === match.first_blood ? '✓' : '✘'}
 										</TableBody>
 										<TableBody
 											style={{
@@ -179,9 +177,7 @@ const TeamMatchData = (props: Props) => {
 														: 'none',
 											}}
 										>
-											{props.team === match.first_tower
-												? CheckOutlined
-												: CloseOutlined}
+											{props.team === match.first_tower ? '✓' : '✘'}
 										</TableBody>
 										<TableBody
 											style={{
@@ -192,9 +188,7 @@ const TeamMatchData = (props: Props) => {
 														: 'none',
 											}}
 										>
-											{props.team === match.first_dragon
-												? CheckOutlined
-												: CloseOutlined}
+											{props.team === match.first_dragon ? '✓' : '✘'}
 										</TableBody>
 										<TableBody
 											style={{
@@ -205,9 +199,7 @@ const TeamMatchData = (props: Props) => {
 														: 'none',
 											}}
 										>
-											{props.team === match.first_inhibitor
-												? CheckOutlined
-												: CloseOutlined}
+											{props.team === match.first_inhibitor ? '✓' : '✘'}
 										</TableBody>
 										<TableBody
 											style={{
@@ -219,9 +211,7 @@ const TeamMatchData = (props: Props) => {
 														: 'none',
 											}}
 										>
-											{props.team === match.first_baron
-												? CheckOutlined
-												: CloseOutlined}
+											{props.team === match.first_baron ? '✓' : '✘'}
 										</TableBody>
 										<TableBody
 											style={{
@@ -232,16 +222,14 @@ const TeamMatchData = (props: Props) => {
 														: 'none',
 											}}
 										>
-											{props.team === match.winner
-												? CheckOutlined
-												: CloseOutlined}
+											{props.team === match.winner ? '✓' : '✘'}
 										</TableBody>
 									</TableBodyRow>
 								))}
 					</TableBodyContainer>
 
 					<TableFooterContainer>
-						{/* <TableFooter
+						<TableFooter
 							style={{ width: 151, borderLeft: '1px solid black' }}
 						/>
 						<TableFooter>
@@ -254,7 +242,7 @@ const TeamMatchData = (props: Props) => {
 						<TableFooter style={{ width: 60 }}>
 							{countOccurrences('first_baron')}
 						</TableFooter>
-						<TableFooter>{countOccurrences('winner')}</TableFooter> */}
+						<TableFooter>{countOccurrences('winner')}</TableFooter>
 					</TableFooterContainer>
 				</>
 			)}
