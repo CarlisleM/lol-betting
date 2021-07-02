@@ -111,121 +111,113 @@ const TeamMatchData = (props: Props) => {
 			{RootStore.selectedTeamOne}
 
 			<TableBodyContainer>
-				<Observer>
-					{() => (
-						<>
-							{props.games !== null &&
-								props.team !== null &&
-								props.games.filter(
-									(game: any) =>
-										game.blue_team === props.team ||
-										game.red_team === props.team
-								).length > 0 &&
-								props.games
-									.filter(
-										(game: any) =>
-											game.blue_team === props.team ||
-											game.red_team === props.team
-									)
-									.map((match: any, index: number) => (
-										<TableBodyRow>
-											<TableBody
-												style={{
-													width: 100,
-													borderLeft: '1px solid black',
-													borderBottom:
-														index < props.games.length - 1
-															? '1px solid black'
-															: 'none',
-												}}
-											>
-												{match.game_date.split('T')[0]}
-											</TableBody>
-											<TableBody
-												style={{
-													backgroundColor: 'salmon',
-													borderBottom:
-														index < props.games.length - 1
-															? '1px solid black'
-															: 'none',
-												}}
-											>
-												{props.team === match.blue_team
-													? match.red_team
-													: match.blue_team}
-											</TableBody>
-											<TableBody
-												style={{
-													backgroundColor: 'salmon',
-													borderBottom:
-														index < props.games.length - 1
-															? '1px solid black'
-															: 'none',
-												}}
-											>
-												{match.first_blood}
-											</TableBody>
-											<TableBody
-												style={{
-													backgroundColor: 'lightgreen',
-													borderBottom:
-														index < props.games.length - 1
-															? '1px solid black'
-															: 'none',
-												}}
-											>
-												{match.first_tower}
-											</TableBody>
-											<TableBody
-												style={{
-													backgroundColor: 'lightgreen',
-													borderBottom:
-														index < props.games.length - 1
-															? '1px solid black'
-															: 'none',
-												}}
-											>
-												{match.first_dragon}
-											</TableBody>
-											<TableBody
-												style={{
-													backgroundColor: 'salmon',
-													borderBottom:
-														index < props.games.length - 1
-															? '1px solid black'
-															: 'none',
-												}}
-											>
-												{match.first_inhibitor}
-											</TableBody>
-											<TableBody
-												style={{
-													width: 60,
-													backgroundColor: 'lightgreen',
-													borderBottom:
-														index < props.games.length - 1
-															? '1px solid black'
-															: 'none',
-												}}
-											>
-												{match.first_baron}
-											</TableBody>
-											<TableBody
-												style={{
-													backgroundColor: 'salmon',
-													borderBottom:
-														index < props.games.length - 1
-															? '1px solid black'
-															: 'none',
-												}}
-											>
-												{match.winner}
-											</TableBody>
-										</TableBodyRow>
-									))}
-						</>
-					)}
-				</Observer>
+				{props.games !== null &&
+					props.team !== null &&
+					props.games.filter(
+						(game: any) =>
+							game.blue_team === props.team || game.red_team === props.team
+					).length > 0 &&
+					props.games
+						.filter(
+							(game: any) =>
+								game.blue_team === props.team || game.red_team === props.team
+						)
+						.map((match: any, index: number) => (
+							<TableBodyRow>
+								<TableBody
+									style={{
+										width: 100,
+										borderLeft: '1px solid black',
+										borderBottom:
+											index < props.games.length - 1
+												? '1px solid black'
+												: 'none',
+									}}
+								>
+									{match.game_date.split('T')[0]}
+								</TableBody>
+								<TableBody
+									style={{
+										backgroundColor: 'salmon',
+										borderBottom:
+											index < props.games.length - 1
+												? '1px solid black'
+												: 'none',
+									}}
+								>
+									{props.team === match.blue_team
+										? match.red_team
+										: match.blue_team}
+								</TableBody>
+								<TableBody
+									style={{
+										backgroundColor: 'salmon',
+										borderBottom:
+											index < props.games.length - 1
+												? '1px solid black'
+												: 'none',
+									}}
+								>
+									{match.first_blood}
+								</TableBody>
+								<TableBody
+									style={{
+										backgroundColor: 'lightgreen',
+										borderBottom:
+											index < props.games.length - 1
+												? '1px solid black'
+												: 'none',
+									}}
+								>
+									{match.first_tower}
+								</TableBody>
+								<TableBody
+									style={{
+										backgroundColor: 'lightgreen',
+										borderBottom:
+											index < props.games.length - 1
+												? '1px solid black'
+												: 'none',
+									}}
+								>
+									{match.first_dragon}
+								</TableBody>
+								<TableBody
+									style={{
+										backgroundColor: 'salmon',
+										borderBottom:
+											index < props.games.length - 1
+												? '1px solid black'
+												: 'none',
+									}}
+								>
+									{match.first_inhibitor}
+								</TableBody>
+								<TableBody
+									style={{
+										width: 60,
+										backgroundColor: 'lightgreen',
+										borderBottom:
+											index < props.games.length - 1
+												? '1px solid black'
+												: 'none',
+									}}
+								>
+									{match.first_baron}
+								</TableBody>
+								<TableBody
+									style={{
+										backgroundColor: 'salmon',
+										borderBottom:
+											index < props.games.length - 1
+												? '1px solid black'
+												: 'none',
+									}}
+								>
+									{match.winner}
+								</TableBody>
+							</TableBodyRow>
+						))}
 			</TableBodyContainer>
 
 			<TableFooterContainer>

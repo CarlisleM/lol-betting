@@ -6,6 +6,7 @@ import TeamMatchData from './components/TeamMatchData'
 import StatisticalAnalysis from './components/StatisticalAnalysis'
 import { useEffect, useState } from 'react'
 import RootStore from './store'
+import { Observer } from 'mobx-react'
 // import { useEffect, useState } from 'react'
 // import upcomingService from '../../services/requests'
 
@@ -133,10 +134,14 @@ function App() {
 								<TeamSelect></TeamSelect>
 							</TeamSelectContainer>
 							<TeamDataContainer>
-								<TeamMatchData
-									team={RootStore.selectedTeamOne}
-									games={games}
-								></TeamMatchData>
+								<Observer>
+									{() => (
+										<TeamMatchData
+											team={RootStore.selectedTeamOne}
+											games={games}
+										/>
+									)}
+								</Observer>
 							</TeamDataContainer>
 						</IndividualTeamContainer>
 						{/* Team Two */}
@@ -145,10 +150,14 @@ function App() {
 								<TeamSelect></TeamSelect>
 							</TeamSelectContainer>
 							<TeamDataContainer>
-								<TeamMatchData
-									team={RootStore.selectedTeamTwo}
-									games={games}
-								></TeamMatchData>
+								<Observer>
+									{() => (
+										<TeamMatchData
+											team={RootStore.selectedTeamTwo}
+											games={games}
+										/>
+									)}
+								</Observer>
 							</TeamDataContainer>
 						</IndividualTeamContainer>
 					</Teams>
