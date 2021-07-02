@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { CheckOutlined, CloseOutlined } from '@ant-design/icons-svg'
 
 const TableContainer = styled.div`
 	display: flex;
@@ -64,7 +63,7 @@ const TableFooterContainer = styled.div`
 `
 
 interface Props {
-	team: any
+	selectedTeam: any
 	games: any
 }
 
@@ -73,7 +72,8 @@ const TeamMatchData = (props: Props) => {
 		let count = 0
 		let games = props.games.filter(
 			(game: any) =>
-				game.blue_team === props.team || game.red_team === props.team
+				game.blue_team === props.selectedTeam ||
+				game.red_team === props.selectedTeam
 		)
 
 		if (games.length > 10) {
@@ -81,14 +81,12 @@ const TeamMatchData = (props: Props) => {
 		}
 
 		games.forEach((element: any) => {
-			if (element[key] === props.team) {
+			if (element[key] === props.selectedTeam) {
 				count += 1
 			}
 		})
 
-		console.log(`count of ${key}`, count)
-
-		if (games.length > 10) {
+		if (games.length === 10) {
 			if (count === 0) {
 				return '0%'
 			} else {
@@ -105,7 +103,7 @@ const TeamMatchData = (props: Props) => {
 
 	return (
 		<TableContainer>
-			{props.games !== null && props.team !== null && (
+			{props.games !== null && props.selectedTeam !== null && (
 				<>
 					<TableHeaderContainer>
 						<TableHeader style={{ width: 100, borderLeft: '1px solid black' }}>
@@ -122,13 +120,14 @@ const TeamMatchData = (props: Props) => {
 					<TableBodyContainer>
 						{props.games.filter(
 							(game: any) =>
-								game.blue_team === props.team || game.red_team === props.team
+								game.blue_team === props.selectedTeam ||
+								game.red_team === props.selectedTeam
 						).length > 0 &&
 							props.games
 								.filter(
 									(game: any) =>
-										game.blue_team === props.team ||
-										game.red_team === props.team
+										game.blue_team === props.selectedTeam ||
+										game.red_team === props.selectedTeam
 								)
 								.map((match: any, index: number) => (
 									<TableBodyRow>
@@ -152,14 +151,14 @@ const TeamMatchData = (props: Props) => {
 														: 'none',
 											}}
 										>
-											{props.team === match.blue_team
+											{props.selectedTeam === match.blue_team
 												? match.red_team
 												: match.blue_team}
 										</TableBody>
 										<TableBody
 											style={{
 												backgroundColor:
-													props.team === match.first_blood
+													props.selectedTeam === match.first_blood
 														? 'lightgreen'
 														: 'salmon',
 												borderBottom:
@@ -168,12 +167,12 @@ const TeamMatchData = (props: Props) => {
 														: 'none',
 											}}
 										>
-											{props.team === match.first_blood ? '✓' : '✘'}
+											{props.selectedTeam === match.first_blood ? '✓' : '✘'}
 										</TableBody>
 										<TableBody
 											style={{
 												backgroundColor:
-													props.team === match.first_tower
+													props.selectedTeam === match.first_tower
 														? 'lightgreen'
 														: 'salmon',
 												borderBottom:
@@ -182,12 +181,12 @@ const TeamMatchData = (props: Props) => {
 														: 'none',
 											}}
 										>
-											{props.team === match.first_tower ? '✓' : '✘'}
+											{props.selectedTeam === match.first_tower ? '✓' : '✘'}
 										</TableBody>
 										<TableBody
 											style={{
 												backgroundColor:
-													props.team === match.first_dragon
+													props.selectedTeam === match.first_dragon
 														? 'lightgreen'
 														: 'salmon',
 												borderBottom:
@@ -196,12 +195,12 @@ const TeamMatchData = (props: Props) => {
 														: 'none',
 											}}
 										>
-											{props.team === match.first_dragon ? '✓' : '✘'}
+											{props.selectedTeam === match.first_dragon ? '✓' : '✘'}
 										</TableBody>
 										<TableBody
 											style={{
 												backgroundColor:
-													props.team === match.first_inhibitor
+													props.selectedTeam === match.first_inhibitor
 														? 'lightgreen'
 														: 'salmon',
 												borderBottom:
@@ -210,13 +209,13 @@ const TeamMatchData = (props: Props) => {
 														: 'none',
 											}}
 										>
-											{props.team === match.first_inhibitor ? '✓' : '✘'}
+											{props.selectedTeam === match.first_inhibitor ? '✓' : '✘'}
 										</TableBody>
 										<TableBody
 											style={{
 												width: 60,
 												backgroundColor:
-													props.team === match.first_baron
+													props.selectedTeam === match.first_baron
 														? 'lightgreen'
 														: 'salmon',
 												borderBottom:
@@ -225,19 +224,21 @@ const TeamMatchData = (props: Props) => {
 														: 'none',
 											}}
 										>
-											{props.team === match.first_baron ? '✓' : '✘'}
+											{props.selectedTeam === match.first_baron ? '✓' : '✘'}
 										</TableBody>
 										<TableBody
 											style={{
 												backgroundColor:
-													props.team === match.winner ? 'lightgreen' : 'salmon',
+													props.selectedTeam === match.winner
+														? 'lightgreen'
+														: 'salmon',
 												borderBottom:
 													index < props.games.length - 1
 														? '1px solid black'
 														: 'none',
 											}}
 										>
-											{props.team === match.winner ? '✓' : '✘'}
+											{props.selectedTeam === match.winner ? '✓' : '✘'}
 										</TableBody>
 									</TableBodyRow>
 								))}
@@ -247,10 +248,7 @@ const TeamMatchData = (props: Props) => {
 						<TableFooter
 							style={{ width: 151, borderLeft: '1px solid black' }}
 						/>
-						<TableFooter>
-							{console.log(countOccurrences('first_blood'))}
-							{countOccurrences('first_blood')}
-						</TableFooter>
+						<TableFooter>{countOccurrences('first_blood')}</TableFooter>
 						<TableFooter>{countOccurrences('first_tower')}</TableFooter>
 						<TableFooter>{countOccurrences('first_dragon')}</TableFooter>
 						<TableFooter>{countOccurrences('first_inhibitor')}</TableFooter>

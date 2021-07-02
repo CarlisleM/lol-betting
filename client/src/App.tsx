@@ -132,14 +132,19 @@ function App() {
 						<IndividualTeamContainer>
 							<TeamSelectContainer>
 								<Observer>
-									{() => <TeamSelect team={RootStore.selectedTeamOne} />}
+									{() => (
+										<TeamSelect
+											teams={teams}
+											selectedTeam={RootStore.selectedTeamOne}
+										/>
+									)}
 								</Observer>
 							</TeamSelectContainer>
 							<TeamDataContainer>
 								<Observer>
 									{() => (
 										<TeamMatchData
-											team={RootStore.selectedTeamOne}
+											selectedTeam={RootStore.selectedTeamOne}
 											games={games}
 										/>
 									)}
@@ -150,14 +155,19 @@ function App() {
 						<IndividualTeamContainer>
 							<TeamSelectContainer>
 								<Observer>
-									{() => <TeamSelect team={RootStore.selectedTeamTwo} />}
+									{() => (
+										<TeamSelect
+											teams={teams}
+											selectedTeam={RootStore.selectedTeamTwo}
+										/>
+									)}
 								</Observer>
 							</TeamSelectContainer>
 							<TeamDataContainer>
 								<Observer>
 									{() => (
 										<TeamMatchData
-											team={RootStore.selectedTeamTwo}
+											selectedTeam={RootStore.selectedTeamTwo}
 											games={games}
 										/>
 									)}

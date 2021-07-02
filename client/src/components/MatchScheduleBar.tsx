@@ -109,12 +109,6 @@ const MatchScheduleBar = (props: Props) => {
 															: 'none',
 												}}
 												onClick={() => {
-													console.log(
-														'Selected ' +
-															match.blue_team +
-															' vs ' +
-															match.red_team
-													)
 													RootStore.updateSelectedTeamOne(match.blue_team)
 													RootStore.updateSelectedTeamTwo(match.red_team)
 												}}

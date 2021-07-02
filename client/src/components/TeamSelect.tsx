@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Select from 'react-dropdown-select'
+import RootStore from '../store'
 
 const TeamSelectContainer = styled.div`
 	display: flex;
@@ -25,7 +26,8 @@ const TeamSelectDropdown = styled.div`
 `
 
 interface Props {
-	team: any
+	teams: any
+	selectedTeam: any
 }
 
 const TeamSelect = (props: Props) => {
@@ -33,19 +35,33 @@ const TeamSelect = (props: Props) => {
 
 	return (
 		<TeamSelectContainer>
-			{props.team !== null && (
+			{props.selectedTeam !== null ? (
 				<TeamLogo>
 					<img
 						style={{ objectFit: 'contain', width: '85%', height: '85%' }}
-						src={require(`../images/teams/${props.team}.png`).default}
-						alt={`${props.team} Logo`}
+						src={require(`../images/teams/${props.selectedTeam}.png`).default}
+						alt={`${props.selectedTeam} Logo`}
+					/>
+				</TeamLogo>
+			) : (
+				<TeamLogo>
+					<img
+						style={{ objectFit: 'contain', width: '85%', height: '85%' }}
+						src={require(`../images/teams/placeholder.png`).default}
+						alt={`${props.selectedTeam} Logo`}
 					/>
 				</TeamLogo>
 			)}
 
 			<TeamSelectDropdown>
 				<Select
-					options={options}
+					options={
+						props.teams !== null && RootStore.currentLeague !== null
+							? props.teams.filter(
+									(team: any) => team.league_id === RootStore.currentLeague
+							  )
+							: []
+					}
 					values={[]}
 					onChange={(value: any) => console.log(value)}
 				/>
