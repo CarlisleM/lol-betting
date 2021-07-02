@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import RootStore from '../store'
+import { Observer } from 'mobx-react'
 
 const MatchWeek = styled.div`
 	display: flex;
@@ -96,78 +97,82 @@ const MatchScheduleBar = (props: Props) => {
 				></div> */}
 				{/* {props.upcomingGames.filter((upcomingGame: any) => upcomingGame.league_id === RootStore.currentLeague)} */}
 
-				{console.log(
-					'RootStore currentLeague in schedule: ',
-					RootStore.currentLeague
-				)}
-				{console.log('upcoming props: ', props.upcomingGames)}
-				{props.upcomingGames !== null &&
-					console.log(
-						'filtered upcoming: ',
-						props.upcomingGames.filter(
-							(upcomingGame: any) =>
-								upcomingGame.league_id === RootStore.currentLeague
-						)
-					)}
-
-				{props.upcomingGames !== null &&
-					props.upcomingGames.filter(
-						(upcomingGame: any) =>
-							upcomingGame.league_id === RootStore.currentLeague
-					).length > 0 &&
-					props.upcomingGames
-						.filter(
-							(upcomingGame: any) =>
-								upcomingGame.league_id === RootStore.currentLeague
-						)
-						.map((match: any, matchIndex: number) => (
-							<>
-								{matchIndex === 0 ? (
-									<MatchWeek>Week {match.match_week}</MatchWeek>
-								) : (
+				<Observer>
+					{() => (
+						<>
+							{console.log(
+								'RootStore currentLeague in schedule: ',
+								RootStore.currentLeague
+							)}
+							{console.log('upcoming props: ', props.upcomingGames)}
+							{props.upcomingGames !== null &&
+								console.log(
+									'filtered upcoming: ',
 									props.upcomingGames.filter(
 										(upcomingGame: any) =>
 											upcomingGame.league_id === RootStore.currentLeague
-									)[matchIndex]!.match_week >
-										props.upcomingGames.filter(
-											(upcomingGame: any) =>
-												upcomingGame.league_id === RootStore.currentLeague
-										)[matchIndex - 1]!.match_week && (
-										<MatchWeek>Week {match.match_week}</MatchWeek>
 									)
 								)}
-								<MatchSchedule
-									key={matchIndex}
-									style={{
-										borderBottom:
-											matchIndex <
-											props.upcomingGames.filter(
-												(upcomingGame: any) =>
-													upcomingGame.league_id === RootStore.currentLeague
-											).length -
-												1
-												? '1px solid black'
-												: 'none',
-									}}
-								>
-									<MatchScheduleTeamLogo>
-										{testLogoImage}
-										{match.blue_team}
-									</MatchScheduleTeamLogo>
-									<MatchScheduleTime>
-										<span>{match.match_day}</span>
-										<span>{match.match_time}</span>
-										<span>{match.game_date.split('T')[0]}</span>
-									</MatchScheduleTime>
-									<MatchScheduleTeamLogo>
-										{testLogoImage}
-										{match.red_team}
-									</MatchScheduleTeamLogo>
-								</MatchSchedule>
-							</>
-						))}
 
-				{/* {matches.map((match, matchIndex) => (
+							{props.upcomingGames !== null &&
+								props.upcomingGames.filter(
+									(upcomingGame: any) =>
+										upcomingGame.league_id === RootStore.currentLeague
+								).length > 0 &&
+								props.upcomingGames
+									.filter(
+										(upcomingGame: any) =>
+											upcomingGame.league_id === RootStore.currentLeague
+									)
+									.map((match: any, matchIndex: number) => (
+										<>
+											{matchIndex === 0 ? (
+												<MatchWeek>Week {match.match_week}</MatchWeek>
+											) : (
+												props.upcomingGames.filter(
+													(upcomingGame: any) =>
+														upcomingGame.league_id === RootStore.currentLeague
+												)[matchIndex]!.match_week >
+													props.upcomingGames.filter(
+														(upcomingGame: any) =>
+															upcomingGame.league_id === RootStore.currentLeague
+													)[matchIndex - 1]!.match_week && (
+													<MatchWeek>Week {match.match_week}</MatchWeek>
+												)
+											)}
+											<MatchSchedule
+												key={matchIndex}
+												style={{
+													borderBottom:
+														matchIndex <
+														props.upcomingGames.filter(
+															(upcomingGame: any) =>
+																upcomingGame.league_id ===
+																RootStore.currentLeague
+														).length -
+															1
+															? '1px solid black'
+															: 'none',
+												}}
+											>
+												<MatchScheduleTeamLogo>
+													{testLogoImage}
+													{match.blue_team}
+												</MatchScheduleTeamLogo>
+												<MatchScheduleTime>
+													<span>{match.match_day}</span>
+													<span>{match.match_time}</span>
+													<span>{match.game_date.split('T')[0]}</span>
+												</MatchScheduleTime>
+												<MatchScheduleTeamLogo>
+													{testLogoImage}
+													{match.red_team}
+												</MatchScheduleTeamLogo>
+											</MatchSchedule>
+										</>
+									))}
+
+							{/* {matches.map((match, matchIndex) => (
 							<MatchSchedule
 								key={matchIndex}
 								style={{
@@ -186,6 +191,9 @@ const MatchScheduleBar = (props: Props) => {
 								<MatchScheduleTeamLogo>{testLogoImage}</MatchScheduleTeamLogo>
 							</MatchSchedule>
 						))} */}
+						</>
+					)}
+				</Observer>
 			</>
 		)
 	}
