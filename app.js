@@ -21,7 +21,14 @@ app.get('/api/games', (req, res) => {
   services.getAllGames(req, res);
 });
 
-// Must go last
+app.get('/api/leagues', (req, res) => {
+  services.getAllLeagues(req, res);
+});
+
+app.get('/api/teams', (req, res) => {
+  services.getAllTeams(req, res);
+});
+
 app.get('/*', function(req,res) {
   res.sendFile(path.join(__dirname+'/build/index.html'));
 });

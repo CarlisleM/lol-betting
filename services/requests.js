@@ -24,4 +24,20 @@ const getAllGames = (req, res) => {
     .catch(err => console.log(err));
 }
 
-module.exports = { getAllUpcomingGames, getAllGames }
+const getAllLeagues = (req, res) => {
+  pool.query("SELECT * FROM leagues ORDER BY id;") 
+    .then(leagueResults => {
+      res.json(leagueResults.rows)
+    })
+    .catch(err => console.log(err));
+}
+
+const getAllTeams = (req, res) => {
+  pool.query("SELECT * FROM teams ORDER BY league_id;") 
+    .then(teamResults => {
+      res.json(teamResults.rows)
+    })
+    .catch(err => console.log(err));
+}
+
+module.exports = { getAllUpcomingGames, getAllGames, getAllLeagues, getAllTeams }
