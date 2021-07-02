@@ -134,7 +134,7 @@ function App() {
 				{/* Right Side Bar */}
 				<MatchScheduleBarContainer>
 					{/* {data2} */}
-					<MatchScheduleBar></MatchScheduleBar>
+					<MatchScheduleBar upcomingGames={upcomingGames}></MatchScheduleBar>
 				</MatchScheduleBarContainer>
 			</Container>
 		</div>

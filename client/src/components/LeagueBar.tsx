@@ -64,6 +64,7 @@ const LeagueBar = (props: Props) => {
 					<League
 						key={index}
 						onClick={() => {
+							console.log(league.id)
 							RootStore.updateSelectedLeague(league.id)
 						}}
 					>
