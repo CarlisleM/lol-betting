@@ -48,7 +48,6 @@ const MatchScheduleBar = (props: Props) => {
 			style={{ objectFit: 'contain', width: '85%', height: '85%' }}
 			src={require(`../images/teams/${team}.png`).default}
 			alt={`${team} Logo`}
-			// height={'85%'}
 		/>
 	)
 
