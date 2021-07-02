@@ -74,21 +74,36 @@ const MatchScheduleBarContainer = styled.div`
 `
 
 function App() {
+	const excludeLeagues = ['LCK', 'LFL', 'VCS', 'PCS']
+
 	const [leagues, setLeagues] = useState(null)
 	const [teams, setTeams] = useState(null)
 	const [upcomingGames, setUpcomingGames] = useState(null)
 	const [games, setGames] = useState(null)
 
 	useEffect(() => {
+		// All leagues excluding ones currently not being tracked
 		fetch('/api/leagues')
 			.then((res) => res.json())
-			.then((leagues) => setLeagues(leagues))
+			.then((leagues) =>
+				setLeagues(
+					leagues.filter((league: any) => !league.name.includes(excludeLeagues))
+				)
+			)
+
+		// All teams excluding ones not currently in use
 		fetch('/api/teams')
 			.then((res) => res.json())
-			.then((teams) => setTeams(teams))
+			.then((teams) =>
+				setTeams(teams.filter((team: any) => team.name === 'Test'))
+			)
+
+		// All upcoming games
 		fetch('/api/upcoming')
 			.then((res) => res.json())
 			.then((upcomingGames) => setUpcomingGames(upcomingGames))
+
+		// All games with match results
 		fetch('/api/games')
 			.then((res) => res.json())
 			.then((games) => setGames(games))
@@ -134,7 +149,10 @@ function App() {
 				{/* Right Side Bar */}
 				<MatchScheduleBarContainer>
 					{/* {data2} */}
-					<MatchScheduleBar upcomingGames={upcomingGames}></MatchScheduleBar>
+					<MatchScheduleBar
+						upcomingGames={upcomingGames}
+						teams={teams}
+					></MatchScheduleBar>
 				</MatchScheduleBarContainer>
 			</Container>
 		</div>
