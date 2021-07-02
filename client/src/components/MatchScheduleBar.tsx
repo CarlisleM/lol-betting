@@ -45,9 +45,10 @@ interface Props {
 const MatchScheduleBar = (props: Props) => {
 	const teamLogo = (team: any) => (
 		<img
+			style={{ objectFit: 'contain', width: '85%', height: '85%' }}
 			src={require(`../images/teams/${team}.png`).default}
-			height={'85%'}
 			alt={`${team} Logo`}
+			// height={'85%'}
 		/>
 	)
 
@@ -103,6 +104,14 @@ const MatchScheduleBar = (props: Props) => {
 															? '1px solid black'
 															: 'none',
 												}}
+												onClick={() =>
+													console.log(
+														'Selected ' +
+															match.blue_team +
+															' vs ' +
+															match.red_team
+													)
+												}
 											>
 												<MatchScheduleTeamLogo>
 													{teamLogo(match.blue_team)}

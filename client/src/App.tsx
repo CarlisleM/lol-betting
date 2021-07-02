@@ -115,8 +115,6 @@ function App() {
 			.then((games) => setGames(games))
 	}, [])
 
-	console.log('teams: ', teams)
-
 	return (
 		<div className='App'>
 			<Container>
