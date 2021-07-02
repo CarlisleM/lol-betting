@@ -74,7 +74,7 @@ const MatchScheduleBarContainer = styled.div`
 `
 
 function App() {
-	const excludeLeagues = ['LCK', 'LFL', 'VCS', 'PCS']
+	const excludeLeagues = ['LCK', 'LFL', 'LPL', 'PCS', 'VCS']
 
 	const [leagues, setLeagues] = useState(null)
 	const [teams, setTeams] = useState(null)
@@ -92,7 +92,8 @@ function App() {
 							league.name !== excludeLeagues[0] &&
 							league.name !== excludeLeagues[1] &&
 							league.name !== excludeLeagues[2] &&
-							league.name !== excludeLeagues[3]
+							league.name !== excludeLeagues[3] &&
+							league.name !== excludeLeagues[4]
 					)
 				)
 			)
