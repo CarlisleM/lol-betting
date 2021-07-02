@@ -43,11 +43,11 @@ interface Props {
 }
 
 const MatchScheduleBar = (props: Props) => {
-	const testLogoImage = (
+	const teamLogo = (team: any) => (
 		<img
-			src={require('../images/template.png').default}
-			height={'75%'}
-			alt='Logo'
+			src={require(`../images/teams/${team}.png`).default}
+			height={'85%'}
+			alt={`${team} Logo`}
 		/>
 	)
 
@@ -105,16 +105,7 @@ const MatchScheduleBar = (props: Props) => {
 												}}
 											>
 												<MatchScheduleTeamLogo>
-													<img
-														src={
-															require(`../images/teams/${match.blue_team}.png`)
-																.default
-														}
-														height={'75%'}
-														alt='Logo'
-													/>
-													{/* {testLogoImage}
-													{match.blue_team} */}
+													{teamLogo(match.blue_team)}
 												</MatchScheduleTeamLogo>
 												<MatchScheduleTime>
 													<span>{match.match_day}</span>
@@ -122,8 +113,7 @@ const MatchScheduleBar = (props: Props) => {
 													<span>{match.game_date.split('T')[0]}</span>
 												</MatchScheduleTime>
 												<MatchScheduleTeamLogo>
-													{testLogoImage}
-													{match.red_team}
+													{teamLogo(match.red_team)}
 												</MatchScheduleTeamLogo>
 											</MatchSchedule>
 										</>

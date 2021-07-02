@@ -87,7 +87,13 @@ function App() {
 			.then((res) => res.json())
 			.then((leagues) =>
 				setLeagues(
-					leagues.filter((league: any) => !league.name.includes(excludeLeagues))
+					leagues.filter(
+						(league: any) =>
+							league.name !== excludeLeagues[0] &&
+							league.name !== excludeLeagues[1] &&
+							league.name !== excludeLeagues[2] &&
+							league.name !== excludeLeagues[3]
+					)
 				)
 			)
 
@@ -95,7 +101,7 @@ function App() {
 		fetch('/api/teams')
 			.then((res) => res.json())
 			.then((teams) =>
-				setTeams(teams.filter((team: any) => team.name === 'Test'))
+				setTeams(teams.filter((team: any) => team.name !== 'Test'))
 			)
 
 		// All upcoming games
@@ -108,6 +114,8 @@ function App() {
 			.then((res) => res.json())
 			.then((games) => setGames(games))
 	}, [])
+
+	console.log('teams: ', teams)
 
 	return (
 		<div className='App'>
