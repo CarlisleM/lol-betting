@@ -4,6 +4,7 @@ import LeagueBar from './components/LeagueBar'
 import TeamSelect from './components/TeamSelect'
 import TeamMatchData from './components/TeamMatchData'
 import StatisticalAnalysis from './components/StatisticalAnalysis'
+import { useEffect, useState } from 'react'
 // import { useEffect, useState } from 'react'
 // import upcomingService from '../../services/requests'
 
@@ -73,32 +74,32 @@ const MatchScheduleBarContainer = styled.div`
 `
 
 function App() {
-	// const [data, setData] = useState(null)
-	// const [data2, setData2] = useState(null)
+	const [leagues, setLeagues] = useState(null)
+	const [teams, setTeams] = useState(null)
+	const [upcomingGames, setUpcomingGames] = useState(null)
+	const [games, setGames] = useState(null)
 
-	// useEffect(() => {
-	// 	fetch('/api/upcoming')
-	// 		.then((res) => res.json())
-	// 		.then((data2) => setData2(data2))
-	// 	// fetch('/games')
-	// 	// 	.then((res) => res.json())
-	// 	// 	.then((data) => setData(data))
-	// }, [])
-
-	// const [upcoming, setUpcoming] = useState([])
-
-	// useEffect(() => {
-	// 	upcomingService.getAllUpcomingGames().then((data: any) => {
-	// 		setUpcoming(data.upcoming)
-	// 	})
-	// }, [])
+	useEffect(() => {
+		fetch('/api/leagues')
+			.then((res) => res.json())
+			.then((leagues) => setLeagues(leagues))
+		fetch('/api/teams')
+			.then((res) => res.json())
+			.then((teams) => setTeams(teams))
+		fetch('/api/upcoming')
+			.then((res) => res.json())
+			.then((upcomingGames) => setUpcomingGames(upcomingGames))
+		fetch('/api/games')
+			.then((res) => res.json())
+			.then((games) => setGames(games))
+	}, [])
 
 	return (
 		<div className='App'>
 			<Container>
 				{/* Left Side Bar */}
 				<LeagueBarContainer>
-					<LeagueBar></LeagueBar>
+					<LeagueBar leagues={leagues}></LeagueBar>
 				</LeagueBarContainer>
 				{/* Center Information */}
 				<CenterInformationContainer>
