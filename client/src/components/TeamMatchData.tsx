@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import RootStore from '../store'
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons-svg'
 
 const TableContainer = styled.div`
@@ -242,7 +241,7 @@ const TeamMatchData = (props: Props) => {
 					</TableBodyContainer>
 
 					<TableFooterContainer>
-						<TableFooter
+						{/* <TableFooter
 							style={{ width: 151, borderLeft: '1px solid black' }}
 						/>
 						<TableFooter>
@@ -255,7 +254,7 @@ const TeamMatchData = (props: Props) => {
 						<TableFooter style={{ width: 60 }}>
 							{countOccurrences('first_baron')}
 						</TableFooter>
-						<TableFooter>{countOccurrences('winner')}</TableFooter>
+						<TableFooter>{countOccurrences('winner')}</TableFooter> */}
 					</TableFooterContainer>
 				</>
 			)}
