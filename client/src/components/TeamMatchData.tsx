@@ -70,16 +70,38 @@ interface Props {
 }
 
 const TeamMatchData = (props: Props) => {
-	const countOccurrences = (arr: any, team: any, key: string) => {
+	const countOccurrences = (key: string) => {
 		let count = 0
+		let games = props.games.filter(
+			(game: any) =>
+				game.blue_team === props.team || game.red_team === props.team
+		)
 
-		arr.forEach((element: any) => {
-			if (element[key] === team) {
+		if (games.length > 10) {
+			games = games.slice(-10)
+		}
+
+		games.forEach((element: any) => {
+			if (element[key] === props.team) {
 				count += 1
 			}
 		})
 
-		return count
+		console.log(`count of ${key}`, count)
+
+		if (games.length > 10) {
+			if (count === 0) {
+				return '0%'
+			} else {
+				return count + '0%'
+			}
+		} else {
+			if (count === 0) {
+				return '0%'
+			} else {
+				return (100 * count) / games.length + '%'
+			}
+		}
 	}
 
 	return (
@@ -224,84 +246,16 @@ const TeamMatchData = (props: Props) => {
 							style={{ width: 151, borderLeft: '1px solid black' }}
 						/>
 						<TableFooter>
-							{/* Account for 0% as it will show 00%, also account for if there are less than 10 games */}
-							{`${countOccurrences(
-								props.games
-									.filter(
-										(game: any) =>
-											game.blue_team === props.team ||
-											game.red_team === props.team
-									)
-									.slice(-10),
-								props.team,
-								'first_blood'
-							)}0%`}
+							{console.log(countOccurrences('first_blood'))}
+							{countOccurrences('first_blood')}
 						</TableFooter>
-						<TableFooter>
-							{`${countOccurrences(
-								props.games
-									.filter(
-										(game: any) =>
-											game.blue_team === props.team ||
-											game.red_team === props.team
-									)
-									.slice(-10),
-								props.team,
-								'first_tower'
-							)}0%`}
-						</TableFooter>
-						<TableFooter>
-							{`${countOccurrences(
-								props.games
-									.filter(
-										(game: any) =>
-											game.blue_team === props.team ||
-											game.red_team === props.team
-									)
-									.slice(-10),
-								props.team,
-								'first_dragon'
-							)}0%`}
-						</TableFooter>
-						<TableFooter>
-							{`${countOccurrences(
-								props.games
-									.filter(
-										(game: any) =>
-											game.blue_team === props.team ||
-											game.red_team === props.team
-									)
-									.slice(-10),
-								props.team,
-								'first_inhibitor'
-							)}0%`}
-						</TableFooter>
+						<TableFooter>{countOccurrences('first_tower')}</TableFooter>
+						<TableFooter>{countOccurrences('first_dragon')}</TableFooter>
+						<TableFooter>{countOccurrences('first_inhibitor')}</TableFooter>
 						<TableFooter style={{ width: 60 }}>
-							{`${countOccurrences(
-								props.games
-									.filter(
-										(game: any) =>
-											game.blue_team === props.team ||
-											game.red_team === props.team
-									)
-									.slice(-10),
-								props.team,
-								'first_baron'
-							)}0%`}
+							{countOccurrences('first_baron')}
 						</TableFooter>
-						<TableFooter>
-							{`${countOccurrences(
-								props.games
-									.filter(
-										(game: any) =>
-											game.blue_team === props.team ||
-											game.red_team === props.team
-									)
-									.slice(-10),
-								props.team,
-								'winner'
-							)}0%`}
-						</TableFooter>
+						<TableFooter>{countOccurrences('winner')}</TableFooter>
 					</TableFooterContainer>
 				</>
 			)}
