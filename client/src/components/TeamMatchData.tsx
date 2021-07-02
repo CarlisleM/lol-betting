@@ -98,7 +98,7 @@ const TeamMatchData = (props: Props) => {
 			if (count === 0) {
 				return '0%'
 			} else {
-				return (100 * count) / games.length + '%'
+				return ((100 * count) / games.length).toFixed(2) + '%'
 			}
 		}
 	}
@@ -146,7 +146,6 @@ const TeamMatchData = (props: Props) => {
 										</TableBody>
 										<TableBody
 											style={{
-												backgroundColor: 'salmon',
 												borderBottom:
 													index < props.games.length - 1
 														? '1px solid black'
@@ -159,7 +158,10 @@ const TeamMatchData = (props: Props) => {
 										</TableBody>
 										<TableBody
 											style={{
-												backgroundColor: 'salmon',
+												backgroundColor:
+													props.team === match.first_blood
+														? 'lightgreen'
+														: 'salmon',
 												borderBottom:
 													index < props.games.length - 1
 														? '1px solid black'
@@ -170,7 +172,10 @@ const TeamMatchData = (props: Props) => {
 										</TableBody>
 										<TableBody
 											style={{
-												backgroundColor: 'lightgreen',
+												backgroundColor:
+													props.team === match.first_tower
+														? 'lightgreen'
+														: 'salmon',
 												borderBottom:
 													index < props.games.length - 1
 														? '1px solid black'
@@ -181,7 +186,10 @@ const TeamMatchData = (props: Props) => {
 										</TableBody>
 										<TableBody
 											style={{
-												backgroundColor: 'lightgreen',
+												backgroundColor:
+													props.team === match.first_dragon
+														? 'lightgreen'
+														: 'salmon',
 												borderBottom:
 													index < props.games.length - 1
 														? '1px solid black'
@@ -192,7 +200,10 @@ const TeamMatchData = (props: Props) => {
 										</TableBody>
 										<TableBody
 											style={{
-												backgroundColor: 'salmon',
+												backgroundColor:
+													props.team === match.first_inhibitor
+														? 'lightgreen'
+														: 'salmon',
 												borderBottom:
 													index < props.games.length - 1
 														? '1px solid black'
@@ -204,7 +215,10 @@ const TeamMatchData = (props: Props) => {
 										<TableBody
 											style={{
 												width: 60,
-												backgroundColor: 'lightgreen',
+												backgroundColor:
+													props.team === match.first_baron
+														? 'lightgreen'
+														: 'salmon',
 												borderBottom:
 													index < props.games.length - 1
 														? '1px solid black'
@@ -215,7 +229,8 @@ const TeamMatchData = (props: Props) => {
 										</TableBody>
 										<TableBody
 											style={{
-												backgroundColor: 'salmon',
+												backgroundColor:
+													props.team === match.winner ? 'lightgreen' : 'salmon',
 												borderBottom:
 													index < props.games.length - 1
 														? '1px solid black'

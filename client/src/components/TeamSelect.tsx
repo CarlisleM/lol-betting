@@ -24,27 +24,25 @@ const TeamSelectDropdown = styled.div`
 	height: 25%;
 `
 
-// Store.currentLeague.leagueTeams
-// Store.currentLeague.currentMatch.teamOne.name
-// Store.currentLeague.currentMatch.teamOne.logo
+interface Props {
+	team: any
+}
 
-// Store.currentLeague.currentMatch.teamTwo.name
-// Store.currentLeague.currentMatch.teamTwo.logo
-
-const TeamSelect = () => {
-	const testLogoImage = (
-		<img
-			src={require('../images/template.png').default}
-			height={'75%'}
-			alt='Logo'
-		/>
-	)
-
+const TeamSelect = (props: Props) => {
 	const options = ['one', 'two', 'three']
 
 	return (
 		<TeamSelectContainer>
-			<TeamLogo>{testLogoImage}</TeamLogo>
+			{props.team !== null && (
+				<TeamLogo>
+					<img
+						style={{ objectFit: 'contain', width: '85%', height: '85%' }}
+						src={require(`../images/teams/${props.team}.png`).default}
+						alt={`${props.team} Logo`}
+					/>
+				</TeamLogo>
+			)}
+
 			<TeamSelectDropdown>
 				<Select
 					options={options}
