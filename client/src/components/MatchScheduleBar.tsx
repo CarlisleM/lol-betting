@@ -96,6 +96,20 @@ const MatchScheduleBar = (props: Props) => {
 				></div> */}
 				{/* {props.upcomingGames.filter((upcomingGame: any) => upcomingGame.league_id === RootStore.currentLeague)} */}
 
+				{console.log(
+					'RootStore currentLeague in schedule: ',
+					RootStore.currentLeague
+				)}
+				{console.log('upcoming props: ', props.upcomingGames)}
+				{props.upcomingGames !== null &&
+					console.log(
+						'filtered upcoming: ',
+						props.upcomingGames.filter(
+							(upcomingGame: any) =>
+								upcomingGame.league_id === RootStore.currentLeague
+						)
+					)}
+
 				{props.upcomingGames !== null &&
 					props.upcomingGames.filter(
 						(upcomingGame: any) =>
