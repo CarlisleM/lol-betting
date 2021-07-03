@@ -146,11 +146,11 @@ const mappedNames = [
 	['nmg', 'Netshoes Miners'],
 ]
 
-export const mapTeamName = (teamAbbreviation: string) => {
-	const matchingName = mappedNames.find((name) => name[0] === teamAbbreviation)
+export const mapTeamName = (teamName: string) => {
+	const matchingName = mappedNames.find((name) => name[1] === teamName)
 
 	if (matchingName) {
-		return matchingName[1]
+		return matchingName[0]
 	} else {
 		return null
 	}

@@ -69,11 +69,14 @@ const TeamSelect = (props: Props) => {
 							: []
 					}
 					values={[]}
-					onChange={(value: any) =>
+					onChange={(value: any) => {
+						console.log('selected: ', value[0])
+						console.log('teamNumber: ', props.teamNumber)
+						console.log(mapTeamName(value[0]))
 						mapTeamName(value[0]) && props.teamNumber === 1
 							? RootStore.updateSelectedTeamOne(mapTeamName(value[0]))
 							: RootStore.updateSelectedTeamTwo(mapTeamName(value[0]))
-					}
+					}}
 				/>
 			</TeamSelectDropdown>
 		</TeamSelectContainer>
