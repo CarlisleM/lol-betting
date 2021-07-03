@@ -121,7 +121,7 @@ function App() {
 			<Container>
 				{/* Left Side Bar */}
 				<LeagueBarContainer>
-					<LeagueBar leagues={leagues} games={games}></LeagueBar>
+					<LeagueBar leagues={leagues} games={upcomingGames}></LeagueBar>
 				</LeagueBarContainer>
 				{/* Center Information */}
 				<CenterInformationContainer>

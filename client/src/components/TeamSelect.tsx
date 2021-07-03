@@ -75,7 +75,7 @@ const TeamSelect = (props: Props) => {
 					}
 					searchable={true}
 					keepSelectedInList={false} // Test
-					values={[]}
+					values={[{ value: props.selectedTeam, label: props.selectedTeam }]}
 					onChange={(value: any) => {
 						mapTeamName(value[0].value) && props.teamNumber === 1
 							? RootStore.updateSelectedTeamOne(mapTeamName(value[0].value))

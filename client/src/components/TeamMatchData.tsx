@@ -53,7 +53,6 @@ const TableFooter = styled.div`
 	align-items: center;
 	width: 55px;
 	height: 40px;
-	border-top: 1px solid black;
 	border-right: 1px solid black;
 	border-bottom: 1px solid black;
 `
