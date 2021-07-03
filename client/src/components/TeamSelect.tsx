@@ -35,11 +35,11 @@ interface Props {
 }
 
 const TeamSelect = (props: Props) => {
-	const [selectValues, setSelectValues] = useState<any>([])
+	// const [selectValues, setSelectValues] = useState<any>([])
 
-	const currentTeam = [props.selectedTeam]
+	// const currentTeam = [props.selectedTeam]
 
-	props.selectedTeam && setSelectValues(currentTeam)
+	// props.selectedTeam && setSelectValues(currentTeam)
 
 	// const onChange = () => {
 	// 	setSelectValues(currentTeam)
@@ -109,7 +109,7 @@ const TeamSelect = (props: Props) => {
 					searchable={true}
 					keepSelectedInList={false} // Test
 					values={
-						[...selectValues]
+						[...props.selectedTeam]
 						// [{ value: props.selectedTeam, label: props.selectedTeam }]
 					}
 					onChange={(value: any) => {
