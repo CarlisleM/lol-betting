@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import Select from 'react-dropdown-select'
 import RootStore from '../store'
+import { useState } from 'react'
+import Select from 'react-select'
 import { mapTeamName } from '../helpers/mapTeamNames'
-import { Observer } from 'mobx-react'
 
 const TeamSelectContainer = styled.div`
 	display: flex;
@@ -35,6 +35,22 @@ interface Props {
 }
 
 const TeamSelect = (props: Props) => {
+	// const options = [
+	// 	{ value: 'chocolate', label: 'Chocolate' },
+	// 	{ value: 'strawberry', label: 'Strawberry' },
+	// 	{ value: 'vanilla', label: 'Vanilla' },
+	// ]
+
+	// const [value, setValue] = useState<any>('one')
+
+	const handleChange = (value: any) => {
+		mapTeamName(value[0].value) && props.teamNumber === 1
+			? RootStore.updateSelectedTeamOne(mapTeamName(value[0].value))
+			: RootStore.updateSelectedTeamTwo(mapTeamName(value[0].value))
+
+		// mapTeamName(value[0].value) && props.teamNumber === 1 ?	setValue(RootStore.selectedTeamOne) : setValue(RootStore.selectedTeamTwo)
+	}
+
 	return (
 		<TeamSelectContainer>
 			{props.selectedTeam !== null ? (
@@ -60,37 +76,58 @@ const TeamSelect = (props: Props) => {
 				</TeamLogo>
 			)}
 
-			<Observer>
-				{() => (
-					<TeamSelectDropdown>
-						<Select
-							style={{ width: 280, maxHeight: 540 }}
-							options={
-								props.teams !== null && RootStore.selectedLeague !== null
-									? props.teams
-											.filter(
-												(team: any) =>
-													team.league_id === RootStore.selectedLeague
-											)
-											.map((team: any) => {
-												return { value: team.name, label: team.name }
-											})
-									: []
-							}
-							searchable={true}
-							keepSelectedInList={false} // Test
-							values={[
-								{ value: props.selectedTeam, label: props.selectedTeam },
-							]}
-							onChange={(value: any) => {
-								mapTeamName(value[0].value) && props.teamNumber === 1
-									? RootStore.updateSelectedTeamOne(mapTeamName(value[0].value))
-									: RootStore.updateSelectedTeamTwo(mapTeamName(value[0].value))
-							}}
-						/>
-					</TeamSelectDropdown>
-				)}
-			</Observer>
+			<TeamSelectDropdown>
+				{/* <div
+					style={{ width: 200, height: 200, backgroundColor: 'red' }}
+					onClick={() => {
+						console.log('clicked')
+						RootStore.updateSelectedTeamOne('test')
+						setValue({ value: 'xxxx', label: 'xxxx' })
+						// props.setValue(RootStore.selectedTeamOne)
+					}}
+				/> */}
+				<Select
+					width={'200px'}
+					// onInputChange={() => ['test', ...options]}
+					// defaultInputValue={'xxx'}
+					value={{ value: props.selectedTeam, label: props.selectedTeam }}
+					onChange={handleChange}
+					options={
+						props.teams !== null && RootStore.selectedLeague !== null
+							? props.teams
+									.filter(
+										(team: any) => team.league_id === RootStore.selectedLeague
+									)
+									.map((team: any) => {
+										return { value: team.name, label: team.name }
+									})
+							: []
+					}
+				/>
+
+				{/* <Select
+					style={{ width: 280, maxHeight: 540 }}
+					options={
+						props.teams !== null && RootStore.selectedLeague !== null
+							? props.teams
+									.filter(
+										(team: any) => team.league_id === RootStore.selectedLeague
+									)
+									.map((team: any) => {
+										return { value: team.name, label: team.name }
+									})
+							: []
+					}
+					searchable={true}
+					keepSelectedInList={false} // Test
+					values={[]}
+					onChange={(value: any) => {
+						mapTeamName(value[0].value) && props.teamNumber === 1
+							? RootStore.updateSelectedTeamOne(mapTeamName(value[0].value))
+							: RootStore.updateSelectedTeamTwo(mapTeamName(value[0].value))
+					}}
+				/> */}
+			</TeamSelectDropdown>
 		</TeamSelectContainer>
 	)
 }
