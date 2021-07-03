@@ -37,20 +37,18 @@ interface Props {
 const TeamSelect = (props: Props) => {
 	// const [selectValues, setSelectValues] = useState<any>([])
 
-	// const currentTeam = [props.selectedTeam]
-
-	// props.selectedTeam && setSelectValues(currentTeam)
-
-	// const onChange = () => {
-	// 	setSelectValues(currentTeam)
+	// const onChange = (values: any) => {
+	// 	setSelectValues(values)
 	// }
+
+	const currentTeam = [{ value: props.selectedTeam, label: props.selectedTeam }]
 
 	// props.selectedTeam && setSelectValues({ value: props.selectedTeam, label: props.selectedTeam })
 
 	// const onSet = (values: any) => {
-	// 	// const newValue = values.map((val: any) => ({ value: 'xxx', label: 'xxx' }))
+	// 	const newValue = values.map((val: any) => ({ value: 'xxx', label: 'xxx' }))
 
-	// 	setSelectValues(currentTeam)
+	// 	setSelectValues(newValue)
 	// }
 
 	return (
@@ -109,11 +107,11 @@ const TeamSelect = (props: Props) => {
 					searchable={true}
 					keepSelectedInList={false} // Test
 					values={
-						[...props.selectedTeam]
+						[...currentTeam]
 						// [{ value: props.selectedTeam, label: props.selectedTeam }]
 					}
 					onChange={(value: any) => {
-						// onChange()
+						// onChange(value)
 						mapTeamName(value[0].value) && props.teamNumber === 1
 							? RootStore.updateSelectedTeamOne(mapTeamName(value[0].value))
 							: RootStore.updateSelectedTeamTwo(mapTeamName(value[0].value))
