@@ -25,7 +25,14 @@ const LeagueBar = (props: Props) => {
 	const leagueLogo = (leagueName: any) => (
 		<Logo>
 			<img
-				style={{ objectFit: 'contain', width: '90%', height: '90%' }}
+				style={{
+					display: 'flex',
+					justifyContent: 'center',
+					alignItems: 'center',
+					objectFit: 'contain',
+					width: '90%',
+					height: '90%',
+				}}
 				src={
 					require(`../images/leagues/${leagueName.toLowerCase()}.png`).default
 				}
@@ -55,6 +62,8 @@ const LeagueBar = (props: Props) => {
 									)[0].red_team
 								)
 							}
+							console.log('league selectedTeamOne: ', RootStore.selectedTeamOne)
+							console.log('league selectedTeamTwo: ', RootStore.selectedTeamTwo)
 						}}
 					>
 						{leagueLogo(league.name)}
