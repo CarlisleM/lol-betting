@@ -30,18 +30,29 @@ const TeamSelectDropdown = styled.div`
 interface Props {
 	teamNumber: number
 	teams: any
-	selectedTeam: any
 }
 
 const TeamSelect = (props: Props) => {
 	return (
 		<TeamSelectContainer>
-			{props.selectedTeam !== null ? (
+			{props.teamNumber === 1 ? (
+				RootStore.selectedTeamOne !== null
+			) : RootStore.selectedTeamTwo !== null ? (
 				<TeamLogo>
 					<img
 						style={{ objectFit: 'contain', width: '85%', height: '85%' }}
-						src={require(`../images/teams/${props.selectedTeam}.png`).default}
-						alt={`${props.selectedTeam} Logo`}
+						src={
+							require(`../images/teams/${
+								props.teamNumber === 1
+									? RootStore.selectedTeamOne
+									: RootStore.selectedTeamTwo
+							}.png`).default
+						}
+						alt={`${
+							props.teamNumber === 1
+								? RootStore.selectedTeamOne
+								: RootStore.selectedTeamTwo
+						} Logo`}
 					/>
 				</TeamLogo>
 			) : (
@@ -49,7 +60,11 @@ const TeamSelect = (props: Props) => {
 					<img
 						style={{ objectFit: 'contain', width: '85%', height: '85%' }}
 						src={require(`../images/teams/placeholder.png`).default}
-						alt={`${props.selectedTeam} Logo`}
+						alt={`${
+							props.teamNumber === 1
+								? RootStore.selectedTeamOne
+								: RootStore.selectedTeamTwo
+						} Logo`}
 					/>
 				</TeamLogo>
 			)}
