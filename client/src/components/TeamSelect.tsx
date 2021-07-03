@@ -41,7 +41,7 @@ const TeamSelect = (props: Props) => {
 	// 	setSelectValues(values)
 	// }
 
-	const currentTeam = [{ value: props.selectedTeam, label: props.selectedTeam }]
+	// const currentTeam = [{ value: props.selectedTeam, label: props.selectedTeam }]
 
 	// props.selectedTeam && setSelectValues({ value: props.selectedTeam, label: props.selectedTeam })
 
@@ -107,7 +107,7 @@ const TeamSelect = (props: Props) => {
 					searchable={true}
 					keepSelectedInList={false} // Test
 					values={
-						[...currentTeam]
+						[...[{ value: props.selectedTeam, label: props.selectedTeam }]]
 						// [{ value: props.selectedTeam, label: props.selectedTeam }]
 					}
 					onChange={(value: any) => {
