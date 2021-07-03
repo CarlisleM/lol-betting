@@ -30,6 +30,11 @@ const TeamSelectDropdown = styled.div`
 	padding-top: 5px;
 `
 
+const StyledSelect = styled(Select)`
+	width: 280px;
+	max-height: 540px;
+`
+
 interface Props {
 	teamNumber: number
 	teams: any
@@ -77,13 +82,9 @@ const TeamSelect = (props: Props) => {
 			)}
 
 			<TeamSelectDropdown>
-				<Select
-					style={{ width: '250px' }}
-					value={{
-						value: props.selectedTeam,
-						label: mapAbvTeamNameToFull(props.selectedTeam),
-					}}
-					onChange={(value: any) => handleChange(value)}
+				<StyledSelect
+					isSearchable={true}
+					hideSelectedOptions={true}
 					options={
 						props.teams !== null && RootStore.selectedLeague !== null
 							? props.teams
@@ -95,6 +96,11 @@ const TeamSelect = (props: Props) => {
 									})
 							: []
 					}
+					value={{
+						value: props.selectedTeam,
+						label: mapAbvTeamNameToFull(props.selectedTeam),
+					}}
+					onChange={(value: any) => handleChange(value)}
 				/>
 			</TeamSelectDropdown>
 		</TeamSelectContainer>
