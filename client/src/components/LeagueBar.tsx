@@ -11,9 +11,9 @@ const League = styled.div`
 `
 
 const Logo = styled.div`
-	display: 'flex';
-	justify-content: 'center';
-	align-items: 'center';
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `
 
 interface Props {
@@ -26,9 +26,6 @@ const LeagueBar = (props: Props) => {
 		<Logo>
 			<img
 				style={{
-					display: 'flex',
-					justifyContent: 'center',
-					alignItems: 'center',
 					objectFit: 'contain',
 					width: '90%',
 					height: '90%',
@@ -48,6 +45,17 @@ const LeagueBar = (props: Props) => {
 					<League
 						key={index}
 						onClick={() => {
+							console.log(
+								'games: ',
+								props.games.filter((game: any) => game.league_id === league.id)
+							)
+
+							console.log(
+								'game selected: ',
+								props.games.filter(
+									(game: any) => game.league_id === league.id
+								)[0]
+							)
 							// Set the two teams to the teams of the first upcoming game
 							if (league.id !== RootStore.selectedLeague) {
 								RootStore.updateSelectedTeamOne(

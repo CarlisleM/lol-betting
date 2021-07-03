@@ -39,7 +39,12 @@ const TeamSelect = (props: Props) => {
 			{props.selectedTeam !== null ? (
 				<TeamLogo>
 					<img
-						style={{ objectFit: 'contain', width: '85%', height: '85%' }}
+						style={{
+							objectFit: 'contain',
+							maxWidth: 280,
+							width: '85%',
+							height: '85%',
+						}}
 						src={require(`../images/teams/${props.selectedTeam}.png`).default}
 						alt={`${props.selectedTeam} Logo`}
 					/>
@@ -68,6 +73,8 @@ const TeamSelect = (props: Props) => {
 									})
 							: []
 					}
+					searchable={true}
+					keepSelectedInList={false} // Test
 					values={[]}
 					onChange={(value: any) => {
 						mapTeamName(value[0].value) && props.teamNumber === 1
