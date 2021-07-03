@@ -48,7 +48,6 @@ const LeagueBar = (props: Props) => {
 					<League
 						key={index}
 						onClick={() => {
-							RootStore.updateSelectedLeague(league.id)
 							// Set the two teams to the teams of the first upcoming game
 							if (league.id !== RootStore.selectedLeague) {
 								RootStore.updateSelectedTeamOne(
@@ -62,30 +61,8 @@ const LeagueBar = (props: Props) => {
 									)[0].red_team
 								)
 							}
-
-							console.log('1: ', league.id)
-
-							console.log(
-								'2: ',
-								props.games.filter((game: any) => game.league_id === league.id)
-							)
-
-							console.log(
-								'3: ',
-								props.games.filter(
-									(game: any) => game.league_id === league.id
-								)[0]
-							)
-
-							console.log(
-								'4: ',
-								props.games.filter(
-									(game: any) => game.league_id === league.id
-								)[0].blue_team
-							)
-
-							console.log('league selectedTeamOne: ', RootStore.selectedTeamOne)
-							console.log('league selectedTeamTwo: ', RootStore.selectedTeamTwo)
+							// Update the current league
+							RootStore.updateSelectedLeague(league.id)
 						}}
 					>
 						{leagueLogo(league.name)}
