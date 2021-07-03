@@ -79,8 +79,8 @@ const TeamSelect = (props: Props) => {
 					onChange={(value: any) => {
 						console.log('selected: ', value[0].value)
 						console.log('teamNumber: ', props.teamNumber)
-						console.log(mapTeamName(value[0].value))
-						mapTeamName(value[0]) && props.teamNumber === 1
+						console.log('mapped name: ', mapTeamName(value[0].value))
+						mapTeamName(value[0].value) && props.teamNumber === 1
 							? RootStore.updateSelectedTeamOne(mapTeamName(value[0].value))
 							: RootStore.updateSelectedTeamTwo(mapTeamName(value[0].value))
 						console.log(
