@@ -44,6 +44,8 @@ const TeamSelect = (props: Props) => {
 	// const [value, setValue] = useState<any>('one')
 
 	const handleChange = (value: any) => {
+		console.log('called')
+		console.log('value: ', value)
 		mapTeamName(value[0].value) && props.teamNumber === 1
 			? RootStore.updateSelectedTeamOne(mapTeamName(value[0].value))
 			: RootStore.updateSelectedTeamTwo(mapTeamName(value[0].value))
@@ -91,7 +93,7 @@ const TeamSelect = (props: Props) => {
 					// onInputChange={() => ['test', ...options]}
 					// defaultInputValue={'xxx'}
 					value={{ value: props.selectedTeam, label: props.selectedTeam }}
-					onChange={handleChange}
+					onChange={(value: any) => handleChange(value)}
 					options={
 						props.teams !== null && RootStore.selectedLeague !== null
 							? props.teams
