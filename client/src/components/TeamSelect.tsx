@@ -39,9 +39,11 @@ const TeamSelect = (props: Props) => {
 
 	const currentTeam = [props.selectedTeam]
 
-	const onChange = () => {
-		setSelectValues(currentTeam)
-	}
+	props.selectedTeam && setSelectValues(currentTeam)
+
+	// const onChange = () => {
+	// 	setSelectValues(currentTeam)
+	// }
 
 	// props.selectedTeam && setSelectValues({ value: props.selectedTeam, label: props.selectedTeam })
 
@@ -111,7 +113,7 @@ const TeamSelect = (props: Props) => {
 						// [{ value: props.selectedTeam, label: props.selectedTeam }]
 					}
 					onChange={(value: any) => {
-						onChange()
+						// onChange()
 						mapTeamName(value[0].value) && props.teamNumber === 1
 							? RootStore.updateSelectedTeamOne(mapTeamName(value[0].value))
 							: RootStore.updateSelectedTeamTwo(mapTeamName(value[0].value))
