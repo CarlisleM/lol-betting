@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import Select from 'react-dropdown-select'
 import RootStore from '../store'
 import { mapTeamName } from '../helpers/mapTeamNames'
+import { useState } from 'react'
 
 const TeamSelectContainer = styled.div`
 	display: flex;
@@ -34,6 +35,22 @@ interface Props {
 }
 
 const TeamSelect = (props: Props) => {
+	const [selectValues, setSelectValues] = useState<any>([])
+
+	const currentTeam = [props.selectedTeam]
+
+	const onChange = () => {
+		setSelectValues(currentTeam)
+	}
+
+	// props.selectedTeam && setSelectValues({ value: props.selectedTeam, label: props.selectedTeam })
+
+	// const onSet = (values: any) => {
+	// 	// const newValue = values.map((val: any) => ({ value: 'xxx', label: 'xxx' }))
+
+	// 	setSelectValues(currentTeam)
+	// }
+
 	return (
 		<TeamSelectContainer>
 			{props.selectedTeam !== null ? (
@@ -60,9 +77,23 @@ const TeamSelect = (props: Props) => {
 			)}
 
 			<TeamSelectDropdown>
+				{/* <div
+					style={{ height: 200, width: 200, backgroundColor: 'red' }}
+					onClick={() => {
+						console.log('clicked')
+						console.log('selectedValues: ', selectValues)
+						onSet(['test'])
+					}}
+				/> */}
 				<Select
 					style={{ width: 280, maxHeight: 540 }}
 					options={
+						// [
+						// 	{ value: 'test', label: 'test' },
+						// 	{ value: 'test2', label: 'test2' },
+						// 	{ value: 'tset3', label: 'tset3' },
+						// 	{ value: 'test4', label: 'test4' },
+						// ]
 						props.teams !== null && RootStore.selectedLeague !== null
 							? props.teams
 									.filter(
@@ -75,8 +106,12 @@ const TeamSelect = (props: Props) => {
 					}
 					searchable={true}
 					keepSelectedInList={false} // Test
-					values={[{ value: props.selectedTeam, label: props.selectedTeam }]}
+					values={
+						[...selectValues]
+						// [{ value: props.selectedTeam, label: props.selectedTeam }]
+					}
 					onChange={(value: any) => {
+						onChange()
 						mapTeamName(value[0].value) && props.teamNumber === 1
 							? RootStore.updateSelectedTeamOne(mapTeamName(value[0].value))
 							: RootStore.updateSelectedTeamTwo(mapTeamName(value[0].value))
