@@ -147,18 +147,11 @@ const mappedNames = [
 ]
 
 export const mapTeamName = (teamName: string) => {
-	console.log('function teamName: ', teamName)
-	// console.log('function teamNameValue: ', teamName[0])
-
 	const matchingName = mappedNames.find((name) => name[1] === teamName)
 
-	console.log('function matchingName: ', matchingName)
-
 	if (matchingName) {
-		console.log('function return a result: ', matchingName[0])
 		return matchingName[0]
 	} else {
-		console.log('function null')
 		return null
 	}
 }
