@@ -16,7 +16,7 @@ const TableHeader = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 50px;
+	width: 55px;
 	height: 40px;
 	border-top: 1px solid black;
 	border-right: 1px solid black;
@@ -42,7 +42,7 @@ const TableBody = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 50px;
+	width: 55px;
 	height: 40px;
 	border-right: 1px solid black;
 `
@@ -51,7 +51,7 @@ const TableFooter = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 50px;
+	width: 55px;
 	height: 40px;
 	border-top: 1px solid black;
 	border-right: 1px solid black;
@@ -96,7 +96,11 @@ const TeamMatchData = (props: Props) => {
 			if (count === 0) {
 				return '0%'
 			} else {
-				return ((100 * count) / games.length).toFixed(2) + '%'
+				if (((100 * count) / games.length) % 1 === 0) {
+					return (100 * count) / games.length + '%'
+				} else {
+					return ((100 * count) / games.length).toFixed(2) + '%'
+				}
 			}
 		}
 	}
@@ -246,7 +250,7 @@ const TeamMatchData = (props: Props) => {
 
 					<TableFooterContainer>
 						<TableFooter
-							style={{ width: 151, borderLeft: '1px solid black' }}
+							style={{ width: 156, borderLeft: '1px solid black' }}
 						/>
 						<TableFooter>{countOccurrences('first_blood')}</TableFooter>
 						<TableFooter>{countOccurrences('first_tower')}</TableFooter>

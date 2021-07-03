@@ -11,10 +11,10 @@ const Store = types
 		updateSelectedLeague: (leagueId: number) => {
 			self.currentLeague = leagueId
 		},
-		updateSelectedTeamOne: (team: string) => {
+		updateSelectedTeamOne: (team: string | null) => {
 			self.selectedTeamOne = team
 		},
-		updateSelectedTeamTwo: (team: string) => {
+		updateSelectedTeamTwo: (team: string | null) => {
 			self.selectedTeamTwo = team
 		},
 	}))

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Select from 'react-dropdown-select'
 import RootStore from '../store'
+import { mapTeamName } from '../helpers/mapTeamNames'
 
 const TeamSelectContainer = styled.div`
 	display: flex;
@@ -23,16 +24,16 @@ const TeamSelectDropdown = styled.div`
 	align-items: center;
 	width: 100%;
 	height: 25%;
+	padding-top: 5px;
 `
 
 interface Props {
+	teamNumber: number
 	teams: any
 	selectedTeam: any
 }
 
 const TeamSelect = (props: Props) => {
-	const options = ['one', 'two', 'three']
-
 	return (
 		<TeamSelectContainer>
 			{props.selectedTeam !== null ? (
@@ -55,15 +56,24 @@ const TeamSelect = (props: Props) => {
 
 			<TeamSelectDropdown>
 				<Select
+					style={{ width: 280 }}
 					options={
 						props.teams !== null && RootStore.currentLeague !== null
-							? props.teams.filter(
-									(team: any) => team.league_id === RootStore.currentLeague
-							  )
+							? props.teams
+									.filter(
+										(team: any) => team.league_id === RootStore.currentLeague
+									)
+									.map((team: any) => {
+										return { value: team.name, label: team.name }
+									})
 							: []
 					}
 					values={[]}
-					onChange={(value: any) => console.log(value)}
+					onChange={(value: any) =>
+						mapTeamName(value[0]) && props.teamNumber === 1
+							? RootStore.updateSelectedTeamOne(mapTeamName(value[0]))
+							: RootStore.updateSelectedTeamTwo(mapTeamName(value[0]))
+					}
 				/>
 			</TeamSelectDropdown>
 		</TeamSelectContainer>
