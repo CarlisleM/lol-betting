@@ -147,10 +147,10 @@ const mappedNames = [
 ]
 
 export const mapTeamName = (teamName: string) => {
-	const matchingName = mappedNames.find((name) => name[1] === teamName)
+	const matchingName = mappedNames.find((name) => name[0] === teamName)
 
 	if (matchingName) {
-		return matchingName[0]
+		return matchingName[1]
 	} else {
 		return null
 	}

@@ -46,9 +46,13 @@ const TeamSelect = (props: Props) => {
 	const handleChange = (value: any) => {
 		console.log('called')
 		console.log('value: ', value)
-		mapTeamName(value[0].value) && props.teamNumber === 1
-			? RootStore.updateSelectedTeamOne(mapTeamName(value[0].value))
-			: RootStore.updateSelectedTeamTwo(mapTeamName(value[0].value))
+		mapTeamName(value) && props.teamNumber === 1
+			? RootStore.updateSelectedTeamOne(mapTeamName(value))
+			: RootStore.updateSelectedTeamTwo(mapTeamName(value))
+
+		mapTeamName(value) && props.teamNumber === 1
+			? console.log('mapped 1: ', mapTeamName(value))
+			: console.log('mapped 2: ', mapTeamName(value))
 
 		// mapTeamName(value[0].value) && props.teamNumber === 1 ?	setValue(RootStore.selectedTeamOne) : setValue(RootStore.selectedTeamTwo)
 	}
@@ -89,10 +93,13 @@ const TeamSelect = (props: Props) => {
 					}}
 				/> */}
 				<Select
-					width={'200px'}
+					style={{ width: '250px' }}
 					// onInputChange={() => ['test', ...options]}
 					// defaultInputValue={'xxx'}
-					value={{ value: props.selectedTeam, label: props.selectedTeam }}
+					value={{
+						value: props.selectedTeam,
+						label: mapTeamName(props.selectedTeam),
+					}}
 					onChange={(value: any) => handleChange(value)}
 					options={
 						props.teams !== null && RootStore.selectedLeague !== null
@@ -106,29 +113,6 @@ const TeamSelect = (props: Props) => {
 							: []
 					}
 				/>
-
-				{/* <Select
-					style={{ width: 280, maxHeight: 540 }}
-					options={
-						props.teams !== null && RootStore.selectedLeague !== null
-							? props.teams
-									.filter(
-										(team: any) => team.league_id === RootStore.selectedLeague
-									)
-									.map((team: any) => {
-										return { value: team.name, label: team.name }
-									})
-							: []
-					}
-					searchable={true}
-					keepSelectedInList={false} // Test
-					values={[]}
-					onChange={(value: any) => {
-						mapTeamName(value[0].value) && props.teamNumber === 1
-							? RootStore.updateSelectedTeamOne(mapTeamName(value[0].value))
-							: RootStore.updateSelectedTeamTwo(mapTeamName(value[0].value))
-					}}
-				/> */}
 			</TeamSelectDropdown>
 		</TeamSelectContainer>
 	)
