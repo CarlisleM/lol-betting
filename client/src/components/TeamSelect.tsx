@@ -30,14 +30,13 @@ const TeamSelectDropdown = styled.div`
 interface Props {
 	teamNumber: number
 	teams: any
+	selectedTeam: any
 }
 
 const TeamSelect = (props: Props) => {
 	return (
 		<TeamSelectContainer>
-			{props.teamNumber === 1 ? (
-				RootStore.selectedTeamOne !== null
-			) : RootStore.selectedTeamTwo !== null ? (
+			{props.selectedTeam !== null ? (
 				<TeamLogo>
 					<img
 						style={{ objectFit: 'contain', width: '85%', height: '85%' }}
