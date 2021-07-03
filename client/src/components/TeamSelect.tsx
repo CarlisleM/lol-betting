@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 import RootStore from '../store'
-import { useState } from 'react'
 import Select from 'react-select'
-import { mapTeamName } from '../helpers/mapTeamNames'
+import {
+	mapAbvTeamNameToFull,
+	mapFullTeamNameToAbv,
+} from '../helpers/mapTeamNames'
 
 const TeamSelectContainer = styled.div`
 	display: flex;
@@ -35,14 +37,6 @@ interface Props {
 }
 
 const TeamSelect = (props: Props) => {
-	// const options = [
-	// 	{ value: 'chocolate', label: 'Chocolate' },
-	// 	{ value: 'strawberry', label: 'Strawberry' },
-	// 	{ value: 'vanilla', label: 'Vanilla' },
-	// ]
-
-	// const [value, setValue] = useState<any>('one')
-
 	const handleChange = (value: any) => {
 		console.log('called')
 		console.log('value: ', value)
@@ -50,11 +44,11 @@ const TeamSelect = (props: Props) => {
 		console.log('value y: ', value.value)
 
 		// Whats happening is that if mapTeamName is null it always goes to the second option
-		mapTeamName(value.value) && props.teamNumber === 1
-			? RootStore.updateSelectedTeamOne(mapTeamName(value.value))
-			: RootStore.updateSelectedTeamTwo(mapTeamName(value.value))
+		mapFullTeamNameToAbv(value.value) && props.teamNumber === 1
+			? RootStore.updateSelectedTeamOne(mapFullTeamNameToAbv(value.value))
+			: RootStore.updateSelectedTeamTwo(mapFullTeamNameToAbv(value.value))
 
-		console.log('mapped: ', mapTeamName(value.value))
+		console.log('mapped: ', mapFullTeamNameToAbv(value.value))
 	}
 
 	return (
@@ -87,7 +81,7 @@ const TeamSelect = (props: Props) => {
 					style={{ width: '250px' }}
 					value={{
 						value: props.selectedTeam,
-						label: mapTeamName(props.selectedTeam),
+						label: mapAbvTeamNameToFull(props.selectedTeam),
 					}}
 					onChange={(value: any) => handleChange(value)}
 					options={

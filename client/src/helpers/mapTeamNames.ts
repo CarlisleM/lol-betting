@@ -146,13 +146,25 @@ const mappedNames = [
 	['nmg', 'Netshoes Miners'],
 ]
 
-export const mapTeamName = (teamName: string) => {
+export const mapFullTeamNameToAbv = (teamName: string) => {
 	console.log('teamName: ', teamName)
 
 	const matchingName = mappedNames.find((name) => name[1] === teamName)
 
 	if (matchingName) {
 		return matchingName[0]
+	} else {
+		return null
+	}
+}
+
+export const mapAbvTeamNameToFull = (teamAbv: string) => {
+	console.log('teamAbv: ', teamAbv)
+
+	const matchingName = mappedNames.find((name) => name[0] === teamAbv)
+
+	if (matchingName) {
+		return matchingName[1]
 	} else {
 		return null
 	}
