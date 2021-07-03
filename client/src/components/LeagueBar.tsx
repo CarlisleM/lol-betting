@@ -18,6 +18,7 @@ const Logo = styled.div`
 
 interface Props {
 	leagues: any
+	games: any
 }
 
 const LeagueBar = (props: Props) => {
@@ -41,6 +42,19 @@ const LeagueBar = (props: Props) => {
 						key={index}
 						onClick={() => {
 							RootStore.updateSelectedLeague(league.id)
+							// Set the two teams to the teams of the first upcoming game
+							if (league.id !== RootStore.selectedLeague) {
+								RootStore.updateSelectedTeamOne(
+									props.games.filter(
+										(game: any) => game.league_id === league.id
+									)[0].blue_team
+								)
+								RootStore.updateSelectedTeamTwo(
+									props.games.filter(
+										(game: any) => game.league_id === league.id
+									)[0].red_team
+								)
+							}
 						}}
 					>
 						{leagueLogo(league.name)}

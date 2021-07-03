@@ -41,13 +41,6 @@ const TeamSelect = (props: Props) => {
 					<img
 						style={{ objectFit: 'contain', width: '85%', height: '85%' }}
 						src={require(`../images/teams/${props.selectedTeam}.png`).default}
-						// src={
-						// 	require(`../images/teams/${
-						// 		props.teamNumber === 1
-						// 			? RootStore.selectedTeamOne
-						// 			: RootStore.selectedTeamTwo
-						// 	}.png`).default
-						// }
 						alt={`${props.selectedTeam} Logo`}
 					/>
 				</TeamLogo>
@@ -63,12 +56,12 @@ const TeamSelect = (props: Props) => {
 
 			<TeamSelectDropdown>
 				<Select
-					style={{ width: 280 }}
+					style={{ width: 280, maxHeight: 540 }}
 					options={
-						props.teams !== null && RootStore.currentLeague !== null
+						props.teams !== null && RootStore.selectedLeague !== null
 							? props.teams
 									.filter(
-										(team: any) => team.league_id === RootStore.currentLeague
+										(team: any) => team.league_id === RootStore.selectedLeague
 									)
 									.map((team: any) => {
 										return { value: team.name, label: team.name }
@@ -77,24 +70,9 @@ const TeamSelect = (props: Props) => {
 					}
 					values={[]}
 					onChange={(value: any) => {
-						console.log('selected: ', value[0].value)
-						console.log('teamNumber: ', props.teamNumber)
-						console.log('mapped name: ', mapTeamName(value[0].value))
 						mapTeamName(value[0].value) && props.teamNumber === 1
 							? RootStore.updateSelectedTeamOne(mapTeamName(value[0].value))
 							: RootStore.updateSelectedTeamTwo(mapTeamName(value[0].value))
-						console.log(
-							props.teamNumber + ' Selected team: ',
-							props.selectedTeam
-						)
-						console.log(
-							props.teamNumber + ' RootStore.selectedTeamOne: ',
-							RootStore.selectedTeamOne
-						)
-						console.log(
-							props.teamNumber + ' RootStore.selectedTeamTwo: ',
-							RootStore.selectedTeamTwo
-						)
 					}}
 				/>
 			</TeamSelectDropdown>

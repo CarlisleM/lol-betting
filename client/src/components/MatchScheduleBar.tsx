@@ -56,11 +56,11 @@ const MatchScheduleBar = (props: Props) => {
 		/>
 	)
 
-	console.log('Local time: ', new Date().toLocaleDateString())
-	let today = new Date().toLocaleDateString('en-US', {
-		timeZone: 'America/Los_Angeles',
-	})
-	console.log('PST time: ', today)
+	// console.log('Local time: ', new Date().toLocaleDateString())
+	// let today = new Date().toLocaleDateString('en-US', {
+	// 	timeZone: 'America/Los_Angeles',
+	// })
+	// console.log('PST time: ', today)
 
 	const UpcomingMatches = () => {
 		return (
@@ -71,12 +71,12 @@ const MatchScheduleBar = (props: Props) => {
 							{props.upcomingGames !== null &&
 								props.upcomingGames.filter(
 									(upcomingGame: any) =>
-										upcomingGame.league_id === RootStore.currentLeague
+										upcomingGame.league_id === RootStore.selectedLeague
 								).length > 0 &&
 								props.upcomingGames
 									.filter(
 										(upcomingGame: any) =>
-											upcomingGame.league_id === RootStore.currentLeague
+											upcomingGame.league_id === RootStore.selectedLeague
 									)
 									.map((match: any, matchIndex: number) => (
 										<>
@@ -85,11 +85,12 @@ const MatchScheduleBar = (props: Props) => {
 											) : (
 												props.upcomingGames.filter(
 													(upcomingGame: any) =>
-														upcomingGame.league_id === RootStore.currentLeague
+														upcomingGame.league_id === RootStore.selectedLeague
 												)[matchIndex]!.match_week >
 													props.upcomingGames.filter(
 														(upcomingGame: any) =>
-															upcomingGame.league_id === RootStore.currentLeague
+															upcomingGame.league_id ===
+															RootStore.selectedLeague
 													)[matchIndex - 1]!.match_week && (
 													<MatchWeek>Week {match.match_week}</MatchWeek>
 												)
@@ -102,7 +103,7 @@ const MatchScheduleBar = (props: Props) => {
 														props.upcomingGames.filter(
 															(upcomingGame: any) =>
 																upcomingGame.league_id ===
-																RootStore.currentLeague
+																RootStore.selectedLeague
 														).length -
 															1
 															? '1px solid black'

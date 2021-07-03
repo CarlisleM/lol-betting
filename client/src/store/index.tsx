@@ -2,14 +2,14 @@ import { Instance, types } from 'mobx-state-tree'
 
 const Store = types
 	.model({
-		currentLeague: types.maybeNull(types.number),
+		selectedLeague: types.maybeNull(types.number),
 		selectedTeamOne: types.maybeNull(types.string),
 		selectedTeamTwo: types.maybeNull(types.string),
 	})
 
 	.actions((self) => ({
 		updateSelectedLeague: (leagueId: number) => {
-			self.currentLeague = leagueId
+			self.selectedLeague = leagueId
 		},
 		updateSelectedTeamOne: (team: string | null) => {
 			self.selectedTeamOne = team
