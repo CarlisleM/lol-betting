@@ -147,6 +147,8 @@ const mappedNames = [
 ]
 
 export const mapTeamName = (teamName: string) => {
+	console.log('teamName: ', teamName)
+
 	const matchingName = mappedNames.find((name) => name[1] === teamName)
 
 	if (matchingName) {

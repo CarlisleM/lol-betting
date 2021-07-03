@@ -47,16 +47,14 @@ const TeamSelect = (props: Props) => {
 		console.log('called')
 		console.log('value: ', value)
 
-		console.log('value x: ', value[0])
-		console.log('value y: ', value[0].value)
+		console.log('value y: ', value.value)
 
 		// Whats happening is that if mapTeamName is null it always goes to the second option
-		mapTeamName(value[0].value) && props.teamNumber === 1
-			? RootStore.updateSelectedTeamOne(mapTeamName(value[0].value))
-			: RootStore.updateSelectedTeamTwo(mapTeamName(value[0].value))
+		mapTeamName(value.value) && props.teamNumber === 1
+			? RootStore.updateSelectedTeamOne(mapTeamName(value.value))
+			: RootStore.updateSelectedTeamTwo(mapTeamName(value.value))
 
-		console.log('mapped y: ', mapTeamName(value[0].value))
-		console.log('mapped x: ', mapTeamName(value.value))
+		console.log('mapped: ', mapTeamName(value.value))
 	}
 
 	return (
