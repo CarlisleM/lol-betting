@@ -45,17 +45,6 @@ const LeagueBar = (props: Props) => {
 					<League
 						key={index}
 						onClick={() => {
-							console.log(
-								'games: ',
-								props.games.filter((game: any) => game.league_id === league.id)
-							)
-
-							console.log(
-								'game selected: ',
-								props.games.filter(
-									(game: any) => game.league_id === league.id
-								)[0]
-							)
 							// Set the two teams to the teams of the first upcoming game
 							if (league.id !== RootStore.selectedLeague) {
 								RootStore.updateSelectedTeamOne(

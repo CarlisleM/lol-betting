@@ -46,15 +46,17 @@ const TeamSelect = (props: Props) => {
 	const handleChange = (value: any) => {
 		console.log('called')
 		console.log('value: ', value)
-		mapTeamName(value) && props.teamNumber === 1
-			? RootStore.updateSelectedTeamOne(mapTeamName(value))
-			: RootStore.updateSelectedTeamTwo(mapTeamName(value))
 
-		mapTeamName(value) && props.teamNumber === 1
-			? console.log('mapped 1: ', mapTeamName(value))
-			: console.log('mapped 2: ', mapTeamName(value))
+		console.log('value x: ', value[0])
+		console.log('value y: ', value[0].value)
 
-		// mapTeamName(value[0].value) && props.teamNumber === 1 ?	setValue(RootStore.selectedTeamOne) : setValue(RootStore.selectedTeamTwo)
+		// Whats happening is that if mapTeamName is null it always goes to the second option
+		mapTeamName(value[0].value) && props.teamNumber === 1
+			? RootStore.updateSelectedTeamOne(mapTeamName(value[0].value))
+			: RootStore.updateSelectedTeamTwo(mapTeamName(value[0].value))
+
+		console.log('mapped y: ', mapTeamName(value[0].value))
+		console.log('mapped x: ', mapTeamName(value.value))
 	}
 
 	return (
@@ -83,19 +85,8 @@ const TeamSelect = (props: Props) => {
 			)}
 
 			<TeamSelectDropdown>
-				{/* <div
-					style={{ width: 200, height: 200, backgroundColor: 'red' }}
-					onClick={() => {
-						console.log('clicked')
-						RootStore.updateSelectedTeamOne('test')
-						setValue({ value: 'xxxx', label: 'xxxx' })
-						// props.setValue(RootStore.selectedTeamOne)
-					}}
-				/> */}
 				<Select
 					style={{ width: '250px' }}
-					// onInputChange={() => ['test', ...options]}
-					// defaultInputValue={'xxx'}
 					value={{
 						value: props.selectedTeam,
 						label: mapTeamName(props.selectedTeam),
