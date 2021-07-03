@@ -62,6 +62,28 @@ const LeagueBar = (props: Props) => {
 									)[0].red_team
 								)
 							}
+
+							console.log('1: ', league.id)
+
+							console.log(
+								'2: ',
+								props.games.filter((game: any) => game.league_id === league.id)
+							)
+
+							console.log(
+								'3: ',
+								props.games.filter(
+									(game: any) => game.league_id === league.id
+								)[0]
+							)
+
+							console.log(
+								'4: ',
+								props.games.filter(
+									(game: any) => game.league_id === league.id
+								)[0].blue_team
+							)
+
 							console.log('league selectedTeamOne: ', RootStore.selectedTeamOne)
 							console.log('league selectedTeamTwo: ', RootStore.selectedTeamTwo)
 						}}
