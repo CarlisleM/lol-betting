@@ -148,9 +148,9 @@ const mappedNames = [
 
 export const mapTeamName = (teamName: string) => {
 	console.log('function teamName: ', teamName)
-	console.log('function teamNameValue: ', teamName[0])
+	// console.log('function teamNameValue: ', teamName[0])
 
-	const matchingName = mappedNames.find((name) => name[1] === teamName[0])
+	const matchingName = mappedNames.find((name) => name[1] === teamName)
 
 	console.log('function matchingName: ', matchingName)
 
