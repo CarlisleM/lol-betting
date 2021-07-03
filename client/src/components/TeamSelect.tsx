@@ -40,18 +40,15 @@ const TeamSelect = (props: Props) => {
 				<TeamLogo>
 					<img
 						style={{ objectFit: 'contain', width: '85%', height: '85%' }}
-						src={
-							require(`../images/teams/${
-								props.teamNumber === 1
-									? RootStore.selectedTeamOne
-									: RootStore.selectedTeamTwo
-							}.png`).default
-						}
-						alt={`${
-							props.teamNumber === 1
-								? RootStore.selectedTeamOne
-								: RootStore.selectedTeamTwo
-						} Logo`}
+						src={require(`../images/teams/${props.selectedTeam}.png`).default}
+						// src={
+						// 	require(`../images/teams/${
+						// 		props.teamNumber === 1
+						// 			? RootStore.selectedTeamOne
+						// 			: RootStore.selectedTeamTwo
+						// 	}.png`).default
+						// }
+						alt={`${props.selectedTeam} Logo`}
 					/>
 				</TeamLogo>
 			) : (
@@ -59,11 +56,7 @@ const TeamSelect = (props: Props) => {
 					<img
 						style={{ objectFit: 'contain', width: '85%', height: '85%' }}
 						src={require(`../images/teams/placeholder.png`).default}
-						alt={`${
-							props.teamNumber === 1
-								? RootStore.selectedTeamOne
-								: RootStore.selectedTeamTwo
-						} Logo`}
+						alt={`${props.selectedTeam} Logo`}
 					/>
 				</TeamLogo>
 			)}

@@ -7,8 +7,6 @@ import StatisticalAnalysis from './components/StatisticalAnalysis'
 import { useEffect, useState } from 'react'
 import RootStore from './store'
 import { Observer } from 'mobx-react'
-// import { useEffect, useState } from 'react'
-// import upcomingService from '../../services/requests'
 
 const Container = styled.div`
 	display: flex;
@@ -184,7 +182,6 @@ function App() {
 				</CenterInformationContainer>
 				{/* Right Side Bar */}
 				<MatchScheduleBarContainer>
-					{/* {data2} */}
 					<MatchScheduleBar
 						upcomingGames={upcomingGames}
 						teams={teams}
