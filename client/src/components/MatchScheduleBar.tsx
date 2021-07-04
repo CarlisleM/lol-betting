@@ -100,19 +100,35 @@ const MatchScheduleBar = (props: Props) => {
 												key={matchIndex}
 												style={{
 													borderBottom:
-														matchIndex !== 0 &&
+														matchIndex !==
 														props.upcomingGames.filter(
 															(upcomingGame: any) =>
 																upcomingGame.league_id ===
 																RootStore.selectedLeague
-														)[matchIndex]!.match_week >
-															props.upcomingGames.filter(
-																(upcomingGame: any) =>
-																	upcomingGame.league_id ===
-																	RootStore.selectedLeague
-															)[matchIndex - 1]!.match_week
-															? 'none'
-															: '1px solid black',
+														).length -
+															1
+															? props.upcomingGames.filter(
+																	(upcomingGame: any) =>
+																		upcomingGame.league_id ===
+																		RootStore.selectedLeague
+															  )[matchIndex].match_week <
+															  props.upcomingGames.filter(
+																	(upcomingGame: any) =>
+																		upcomingGame.league_id ===
+																		RootStore.selectedLeague
+															  )[matchIndex + 1].match_week
+																? '1px solid black'
+																: 'none'
+															: 'none',
+													// matchIndex <
+													// props.upcomingGames.filter(
+													// 	(upcomingGame: any) =>
+													// 		upcomingGame.league_id ===
+													// 		RootStore.selectedLeague
+													// ).length -
+													// 	1
+													// 	? '1px solid black'
+													// 	: 'none',
 												}}
 												onClick={() => {
 													RootStore.updateSelectedTeamOne(match.blue_team)
