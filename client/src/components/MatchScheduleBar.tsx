@@ -117,18 +117,9 @@ const MatchScheduleBar = (props: Props) => {
 																		upcomingGame.league_id ===
 																		RootStore.selectedLeague
 															  )[matchIndex + 1].match_week
-																? '1px solid black'
-																: 'none'
+																? 'none'
+																: '1px solid black'
 															: 'none',
-													// matchIndex <
-													// props.upcomingGames.filter(
-													// 	(upcomingGame: any) =>
-													// 		upcomingGame.league_id ===
-													// 		RootStore.selectedLeague
-													// ).length -
-													// 	1
-													// 	? '1px solid black'
-													// 	: 'none',
 												}}
 												onClick={() => {
 													RootStore.updateSelectedTeamOne(match.blue_team)
