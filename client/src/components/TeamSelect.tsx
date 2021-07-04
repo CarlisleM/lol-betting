@@ -50,35 +50,37 @@ const TeamSelect = (props: Props) => {
 				: RootStore.updateSelectedTeamTwo(mapFullTeamNameToAbv(value.value)))
 	}
 
-	console.log(
-		'just match league: ',
-		props.teams.filter(
-			(team: any) => team.league_id === RootStore.selectedLeague
+	if (props.teams !== null) {
+		console.log(
+			'just match league: ',
+			props.teams.filter(
+				(team: any) => team.league_id === RootStore.selectedLeague
+			)
 		)
-	)
-	console.log(
-		'just match selected name: ',
-		props.teams.filter(
-			(team: any) => team.name === mapAbvTeamNameToFull(props.selectedTeam)
-		)
-	)
-	console.log(
-		'match both: ',
-		props.teams.filter(
-			(team: any) =>
-				team.league_id === RootStore.selectedLeague ||
-				team.name === mapAbvTeamNameToFull(props.selectedTeam)
-		)
-	)
-
-	console.log(
-		'match both one after another: ',
-		props.teams
-			.filter((team: any) => team.league_id === RootStore.selectedLeague)
-			.filter(
+		console.log(
+			'just match selected name: ',
+			props.teams.filter(
 				(team: any) => team.name === mapAbvTeamNameToFull(props.selectedTeam)
 			)
-	)
+		)
+		console.log(
+			'match both: ',
+			props.teams.filter(
+				(team: any) =>
+					team.league_id === RootStore.selectedLeague ||
+					team.name === mapAbvTeamNameToFull(props.selectedTeam)
+			)
+		)
+
+		console.log(
+			'match both one after another: ',
+			props.teams
+				.filter((team: any) => team.league_id === RootStore.selectedLeague)
+				.filter(
+					(team: any) => team.name === mapAbvTeamNameToFull(props.selectedTeam)
+				)
+		)
+	}
 
 	return (
 		<TeamSelectContainer>
