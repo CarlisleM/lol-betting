@@ -67,7 +67,7 @@ const TeamSelect = (props: Props) => {
 			'match both: ',
 			props.teams.filter(
 				(team: any) =>
-					team.league_id === RootStore.selectedLeague ||
+					team.league_id === RootStore.selectedLeague &&
 					team.name !== mapAbvTeamNameToFull(props.selectedTeam)
 			)
 		)
@@ -115,8 +115,8 @@ const TeamSelect = (props: Props) => {
 							? props.teams
 									.filter(
 										(team: any) =>
-											team.league_id === RootStore.selectedLeague ||
-											team.name === mapAbvTeamNameToFull(props.selectedTeam)
+											team.league_id === RootStore.selectedLeague &&
+											team.name !== mapAbvTeamNameToFull(props.selectedTeam)
 									)
 									.map((team: any) => {
 										return { value: team.name, label: team.name }
