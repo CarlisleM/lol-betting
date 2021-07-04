@@ -121,11 +121,7 @@ function App() {
 			<Container>
 				{/* Left Side Bar */}
 				<LeagueBarContainer>
-					<Observer>
-						{() => (
-							<LeagueBar leagues={leagues} games={upcomingGames}></LeagueBar>
-						)}
-					</Observer>
+					<LeagueBar leagues={leagues} games={upcomingGames} />
 				</LeagueBarContainer>
 				{/* Center Information */}
 				<CenterInformationContainer>
@@ -188,10 +184,15 @@ function App() {
 				</CenterInformationContainer>
 				{/* Right Side Bar */}
 				<MatchScheduleBarContainer>
-					<MatchScheduleBar
-						upcomingGames={upcomingGames}
-						teams={teams}
-					></MatchScheduleBar>
+					<Observer>
+						{() => (
+							<MatchScheduleBar
+								// leagues={leagues}
+								upcomingGames={upcomingGames}
+								teams={teams}
+							/>
+						)}
+					</Observer>
 				</MatchScheduleBarContainer>
 			</Container>
 		</div>
