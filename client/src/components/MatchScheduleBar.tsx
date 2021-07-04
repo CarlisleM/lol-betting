@@ -102,71 +102,79 @@ const MatchScheduleBar = (props: Props) => {
 				<Observer>
 					{() => (
 						<>
+							{console.log('upcoming: ', selectedUpcoming)}
+							{console.log('length: ', selectedUpcoming.length)}
 							{selectedUpcoming !== null && selectedUpcoming.length > 0 ? (
-								selectedUpcoming.map((match: any, matchIndex: number) => (
-									<>
-										{matchIndex === 0 ? (
-											<MatchWeek>Week {match.match_week}</MatchWeek>
-										) : (
-											props.upcomingGames.filter(
-												(upcomingGame: any) =>
-													upcomingGame.league_id === RootStore.selectedLeague
-											)[matchIndex]!.match_week >
+								props.upcomingGames
+									.filter(
+										(upcomingGame: any) =>
+											upcomingGame.league_id === RootStore.selectedLeague
+									)
+									.map((match: any, matchIndex: number) => (
+										<>
+											{matchIndex === 0 ? (
+												<MatchWeek>Week {match.match_week}</MatchWeek>
+											) : (
 												props.upcomingGames.filter(
 													(upcomingGame: any) =>
 														upcomingGame.league_id === RootStore.selectedLeague
-												)[matchIndex - 1]!.match_week && (
-												<MatchWeek>Week {match.match_week}</MatchWeek>
-											)
-										)}
-										<MatchSchedule
-											key={matchIndex}
-											style={{
-												borderBottom:
-													matchIndex !==
+												)[matchIndex]!.match_week >
 													props.upcomingGames.filter(
 														(upcomingGame: any) =>
 															upcomingGame.league_id ===
 															RootStore.selectedLeague
-													).length -
-														1
-														? props.upcomingGames.filter(
-																(upcomingGame: any) =>
-																	upcomingGame.league_id ===
-																	RootStore.selectedLeague
-														  )[matchIndex].match_week <
-														  props.upcomingGames.filter(
-																(upcomingGame: any) =>
-																	upcomingGame.league_id ===
-																	RootStore.selectedLeague
-														  )[matchIndex + 1].match_week
-															? 'none'
-															: '1px solid black'
-														: 'none',
-											}}
-											onClick={() => {
-												RootStore.updateSelectedTeamOne(match.blue_team)
-												RootStore.updateSelectedTeamTwo(match.red_team)
-											}}
-										>
-											<MatchScheduleTeamLogo>
-												{convertDateToPST(match.game_date.split('T')[0]) ===
-													today && <TodayMatch />}
-												{teamLogo(match.blue_team)}
-											</MatchScheduleTeamLogo>
-											<MatchScheduleTime>
-												<span>{mapAbvDayToFull(match.match_day)}</span>
-												<span>{match.match_time} PST</span>
-												<span>
-													{convertDateToPST(match.game_date.split('T')[0])}
-												</span>
-											</MatchScheduleTime>
-											<MatchScheduleTeamLogo>
-												{teamLogo(match.red_team)}
-											</MatchScheduleTeamLogo>
-										</MatchSchedule>
-									</>
-								))
+													)[matchIndex - 1]!.match_week && (
+													<MatchWeek>Week {match.match_week}</MatchWeek>
+												)
+											)}
+											<MatchSchedule
+												key={matchIndex}
+												style={{
+													borderBottom:
+														matchIndex !==
+														props.upcomingGames.filter(
+															(upcomingGame: any) =>
+																upcomingGame.league_id ===
+																RootStore.selectedLeague
+														).length -
+															1
+															? props.upcomingGames.filter(
+																	(upcomingGame: any) =>
+																		upcomingGame.league_id ===
+																		RootStore.selectedLeague
+															  )[matchIndex].match_week <
+															  props.upcomingGames.filter(
+																	(upcomingGame: any) =>
+																		upcomingGame.league_id ===
+																		RootStore.selectedLeague
+															  )[matchIndex + 1].match_week
+																? 'none'
+																: '1px solid black'
+															: 'none',
+												}}
+												onClick={() => {
+													RootStore.updateSelectedTeamOne(match.blue_team)
+													RootStore.updateSelectedTeamTwo(match.red_team)
+												}}
+											>
+												<MatchScheduleTeamLogo>
+													{convertDateToPST(match.game_date.split('T')[0]) ===
+														today && <TodayMatch />}
+													{teamLogo(match.blue_team)}
+												</MatchScheduleTeamLogo>
+												<MatchScheduleTime>
+													<span>{mapAbvDayToFull(match.match_day)}</span>
+													<span>{match.match_time} PST</span>
+													<span>
+														{convertDateToPST(match.game_date.split('T')[0])}
+													</span>
+												</MatchScheduleTime>
+												<MatchScheduleTeamLogo>
+													{teamLogo(match.red_team)}
+												</MatchScheduleTeamLogo>
+											</MatchSchedule>
+										</>
+									))
 							) : (
 								<Placeholder>
 									<QuestionCircleOutlined
