@@ -43,10 +43,32 @@ interface Props {
 
 const TeamSelect = (props: Props) => {
 	const handleChange = (value: any) => {
+		console.log(
+			'just match league: ',
+			props.teams.filter(
+				(team: any) => team.league_id === RootStore.selectedLeague
+			)
+		)
+		console.log(
+			'just match selected name: ',
+			props.teams.filter(
+				(team: any) => team.name === mapAbvTeamNameToFull(props.selectedTeam)
+			)
+		)
+		console.log(
+			'match both: ',
+			props.teams.filter(
+				(team: any) =>
+					team.league_id === RootStore.selectedLeague ||
+					team.name === mapAbvTeamNameToFull(props.selectedTeam)
+			)
+		)
+
 		// Whats happening is that if mapTeamName is null it always goes to the second option
-		mapFullTeamNameToAbv(value.value) && props.teamNumber === 1
-			? RootStore.updateSelectedTeamOne(mapFullTeamNameToAbv(value.value))
-			: RootStore.updateSelectedTeamTwo(mapFullTeamNameToAbv(value.value))
+		mapFullTeamNameToAbv(value.value) !== null &&
+			(mapFullTeamNameToAbv(value.value) && props.teamNumber === 1
+				? RootStore.updateSelectedTeamOne(mapFullTeamNameToAbv(value.value))
+				: RootStore.updateSelectedTeamTwo(mapFullTeamNameToAbv(value.value)))
 	}
 
 	return (
@@ -77,7 +99,6 @@ const TeamSelect = (props: Props) => {
 			<TeamSelectDropdown>
 				<StyledSelect
 					isSearchable={true}
-					hideSelectedOptions={true} // Not currently working
 					options={
 						props.teams !== null && RootStore.selectedLeague !== null
 							? props.teams
