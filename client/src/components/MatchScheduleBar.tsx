@@ -90,9 +90,12 @@ const MatchScheduleBar = (props: Props) => {
 	})
 
 	const UpcomingMatches = () => {
-		let selectedUpcoming = props.upcomingGames.filter(
-			(upcomingGame: any) => upcomingGame.league_id === RootStore.selectedLeague
-		)
+		let selectedUpcoming =
+			props.upcomingGames &&
+			props.upcomingGames.filter(
+				(upcomingGame: any) =>
+					upcomingGame.league_id === RootStore.selectedLeague
+			)
 
 		return (
 			<>
