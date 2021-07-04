@@ -106,6 +106,12 @@ const TeamMatchData = (props: Props) => {
 		}
 	}
 
+	let currentGames = props.games.filter(
+		(game: any) =>
+			game.blue_team === props.selectedTeam ||
+			game.red_team === props.selectedTeam
+	)
+
 	return (
 		<TableContainer>
 			{props.games !== null && props.selectedTeam !== null && (
@@ -123,132 +129,122 @@ const TeamMatchData = (props: Props) => {
 						<TableHeader>W/L</TableHeader>
 					</TableHeaderContainer>
 					<TableBodyContainer>
-						{props.games.filter(
-							(game: any) =>
-								game.blue_team === props.selectedTeam ||
-								game.red_team === props.selectedTeam
-						).length > 0 &&
-							props.games
-								.filter(
-									(game: any) =>
-										game.blue_team === props.selectedTeam ||
-										game.red_team === props.selectedTeam
-								)
-								.map((match: any, index: number) => (
-									<TableBodyRow>
-										<TableBody
-											style={{
-												width: 100,
-												borderLeft: '1px solid black',
-												borderBottom:
-													index < props.games.length - 1
-														? '1px solid black'
-														: 'none',
-											}}
-										>
-											{match.game_date.split('T')[0]}
-										</TableBody>
-										<TableBody
-											style={{
-												borderBottom:
-													index < props.games.length - 1
-														? '1px solid black'
-														: 'none',
-											}}
-										>
-											{props.selectedTeam === match.blue_team
-												? match.red_team
-												: match.blue_team}
-										</TableBody>
-										<TableBody
-											style={{
-												backgroundColor:
-													props.selectedTeam === match.first_blood
-														? 'lightgreen'
-														: 'salmon',
-												borderBottom:
-													index < props.games.length - 1
-														? '1px solid black'
-														: 'none',
-											}}
-										>
-											{props.selectedTeam === match.first_blood ? '✓' : '✘'}
-										</TableBody>
-										<TableBody
-											style={{
-												backgroundColor:
-													props.selectedTeam === match.first_tower
-														? 'lightgreen'
-														: 'salmon',
-												borderBottom:
-													index < props.games.length - 1
-														? '1px solid black'
-														: 'none',
-											}}
-										>
-											{props.selectedTeam === match.first_tower ? '✓' : '✘'}
-										</TableBody>
-										<TableBody
-											style={{
-												backgroundColor:
-													props.selectedTeam === match.first_dragon
-														? 'lightgreen'
-														: 'salmon',
-												borderBottom:
-													index < props.games.length - 1
-														? '1px solid black'
-														: 'none',
-											}}
-										>
-											{props.selectedTeam === match.first_dragon ? '✓' : '✘'}
-										</TableBody>
-										<TableBody
-											style={{
-												backgroundColor:
-													props.selectedTeam === match.first_inhibitor
-														? 'lightgreen'
-														: 'salmon',
-												borderBottom:
-													index < props.games.length - 1
-														? '1px solid black'
-														: 'none',
-											}}
-										>
-											{props.selectedTeam === match.first_inhibitor ? '✓' : '✘'}
-										</TableBody>
-										<TableBody
-											style={{
-												width: 60,
-												backgroundColor:
-													props.selectedTeam === match.first_baron
-														? 'lightgreen'
-														: 'salmon',
-												borderBottom:
-													index < props.games.length - 1
-														? '1px solid black'
-														: 'none',
-											}}
-										>
-											{props.selectedTeam === match.first_baron ? '✓' : '✘'}
-										</TableBody>
-										<TableBody
-											style={{
-												backgroundColor:
-													props.selectedTeam === match.winner
-														? 'lightgreen'
-														: 'salmon',
-												borderBottom:
-													index < props.games.length - 1
-														? '1px solid black'
-														: 'none',
-											}}
-										>
-											{console.log('index: ', index)}
-											{console.log(props.games.length - 1)}
-											{props.selectedTeam === match.winner ? '✓' : '✘'}
-										</TableBody>
-									</TableBodyRow>
-								))}
+						{currentGames.length > 0 &&
+							currentGames.map((match: any, index: number) => (
+								<TableBodyRow>
+									<TableBody
+										style={{
+											width: 100,
+											borderLeft: '1px solid black',
+											borderBottom:
+												index < currentGames.length - 1
+													? '1px solid black'
+													: 'none',
+										}}
+									>
+										{match.game_date.split('T')[0]}
+									</TableBody>
+									<TableBody
+										style={{
+											borderBottom:
+												index < currentGames.length - 1
+													? '1px solid black'
+													: 'none',
+										}}
+									>
+										{props.selectedTeam === match.blue_team
+											? match.red_team
+											: match.blue_team}
+									</TableBody>
+									<TableBody
+										style={{
+											backgroundColor:
+												props.selectedTeam === match.first_blood
+													? 'lightgreen'
+													: 'salmon',
+											borderBottom:
+												index < currentGames.length - 1
+													? '1px solid black'
+													: 'none',
+										}}
+									>
+										{props.selectedTeam === match.first_blood ? '✓' : '✘'}
+									</TableBody>
+									<TableBody
+										style={{
+											backgroundColor:
+												props.selectedTeam === match.first_tower
+													? 'lightgreen'
+													: 'salmon',
+											borderBottom:
+												index < currentGames.length - 1
+													? '1px solid black'
+													: 'none',
+										}}
+									>
+										{props.selectedTeam === match.first_tower ? '✓' : '✘'}
+									</TableBody>
+									<TableBody
+										style={{
+											backgroundColor:
+												props.selectedTeam === match.first_dragon
+													? 'lightgreen'
+													: 'salmon',
+											borderBottom:
+												index < currentGames.length - 1
+													? '1px solid black'
+													: 'none',
+										}}
+									>
+										{props.selectedTeam === match.first_dragon ? '✓' : '✘'}
+									</TableBody>
+									<TableBody
+										style={{
+											backgroundColor:
+												props.selectedTeam === match.first_inhibitor
+													? 'lightgreen'
+													: 'salmon',
+											borderBottom:
+												index < currentGames.length - 1
+													? '1px solid black'
+													: 'none',
+										}}
+									>
+										{props.selectedTeam === match.first_inhibitor ? '✓' : '✘'}
+									</TableBody>
+									<TableBody
+										style={{
+											width: 60,
+											backgroundColor:
+												props.selectedTeam === match.first_baron
+													? 'lightgreen'
+													: 'salmon',
+											borderBottom:
+												index < currentGames.length - 1
+													? '1px solid black'
+													: 'none',
+										}}
+									>
+										{props.selectedTeam === match.first_baron ? '✓' : '✘'}
+									</TableBody>
+									<TableBody
+										style={{
+											backgroundColor:
+												props.selectedTeam === match.winner
+													? 'lightgreen'
+													: 'salmon',
+											borderBottom:
+												index < currentGames.length - 1
+													? '1px solid black'
+													: 'none',
+										}}
+									>
+										{console.log('index: ', index)}
+										{console.log(currentGames.length - 1)}
+										{props.selectedTeam === match.winner ? '✓' : '✘'}
+									</TableBody>
+								</TableBodyRow>
+							))}
 					</TableBodyContainer>
 
 					<TableFooterContainer>
