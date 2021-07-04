@@ -71,6 +71,7 @@ const Placeholder = styled.div`
 interface Props {
 	upcomingGames: any
 	teams: any
+	leagues: any
 }
 
 const MatchScheduleBar = (props: Props) => {

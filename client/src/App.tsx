@@ -187,7 +187,7 @@ function App() {
 					<Observer>
 						{() => (
 							<MatchScheduleBar
-								// leagues={leagues}
+								leagues={leagues}
 								upcomingGames={upcomingGames}
 								teams={teams}
 							/>
