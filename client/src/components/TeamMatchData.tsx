@@ -243,6 +243,8 @@ const TeamMatchData = (props: Props) => {
 														: 'none',
 											}}
 										>
+											{console.log('index: ', index)}
+											{console.log(props.games.length - 1)}
 											{props.selectedTeam === match.winner ? '✓' : '✘'}
 										</TableBody>
 									</TableBodyRow>
