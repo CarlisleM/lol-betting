@@ -106,15 +106,17 @@ const TeamMatchData = (props: Props) => {
 		}
 	}
 
-	let currentGames = props.games.filter(
-		(game: any) =>
-			game.blue_team === props.selectedTeam ||
-			game.red_team === props.selectedTeam
-	)
+	let currentGames =
+		props.games &&
+		props.games.filter(
+			(game: any) =>
+				game.blue_team === props.selectedTeam ||
+				game.red_team === props.selectedTeam
+		)
 
 	return (
 		<TableContainer>
-			{props.games !== null && props.selectedTeam !== null && (
+			{currentGames !== null && props.selectedTeam !== null && (
 				<>
 					<TableHeaderContainer>
 						<TableHeader style={{ width: 100, borderLeft: '1px solid black' }}>
