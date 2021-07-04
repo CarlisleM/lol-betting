@@ -34,7 +34,6 @@ const TeamSelectDropdown = styled.div`
 
 const StyledSelect = styled(Select)`
 	width: 280px;
-	padding-bottom: 10px;
 `
 
 interface Props {
@@ -90,13 +89,31 @@ const TeamSelect = (props: Props) => {
 				<StyledSelect
 					isSearchable={true}
 					maxMenuHeight={540}
+					// options={
+					// 	props.teams !== null && RootStore.selectedLeague !== null
+					// 		? props.teams
+					// 				.filter(
+					// 					(team: any) =>
+					// 						team.league_id === RootStore.selectedLeague &&
+					// 						team.name !== mapAbvTeamNameToFull(props.selectedTeam)
+					// 				)
+					// 				.map((team: any) => {
+					// 					return { value: team.name, label: team.name }
+					// 				})
+					// 		: []
+					// }
 					options={
 						props.teams !== null && RootStore.selectedLeague !== null
 							? props.teams
 									.filter(
 										(team: any) =>
 											team.league_id === RootStore.selectedLeague &&
-											team.name !== mapAbvTeamNameToFull(props.selectedTeam)
+											RootStore.selectedTeamOne &&
+											team.name !==
+												mapAbvTeamNameToFull(RootStore.selectedTeamOne) &&
+											RootStore.selectedTeamTwo &&
+											team.name !==
+												mapAbvTeamNameToFull(RootStore.selectedTeamTwo)
 									)
 									.map((team: any) => {
 										return { value: team.name, label: team.name }
