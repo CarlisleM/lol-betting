@@ -87,14 +87,7 @@ function App() {
 			.then((res) => res.json())
 			.then((leagues) =>
 				setLeagues(
-					leagues.filter(
-						(league: any) => !excludeLeagues.includes(league.name)
-						// league.name !== excludeLeagues[0] &&
-						// league.name !== excludeLeagues[1] &&
-						// league.name !== excludeLeagues[2] &&
-						// league.name !== excludeLeagues[3] &&
-						// league.name !== excludeLeagues[4]
-					)
+					leagues.filter((league: any) => !excludeLeagues.includes(league.name))
 				)
 			)
 
@@ -184,15 +177,7 @@ function App() {
 				</CenterInformationContainer>
 				{/* Right Side Bar */}
 				<MatchScheduleBarContainer>
-					<Observer>
-						{() => (
-							<MatchScheduleBar
-								leagues={leagues}
-								upcomingGames={upcomingGames}
-								teams={teams}
-							/>
-						)}
-					</Observer>
+					<MatchScheduleBar upcomingGames={upcomingGames} teams={teams} />
 				</MatchScheduleBarContainer>
 			</Container>
 		</div>

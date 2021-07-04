@@ -71,7 +71,6 @@ const Placeholder = styled.div`
 interface Props {
 	upcomingGames: any
 	teams: any
-	leagues: any
 }
 
 const MatchScheduleBar = (props: Props) => {
@@ -91,24 +90,16 @@ const MatchScheduleBar = (props: Props) => {
 	})
 
 	const UpcomingMatches = () => {
-		let selectedUpcoming =
-			props.upcomingGames &&
-			props.upcomingGames.filter(
-				(upcomingGame: any) =>
-					upcomingGame.league_id === RootStore.selectedLeague
-			)
-
 		return (
 			<>
 				<Observer>
 					{() => (
 						<>
-							{console.log('upcoming: ', selectedUpcoming)}
-							{console.log(
-								'length: ',
-								selectedUpcoming !== null && selectedUpcoming.length
-							)}
-							{selectedUpcoming !== null && selectedUpcoming.length > 0 ? (
+							{props.upcomingGames !== null &&
+							props.upcomingGames.filter(
+								(upcomingGame: any) =>
+									upcomingGame.league_id === RootStore.selectedLeague
+							).length > 0 ? (
 								props.upcomingGames
 									.filter(
 										(upcomingGame: any) =>
@@ -184,7 +175,7 @@ const MatchScheduleBar = (props: Props) => {
 									<QuestionCircleOutlined
 										style={{ fontSize: 100, paddingBottom: 10 }}
 									/>
-									<span style={{ fontSize: 30 }}>
+									<span style={{ fontSize: 30, width: '90%' }}>
 										Begin by selecting a league to display upcoming matches
 									</span>
 								</Placeholder>
