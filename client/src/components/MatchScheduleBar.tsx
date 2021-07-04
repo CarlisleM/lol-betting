@@ -103,7 +103,10 @@ const MatchScheduleBar = (props: Props) => {
 					{() => (
 						<>
 							{console.log('upcoming: ', selectedUpcoming)}
-							{console.log('length: ', selectedUpcoming.length)}
+							{console.log(
+								'length: ',
+								selectedUpcoming !== null && selectedUpcoming.length
+							)}
 							{selectedUpcoming !== null && selectedUpcoming.length > 0 ? (
 								props.upcomingGames
 									.filter(
