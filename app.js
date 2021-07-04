@@ -21,6 +21,14 @@ app.get('/api/games', (req, res) => {
   services.getAllGames(req, res);
 });
 
+app.get('/api/scrapegames', (req, res) => {
+  services.getAllGamesScrape(req, res);
+});
+
+app.get('/api/gamesscrape', (req, res) => {
+  services.getAllGamesScrapeGames(req, res);
+});
+
 app.get('/api/leagues', (req, res) => {
   services.getAllLeagues(req, res);
 });
