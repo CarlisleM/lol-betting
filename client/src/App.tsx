@@ -135,6 +135,7 @@ function App() {
 											teamNumber={1}
 											teams={teams}
 											selectedTeam={RootStore.selectedTeamOne}
+											otherSelectedTeam={RootStore.selectedTeamTwo}
 										/>
 									)}
 								</Observer>
@@ -159,6 +160,7 @@ function App() {
 											teamNumber={2}
 											teams={teams}
 											selectedTeam={RootStore.selectedTeamTwo}
+											otherSelectedTeam={RootStore.selectedTeamOne}
 										/>
 									)}
 								</Observer>

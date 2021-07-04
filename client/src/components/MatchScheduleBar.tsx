@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import RootStore from '../store'
 import { Observer } from 'mobx-react'
+import { QuestionCircleOutlined } from '@ant-design/icons'
 
 const MatchWeek = styled.div`
 	display: flex;
@@ -69,10 +70,10 @@ const MatchScheduleBar = (props: Props) => {
 					{() => (
 						<>
 							{props.upcomingGames !== null &&
-								props.upcomingGames.filter(
-									(upcomingGame: any) =>
-										upcomingGame.league_id === RootStore.selectedLeague
-								).length > 0 &&
+							props.upcomingGames.filter(
+								(upcomingGame: any) =>
+									upcomingGame.league_id === RootStore.selectedLeague
+							).length > 0 ? (
 								props.upcomingGames
 									.filter(
 										(upcomingGame: any) =>
@@ -99,15 +100,18 @@ const MatchScheduleBar = (props: Props) => {
 												key={matchIndex}
 												style={{
 													borderBottom:
-														matchIndex <
 														props.upcomingGames.filter(
 															(upcomingGame: any) =>
 																upcomingGame.league_id ===
 																RootStore.selectedLeague
-														).length -
-															1
-															? '1px solid black'
-															: 'none',
+														)[matchIndex]!.match_week >
+														props.upcomingGames.filter(
+															(upcomingGame: any) =>
+																upcomingGame.league_id ===
+																RootStore.selectedLeague
+														)[matchIndex - 1]!.match_week
+															? 'none'
+															: '1px solid black',
 												}}
 												onClick={() => {
 													RootStore.updateSelectedTeamOne(match.blue_team)
@@ -127,7 +131,28 @@ const MatchScheduleBar = (props: Props) => {
 												</MatchScheduleTeamLogo>
 											</MatchSchedule>
 										</>
-									))}
+									))
+							) : (
+								<div
+									style={{
+										display: 'flex',
+										justifyContent: 'center',
+										alignItems: 'center',
+										width: '100%',
+										height: '50%',
+										flexDirection: 'column',
+										textAlign: 'center',
+										color: 'rgba(0, 0, 0, 0.25)',
+									}}
+								>
+									<QuestionCircleOutlined
+										style={{ fontSize: 100, paddingBottom: 10 }}
+									/>
+									<span style={{ fontSize: 30 }}>
+										Begin by selecting a league to display upcoming matches
+									</span>
+								</div>
+							)}
 						</>
 					)}
 				</Observer>

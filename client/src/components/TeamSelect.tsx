@@ -40,11 +40,11 @@ interface Props {
 	teamNumber: number
 	teams: any
 	selectedTeam: any
+	otherSelectedTeam: any
 }
 
 const TeamSelect = (props: Props) => {
 	const handleChange = (value: any) => {
-		// Whats happening is that if mapTeamName is null it always goes to the second option
 		mapFullTeamNameToAbv(value.value) !== null
 			? mapFullTeamNameToAbv(value.value) && props.teamNumber === 1
 				? RootStore.updateSelectedTeamOne(mapFullTeamNameToAbv(value.value))
@@ -78,7 +78,14 @@ const TeamSelect = (props: Props) => {
 			) : (
 				<TeamLogo>
 					<img
-						style={{ objectFit: 'contain', width: '85%', height: '85%' }}
+						style={{
+							objectFit: 'contain',
+							width: '85%',
+							height: '85%',
+							opacity: '0.25',
+							filter:
+								'invert(0%) sepia(0%) saturate(4433%) hue-rotate(224deg) brightness(96%) contrast(106%)',
+						}}
 						src={require(`../images/teams/placeholder.png`).default}
 						alt={`${props.selectedTeam} Logo`}
 					/>
@@ -89,31 +96,15 @@ const TeamSelect = (props: Props) => {
 				<StyledSelect
 					isSearchable={true}
 					maxMenuHeight={540}
-					// options={
-					// 	props.teams !== null && RootStore.selectedLeague !== null
-					// 		? props.teams
-					// 				.filter(
-					// 					(team: any) =>
-					// 						team.league_id === RootStore.selectedLeague &&
-					// 						team.name !== mapAbvTeamNameToFull(props.selectedTeam)
-					// 				)
-					// 				.map((team: any) => {
-					// 					return { value: team.name, label: team.name }
-					// 				})
-					// 		: []
-					// }
 					options={
 						props.teams !== null && RootStore.selectedLeague !== null
 							? props.teams
 									.filter(
 										(team: any) =>
 											team.league_id === RootStore.selectedLeague &&
-											RootStore.selectedTeamOne &&
+											team.name !== mapAbvTeamNameToFull(props.selectedTeam) &&
 											team.name !==
-												mapAbvTeamNameToFull(RootStore.selectedTeamOne) &&
-											RootStore.selectedTeamTwo &&
-											team.name !==
-												mapAbvTeamNameToFull(RootStore.selectedTeamTwo)
+												mapAbvTeamNameToFull(props.otherSelectedTeam)
 									)
 									.map((team: any) => {
 										return { value: team.name, label: team.name }
