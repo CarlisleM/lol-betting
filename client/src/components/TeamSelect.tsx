@@ -68,7 +68,7 @@ const TeamSelect = (props: Props) => {
 			props.teams.filter(
 				(team: any) =>
 					team.league_id === RootStore.selectedLeague ||
-					team.name === mapAbvTeamNameToFull(props.selectedTeam)
+					team.name !== mapAbvTeamNameToFull(props.selectedTeam)
 			)
 		)
 
@@ -77,7 +77,7 @@ const TeamSelect = (props: Props) => {
 			props.teams
 				.filter((team: any) => team.league_id === RootStore.selectedLeague)
 				.filter(
-					(team: any) => team.name === mapAbvTeamNameToFull(props.selectedTeam)
+					(team: any) => team.name !== mapAbvTeamNameToFull(props.selectedTeam)
 				)
 		)
 	}
