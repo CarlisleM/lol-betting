@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "LoL Stats",
+  "name": "League of Legends Stats",
   "icons": [
     {
       "src": "favicon.ico",

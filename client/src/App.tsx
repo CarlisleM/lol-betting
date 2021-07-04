@@ -88,12 +88,12 @@ function App() {
 			.then((leagues) =>
 				setLeagues(
 					leagues.filter(
-						(league: any) =>
-							league.name !== excludeLeagues[0] &&
-							league.name !== excludeLeagues[1] &&
-							league.name !== excludeLeagues[2] &&
-							league.name !== excludeLeagues[3] &&
-							league.name !== excludeLeagues[4]
+						(league: any) => !excludeLeagues.includes(league.name)
+						// league.name !== excludeLeagues[0] &&
+						// league.name !== excludeLeagues[1] &&
+						// league.name !== excludeLeagues[2] &&
+						// league.name !== excludeLeagues[3] &&
+						// league.name !== excludeLeagues[4]
 					)
 				)
 			)
