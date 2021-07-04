@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import RootStore from '../store'
-import { Observer } from 'mobx-react'
 import { QuestionCircleOutlined } from '@ant-design/icons'
 import { mapAbvDayToFull } from '../helpers/mapDay'
 import { convertDateToPST } from '../helpers/convertDateTime'
@@ -99,67 +98,59 @@ const MatchScheduleBar = (props: Props) => {
 
 		return (
 			<>
-				<Observer>
-					{() => (
+				{selectedUpcoming !== null && selectedUpcoming.length > 0 ? (
+					selectedUpcoming.map((match: any, matchIndex: number) => (
 						<>
-							{selectedUpcoming !== null && selectedUpcoming.length > 0 ? (
-								selectedUpcoming.map((match: any, matchIndex: number) => (
-									<>
-										{matchIndex === 0 ? (
-											<MatchWeek>Week {match.match_week}</MatchWeek>
-										) : (
-											selectedUpcoming[matchIndex]!.match_week >
-												selectedUpcoming[matchIndex - 1]!.match_week && (
-												<MatchWeek>Week {match.match_week}</MatchWeek>
-											)
-										)}
-										<MatchSchedule
-											key={matchIndex}
-											style={{
-												borderBottom:
-													matchIndex !== selectedUpcoming.length - 1
-														? selectedUpcoming[matchIndex].match_week <
-														  selectedUpcoming[matchIndex + 1].match_week
-															? 'none'
-															: '1px solid black'
-														: 'none',
-											}}
-											onClick={() => {
-												RootStore.updateSelectedTeamOne(match.blue_team)
-												RootStore.updateSelectedTeamTwo(match.red_team)
-											}}
-										>
-											<MatchScheduleTeamLogo>
-												{convertDateToPST(match.game_date.split('T')[0]) ===
-													today && <TodayMatch />}
-												{teamLogo(match.blue_team)}
-											</MatchScheduleTeamLogo>
-											<MatchScheduleTime>
-												<span>{mapAbvDayToFull(match.match_day)}</span>
-												<span>{match.match_time} PST</span>
-												<span>
-													{convertDateToPST(match.game_date.split('T')[0])}
-												</span>
-											</MatchScheduleTime>
-											<MatchScheduleTeamLogo>
-												{teamLogo(match.red_team)}
-											</MatchScheduleTeamLogo>
-										</MatchSchedule>
-									</>
-								))
+							{matchIndex === 0 ? (
+								<MatchWeek>Week {match.match_week}</MatchWeek>
 							) : (
-								<Placeholder>
-									<QuestionCircleOutlined
-										style={{ fontSize: 100, paddingBottom: 10 }}
-									/>
-									<span style={{ fontSize: 30, width: '90%' }}>
-										Begin by selecting a league to display upcoming matches
-									</span>
-								</Placeholder>
+								selectedUpcoming[matchIndex]!.match_week >
+									selectedUpcoming[matchIndex - 1]!.match_week && (
+									<MatchWeek>Week {match.match_week}</MatchWeek>
+								)
 							)}
+							<MatchSchedule
+								key={matchIndex}
+								style={{
+									borderBottom:
+										matchIndex !== selectedUpcoming.length - 1
+											? selectedUpcoming[matchIndex].match_week <
+											  selectedUpcoming[matchIndex + 1].match_week
+												? 'none'
+												: '1px solid black'
+											: 'none',
+								}}
+								onClick={() => {
+									RootStore.updateSelectedTeamOne(match.blue_team)
+									RootStore.updateSelectedTeamTwo(match.red_team)
+								}}
+							>
+								<MatchScheduleTeamLogo>
+									{convertDateToPST(match.game_date.split('T')[0]) ===
+										today && <TodayMatch />}
+									{teamLogo(match.blue_team)}
+								</MatchScheduleTeamLogo>
+								<MatchScheduleTime>
+									<span>{mapAbvDayToFull(match.match_day)}</span>
+									<span>{match.match_time} PST</span>
+									<span>{convertDateToPST(match.game_date.split('T')[0])}</span>
+								</MatchScheduleTime>
+								<MatchScheduleTeamLogo>
+									{teamLogo(match.red_team)}
+								</MatchScheduleTeamLogo>
+							</MatchSchedule>
 						</>
-					)}
-				</Observer>
+					))
+				) : (
+					<Placeholder>
+						<QuestionCircleOutlined
+							style={{ fontSize: 100, paddingBottom: 10 }}
+						/>
+						<span style={{ fontSize: 30, width: '90%' }}>
+							Begin by selecting a league to display upcoming matches
+						</span>
+					</Placeholder>
+				)}
 			</>
 		)
 	}
