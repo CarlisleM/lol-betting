@@ -147,8 +147,6 @@ const mappedNames = [
 ]
 
 export const mapFullTeamNameToAbv = (teamName: string) => {
-	console.log('teamName: ', teamName)
-
 	const matchingName = mappedNames.find((name) => name[1] === teamName)
 
 	if (matchingName) {
@@ -159,8 +157,6 @@ export const mapFullTeamNameToAbv = (teamName: string) => {
 }
 
 export const mapAbvTeamNameToFull = (teamAbv: string) => {
-	console.log('teamAbv: ', teamAbv)
-
 	const matchingName = mappedNames.find((name) => name[0] === teamAbv)
 
 	if (matchingName) {

@@ -32,7 +32,7 @@ const TeamSelectDropdown = styled.div`
 
 const StyledSelect = styled(Select)`
 	width: 280px;
-	max-height: 540px;
+	max-height: 540px; // Not currently working
 `
 
 interface Props {
@@ -43,17 +43,10 @@ interface Props {
 
 const TeamSelect = (props: Props) => {
 	const handleChange = (value: any) => {
-		console.log('called')
-		console.log('value: ', value)
-
-		console.log('value y: ', value.value)
-
 		// Whats happening is that if mapTeamName is null it always goes to the second option
 		mapFullTeamNameToAbv(value.value) && props.teamNumber === 1
 			? RootStore.updateSelectedTeamOne(mapFullTeamNameToAbv(value.value))
 			: RootStore.updateSelectedTeamTwo(mapFullTeamNameToAbv(value.value))
-
-		console.log('mapped: ', mapFullTeamNameToAbv(value.value))
 	}
 
 	return (
@@ -84,12 +77,14 @@ const TeamSelect = (props: Props) => {
 			<TeamSelectDropdown>
 				<StyledSelect
 					isSearchable={true}
-					hideSelectedOptions={true}
+					hideSelectedOptions={true} // Not currently working
 					options={
 						props.teams !== null && RootStore.selectedLeague !== null
 							? props.teams
 									.filter(
-										(team: any) => team.league_id === RootStore.selectedLeague
+										(team: any) =>
+											team.league_id === RootStore.selectedLeague ||
+											team.name === mapAbvTeamNameToFull(props.selectedTeam)
 									)
 									.map((team: any) => {
 										return { value: team.name, label: team.name }
