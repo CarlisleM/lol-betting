@@ -5,6 +5,8 @@ import {
 	mapAbvTeamNameToFull,
 	mapFullTeamNameToAbv,
 } from '../helpers/mapTeamNames'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const TeamSelectContainer = styled.div`
 	display: flex;
@@ -32,7 +34,7 @@ const TeamSelectDropdown = styled.div`
 
 const StyledSelect = styled(Select)`
 	width: 280px;
-	max-height: 540px; // Not currently working
+	padding-bottom: 10px;
 `
 
 interface Props {
@@ -44,42 +46,19 @@ interface Props {
 const TeamSelect = (props: Props) => {
 	const handleChange = (value: any) => {
 		// Whats happening is that if mapTeamName is null it always goes to the second option
-		mapFullTeamNameToAbv(value.value) !== null &&
-			(mapFullTeamNameToAbv(value.value) && props.teamNumber === 1
+		mapFullTeamNameToAbv(value.value) !== null
+			? mapFullTeamNameToAbv(value.value) && props.teamNumber === 1
 				? RootStore.updateSelectedTeamOne(mapFullTeamNameToAbv(value.value))
-				: RootStore.updateSelectedTeamTwo(mapFullTeamNameToAbv(value.value)))
-	}
-
-	if (props.teams !== null) {
-		console.log(
-			'just match league: ',
-			props.teams.filter(
-				(team: any) => team.league_id === RootStore.selectedLeague
-			)
-		)
-		console.log(
-			'just match selected name: ',
-			props.teams.filter(
-				(team: any) => team.name === mapAbvTeamNameToFull(props.selectedTeam)
-			)
-		)
-		console.log(
-			'match both: ',
-			props.teams.filter(
-				(team: any) =>
-					team.league_id === RootStore.selectedLeague &&
-					team.name !== mapAbvTeamNameToFull(props.selectedTeam)
-			)
-		)
-
-		console.log(
-			'match both one after another: ',
-			props.teams
-				.filter((team: any) => team.league_id === RootStore.selectedLeague)
-				.filter(
-					(team: any) => team.name !== mapAbvTeamNameToFull(props.selectedTeam)
-				)
-		)
+				: RootStore.updateSelectedTeamTwo(mapFullTeamNameToAbv(value.value))
+			: toast.error('Unable to find selected team data', {
+					position: 'bottom-center',
+					autoClose: 3000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+			  })
 	}
 
 	return (
@@ -110,6 +89,7 @@ const TeamSelect = (props: Props) => {
 			<TeamSelectDropdown>
 				<StyledSelect
 					isSearchable={true}
+					maxMenuHeight={540}
 					options={
 						props.teams !== null && RootStore.selectedLeague !== null
 							? props.teams
@@ -130,6 +110,7 @@ const TeamSelect = (props: Props) => {
 					onChange={(value: any) => handleChange(value)}
 				/>
 			</TeamSelectDropdown>
+			<ToastContainer />
 		</TeamSelectContainer>
 	)
 }
