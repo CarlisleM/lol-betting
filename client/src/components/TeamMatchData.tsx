@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import RootStore from '../store'
 
 const TableContainer = styled.div`
 	display: flex;
@@ -142,6 +143,14 @@ const TeamMatchData = (props: Props) => {
 												index < currentGames.length - 1
 													? '1px solid black'
 													: 'none',
+
+											backgroundColor:
+												match.red_team === RootStore.selectedTeamOne ||
+												match.red_team === RootStore.selectedTeamTwo ||
+												match.blue_team === RootStore.selectedTeamOne ||
+												match.blue_team === RootStore.selectedTeamTwo
+													? 'darkgrey'
+													: 'none',
 										}}
 									>
 										{match.game_date.split('T')[0]}
@@ -151,6 +160,13 @@ const TeamMatchData = (props: Props) => {
 											borderBottom:
 												index < currentGames.length - 1
 													? '1px solid black'
+													: 'none',
+											backgroundColor:
+												match.red_team === RootStore.selectedTeamOne ||
+												match.red_team === RootStore.selectedTeamTwo ||
+												match.blue_team === RootStore.selectedTeamOne ||
+												match.blue_team === RootStore.selectedTeamTwo
+													? 'darkgrey'
 													: 'none',
 										}}
 									>

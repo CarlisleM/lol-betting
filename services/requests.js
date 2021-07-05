@@ -48,4 +48,4 @@ const getAllTeams = (req, res) => {
     .catch(err => console.log(err));
 }
 
-module.exports = { getAllUpcomingGames, getAllGames, getAllLeagues, getAllTeams, getAllGamesScrape }
+module.exports = { getAllUpcomingGames, getAllGames, getAllGamesScrape, getAllLeagues, getAllTeams }
