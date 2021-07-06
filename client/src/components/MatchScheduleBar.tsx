@@ -106,10 +106,10 @@ const MatchScheduleBar = (props: Props) => {
 		scheduleBarRef !== null && scheduleBarRef.current?.scrollTo(0, 0)
 
 		return (
-			<ScheduleBarContainer ref={scheduleBarRef}>
-				<Observer>
-					{() => (
-						<>
+			<Observer>
+				{() => (
+					<>
+						<ScheduleBarContainer ref={scheduleBarRef}>
 							{props.upcomingGames !== null &&
 							props.upcomingGames.filter(
 								(upcomingGame: any) =>
@@ -195,10 +195,10 @@ const MatchScheduleBar = (props: Props) => {
 									</span>
 								</Placeholder>
 							)}
-						</>
-					)}
-				</Observer>
-			</ScheduleBarContainer>
+						</ScheduleBarContainer>
+					</>
+				)}
+			</Observer>
 		)
 	}
 
