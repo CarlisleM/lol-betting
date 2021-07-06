@@ -138,11 +138,6 @@ const TeamMatchData = (props: Props) => {
 						<TableHeader>W/L</TableHeader>
 					</TableHeaderContainer>
 					<TableBodyContainer ref={matchContainerRef}>
-						{console.log('matchContainerRef: ', matchContainerRef)}
-						{console.log(
-							'matchContainerRef scrollTop: ',
-							matchContainerRef.current?.scrollTop
-						)}
 						{currentGames.length > 0 &&
 							currentGames.map((match: any, index: number) => (
 								<TableBodyRow>

@@ -4,6 +4,7 @@ import { Observer } from 'mobx-react'
 import { QuestionCircleOutlined } from '@ant-design/icons'
 import { mapAbvDayToFull } from '../helpers/mapDay'
 import { convertDateToPST } from '../helpers/convertDateTime'
+import { useRef } from 'react'
 
 const MatchWeek = styled.div`
 	display: flex;
@@ -90,6 +91,10 @@ const MatchScheduleBar = (props: Props) => {
 	})
 
 	const UpcomingMatches = () => {
+		// Scroll to the top of the table on load
+		const scheduleBarRef = useRef<HTMLDivElement>(null)
+		scheduleBarRef !== null && scheduleBarRef.current?.scrollTo(0, 0)
+
 		return (
 			<>
 				<Observer>

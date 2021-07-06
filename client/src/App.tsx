@@ -64,8 +64,8 @@ const StatsAnalysis = styled.div`
 `
 
 const MatchScheduleBarContainer = styled.div`
-	width: 18%;
-	height: 100vh;
+	width: 100%;
+	height: calc(100vh - 101px);
 	overflow: scroll;
 	-ms-overflow-style: none;
 	::-webkit-scrollbar {
@@ -76,7 +76,7 @@ const MatchScheduleBarContainer = styled.div`
 function App() {
 	const excludeLeagues = ['LCK', 'LFL', 'LPL', 'PCS', 'VCS']
 
-	const [leagues, setLeagues] = useState(null)
+	const [leagues, setLeagues] = useState<any>(null)
 	const [teams, setTeams] = useState(null)
 	const [upcomingGames, setUpcomingGames] = useState(null)
 	const [games, setGames] = useState(null)
@@ -178,9 +178,47 @@ function App() {
 					</StatsAnalysis>
 				</CenterInformationContainer>
 				{/* Right Side Bar */}
-				<MatchScheduleBarContainer>
-					<MatchScheduleBar upcomingGames={upcomingGames} teams={teams} />
-				</MatchScheduleBarContainer>
+				<div
+					style={{
+						display: 'flex',
+						flexDirection: 'column',
+						width: '18%',
+					}}
+				>
+					<div
+						style={{
+							width: '100%',
+							height: 100,
+							borderBottom: '1px solid black',
+						}}
+					>
+						{leagues && (
+							<img
+								style={{
+									objectFit: 'contain',
+									maxWidth: 280,
+									width: '85%',
+									height: '85%',
+								}}
+								src={
+									require(`./images/league_banner/${
+										leagues.find(
+											(league: any) => league.id === RootStore.selectedLeague
+										).name
+									}.png`).default
+								}
+								alt={`${
+									leagues.find(
+										(league: any) => league.id === RootStore.selectedLeague
+									).name
+								} Logo`}
+							/>
+						)}
+					</div>
+					<MatchScheduleBarContainer>
+						<MatchScheduleBar upcomingGames={upcomingGames} teams={teams} />
+					</MatchScheduleBarContainer>
+				</div>
 			</Container>
 		</div>
 	)
