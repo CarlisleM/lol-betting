@@ -173,9 +173,13 @@ function App() {
 					</StatsAnalysis>
 				</CenterInformationContainer>
 				{/* Right Side Bar */}
-				<MatchScheduleBarContainer>
-					<MatchScheduleBar upcomingGames={upcomingGames} teams={teams} />
-				</MatchScheduleBarContainer>
+				<Observer>
+					{() => (
+						<MatchScheduleBarContainer>
+							<MatchScheduleBar upcomingGames={upcomingGames} teams={teams} />
+						</MatchScheduleBarContainer>
+					)}
+				</Observer>
 			</Container>
 		</div>
 	)
