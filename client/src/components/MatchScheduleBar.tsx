@@ -110,19 +110,6 @@ const MatchScheduleBar = (props: Props) => {
 			<Observer>
 				{() => (
 					<>
-						{console.log('selected league: ', RootStore.selectedLeague)}
-						{console.log(
-							'match: ',
-							props.selectedLeague.find(
-								(league: any) => league.id === RootStore.selectedLeague
-							)
-						)}
-						{console.log(
-							'name: ',
-							props.selectedLeague.find(
-								(league: any) => league.id === RootStore.selectedLeague
-							).name
-						)}
 						{props.upcomingGames !== null &&
 							props.upcomingGames.filter(
 								(upcomingGame: any) =>
@@ -135,6 +122,19 @@ const MatchScheduleBar = (props: Props) => {
 										borderBottom: '1px solid black',
 									}}
 								>
+									{console.log('selected league: ', RootStore.selectedLeague)}
+									{console.log(
+										'match: ',
+										props.selectedLeague.find(
+											(league: any) => league.id === RootStore.selectedLeague
+										)
+									)}
+									{console.log(
+										'name: ',
+										props.selectedLeague.find(
+											(league: any) => league.id === RootStore.selectedLeague
+										).name
+									)}
 									{
 										<img
 											style={{
