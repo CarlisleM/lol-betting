@@ -148,14 +148,14 @@ const MatchScheduleBar = (props: Props) => {
 											}}
 											src={
 												require(`./../images/league_banner/${
-													props.selectedLeague.find(
+													props.selectedLeague.filter(
 														(league: any) =>
 															league.id === RootStore.selectedLeague
 													).name
 												}.png`).default
 											}
 											alt={`${
-												props.selectedLeague.find(
+												props.selectedLeague.filter(
 													(league: any) =>
 														league.id === RootStore.selectedLeague
 												).name
