@@ -138,7 +138,7 @@ const MatchScheduleBar = (props: Props) => {
 											(league: any) => league.id === RootStore.selectedLeague
 										).name
 									)}
-									{/* {
+									{RootStore && (
 										<img
 											style={{
 												objectFit: 'contain',
@@ -161,7 +161,7 @@ const MatchScheduleBar = (props: Props) => {
 												).name
 											} Logo`}
 										/>
-									} */}
+									)}
 								</div>
 							)}
 						<MatchScheduleBarContainer>
