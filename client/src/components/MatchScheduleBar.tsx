@@ -6,6 +6,16 @@ import { mapAbvDayToFull } from '../helpers/mapDay'
 import { convertDateToPST } from '../helpers/convertDateTime'
 import { useRef } from 'react'
 
+const ScheduleBarContainer = styled.div`
+	height: 100%;
+	width: 100%;
+	overflow: scroll;
+	-ms-overflow-style: none;
+	::-webkit-scrollbar {
+		display: none;
+	}
+`
+
 const MatchWeek = styled.div`
 	display: flex;
 	justify-content: center;
@@ -96,7 +106,7 @@ const MatchScheduleBar = (props: Props) => {
 		scheduleBarRef !== null && scheduleBarRef.current?.scrollTo(0, 0)
 
 		return (
-			<>
+			<ScheduleBarContainer ref={scheduleBarRef}>
 				<Observer>
 					{() => (
 						<>
@@ -188,7 +198,7 @@ const MatchScheduleBar = (props: Props) => {
 						</>
 					)}
 				</Observer>
-			</>
+			</ScheduleBarContainer>
 		)
 	}
 

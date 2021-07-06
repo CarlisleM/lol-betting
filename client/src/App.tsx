@@ -66,11 +66,6 @@ const StatsAnalysis = styled.div`
 const MatchScheduleBarContainer = styled.div`
 	width: 18%;
 	height: 100vh;
-	overflow: scroll;
-	-ms-overflow-style: none;
-	::-webkit-scrollbar {
-		display: none;
-	}
 `
 
 function App() {
