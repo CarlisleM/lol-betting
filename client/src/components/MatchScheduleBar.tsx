@@ -114,7 +114,9 @@ const MatchScheduleBar = (props: Props) => {
 							props.upcomingGames.filter(
 								(upcomingGame: any) =>
 									upcomingGame.league_id === RootStore.selectedLeague
-							).length > 0 && (
+							).length > 0 &&
+							props.selectedLeague !== null &&
+							RootStore.selectedLeague !== null && (
 								<div
 									style={{
 										width: '100%',
