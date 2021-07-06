@@ -175,7 +175,7 @@ function App() {
 				{/* Right Side Bar */}
 				<MatchScheduleBarContainer>
 					<MatchScheduleBar
-						selectedLeague={RootStore.selectedLeague}
+						selectedLeague={leagues}
 						upcomingGames={upcomingGames}
 						teams={teams}
 					/>

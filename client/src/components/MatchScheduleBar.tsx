@@ -110,6 +110,7 @@ const MatchScheduleBar = (props: Props) => {
 			<Observer>
 				{() => (
 					<>
+						{/* {console.log(props.selectedLeague)} */}
 						{props.upcomingGames !== null &&
 							props.upcomingGames.filter(
 								(upcomingGame: any) =>
