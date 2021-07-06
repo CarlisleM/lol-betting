@@ -135,6 +135,23 @@ const TeamMatchData = (props: Props) => {
 						{currentGames.length > 0 &&
 							currentGames.map((match: any, index: number) => (
 								<TableBodyRow>
+									{console.log('=============')}
+									{console.log('match.red_team', match.red_team)}
+									{console.log('match.blue_team', match.blue_team)}
+									{console.log(
+										'RootStore.selectedTeamOne',
+										RootStore.selectedTeamOne
+									)}
+									{console.log(
+										'RootStore.selectedTeamTwo',
+										RootStore.selectedTeamTwo
+									)}
+									{console.log(
+										match.red_team === RootStore.selectedTeamOne ||
+											match.red_team === RootStore.selectedTeamTwo ||
+											match.blue_team === RootStore.selectedTeamOne ||
+											match.blue_team === RootStore.selectedTeamTwo
+									)}
 									<TableBody
 										style={{
 											width: 100,
@@ -144,13 +161,13 @@ const TeamMatchData = (props: Props) => {
 													? '1px solid black'
 													: 'none',
 
-											backgroundColor:
-												match.red_team === RootStore.selectedTeamOne ||
-												match.red_team === RootStore.selectedTeamTwo ||
-												match.blue_team === RootStore.selectedTeamOne ||
-												match.blue_team === RootStore.selectedTeamTwo
-													? 'darkgrey'
-													: 'none',
+											// backgroundColor:
+											// 	match.red_team === RootStore.selectedTeamOne ||
+											// 	match.red_team === RootStore.selectedTeamTwo ||
+											// 	match.blue_team === RootStore.selectedTeamOne ||
+											// 	match.blue_team === RootStore.selectedTeamTwo
+											// 		? 'darkgrey'
+											// 		: 'none',
 										}}
 									>
 										{match.game_date.split('T')[0]}
@@ -161,13 +178,13 @@ const TeamMatchData = (props: Props) => {
 												index < currentGames.length - 1
 													? '1px solid black'
 													: 'none',
-											backgroundColor:
-												match.red_team === RootStore.selectedTeamOne ||
-												match.red_team === RootStore.selectedTeamTwo ||
-												match.blue_team === RootStore.selectedTeamOne ||
-												match.blue_team === RootStore.selectedTeamTwo
-													? 'darkgrey'
-													: 'none',
+											// backgroundColor:
+											// 	match.red_team === RootStore.selectedTeamOne ||
+											// 	match.red_team === RootStore.selectedTeamTwo ||
+											// 	match.blue_team === RootStore.selectedTeamOne ||
+											// 	match.blue_team === RootStore.selectedTeamTwo
+											// 		? 'darkgrey'
+											// 		: 'none',
 										}}
 									>
 										{props.selectedTeam === match.blue_team
