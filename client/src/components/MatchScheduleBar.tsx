@@ -6,16 +6,6 @@ import { mapAbvDayToFull } from '../helpers/mapDay'
 import { convertDateToPST } from '../helpers/convertDateTime'
 import { useRef } from 'react'
 
-const MatchScheduleBarContainer = styled.div`
-	width: 100%;
-	height: calc(100vh - 101px);
-	overflow: scroll;
-	-ms-overflow-style: none;
-	::-webkit-scrollbar {
-		display: none;
-	}
-`
-
 const MatchWeek = styled.div`
 	display: flex;
 	justify-content: center;
@@ -80,7 +70,6 @@ const Placeholder = styled.div`
 `
 
 interface Props {
-	selectedLeague: any
 	upcomingGames: any
 	teams: any
 }
@@ -107,52 +96,10 @@ const MatchScheduleBar = (props: Props) => {
 		scheduleBarRef !== null && scheduleBarRef.current?.scrollTo(0, 0)
 
 		return (
-			<Observer>
-				{() => (
-					<>
-						{/* {console.log(props.selectedLeague)} */}
-						{props.upcomingGames !== null &&
-							props.upcomingGames.filter(
-								(upcomingGame: any) =>
-									upcomingGame.league_id === RootStore.selectedLeague
-							).length > 0 &&
-							props.selectedLeague !== null &&
-							RootStore.selectedLeague !== null && (
-								<div
-									style={{
-										width: '100%',
-										height: 100,
-										borderBottom: '1px solid black',
-									}}
-								>
-									{console.log('selected league: ', RootStore.selectedLeague)}
-									{console.log(
-										'match: ',
-										props.selectedLeague.find(
-											(league: any) => league.id === RootStore.selectedLeague
-										)
-									)}
-									{console.log(
-										'name: ',
-										props.selectedLeague.find(
-											(league: any) => league.id === RootStore.selectedLeague
-										).name
-									)}
-									{RootStore && (
-										<img
-											style={{
-												objectFit: 'contain',
-												maxWidth: 280,
-												width: '100%',
-												height: '100%',
-											}}
-											src={require(`./../images/league_banner/lcs.png`).default}
-											alt={`LCS Logo`}
-										/>
-									)}
-								</div>
-							)}
-						<MatchScheduleBarContainer>
+			<>
+				<Observer>
+					{() => (
+						<>
 							{props.upcomingGames !== null &&
 							props.upcomingGames.filter(
 								(upcomingGame: any) =>
@@ -238,10 +185,10 @@ const MatchScheduleBar = (props: Props) => {
 									</span>
 								</Placeholder>
 							)}
-						</MatchScheduleBarContainer>
-					</>
-				)}
-			</Observer>
+						</>
+					)}
+				</Observer>
+			</>
 		)
 	}
 

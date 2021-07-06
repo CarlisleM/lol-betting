@@ -66,12 +66,17 @@ const StatsAnalysis = styled.div`
 const MatchScheduleBarContainer = styled.div`
 	width: 18%;
 	height: 100vh;
+	overflow: scroll;
+	-ms-overflow-style: none;
+	::-webkit-scrollbar {
+		display: none;
+	}
 `
 
 function App() {
 	const excludeLeagues = ['LCK', 'LFL', 'LPL', 'PCS', 'VCS']
 
-	const [leagues, setLeagues] = useState<any>(null)
+	const [leagues, setLeagues] = useState(null)
 	const [teams, setTeams] = useState(null)
 	const [upcomingGames, setUpcomingGames] = useState(null)
 	const [games, setGames] = useState(null)
@@ -174,11 +179,7 @@ function App() {
 				</CenterInformationContainer>
 				{/* Right Side Bar */}
 				<MatchScheduleBarContainer>
-					<MatchScheduleBar
-						selectedLeague={leagues}
-						upcomingGames={upcomingGames}
-						teams={teams}
-					/>
+					<MatchScheduleBar upcomingGames={upcomingGames} teams={teams} />
 				</MatchScheduleBarContainer>
 			</Container>
 		</div>
