@@ -137,6 +137,7 @@ function App() {
 								<Observer>
 									{() => (
 										<TeamMatchData
+											teamNumber={1}
 											selectedTeam={RootStore.selectedTeamOne}
 											games={games}
 										/>
@@ -162,6 +163,7 @@ function App() {
 								<Observer>
 									{() => (
 										<TeamMatchData
+											teamNumber={2}
 											selectedTeam={RootStore.selectedTeamTwo}
 											games={games}
 										/>
