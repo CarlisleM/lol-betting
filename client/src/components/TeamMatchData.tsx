@@ -117,7 +117,9 @@ const TeamMatchData = (props: Props) => {
 				game.red_team === props.selectedTeam
 		)
 
-	const divRef = useRef<HTMLDivElement>(null)
+	// Scroll to the top of the table on load
+	const matchContainerRef = useRef<HTMLDivElement>(null)
+	matchContainerRef !== null && matchContainerRef.current?.scrollTo(0, 0)
 
 	return (
 		<TableContainer>
@@ -135,9 +137,12 @@ const TeamMatchData = (props: Props) => {
 						<TableHeader style={{ width: 60 }}>FBaron</TableHeader>
 						<TableHeader>W/L</TableHeader>
 					</TableHeaderContainer>
-					<TableBodyContainer ref={divRef}>
-						{console.log('divRef: ', divRef)}
-						{console.log('divRef scrollTop: ', divRef.current?.scrollTop)}
+					<TableBodyContainer ref={matchContainerRef}>
+						{console.log('matchContainerRef: ', matchContainerRef)}
+						{console.log(
+							'matchContainerRef scrollTop: ',
+							matchContainerRef.current?.scrollTop
+						)}
 						{currentGames.length > 0 &&
 							currentGames.map((match: any, index: number) => (
 								<TableBodyRow>
