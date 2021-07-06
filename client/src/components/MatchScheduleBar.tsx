@@ -80,6 +80,7 @@ const Placeholder = styled.div`
 `
 
 interface Props {
+	selectedLeague: any
 	upcomingGames: any
 	teams: any
 }

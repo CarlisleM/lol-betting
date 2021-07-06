@@ -176,7 +176,11 @@ function App() {
 				<Observer>
 					{() => (
 						<MatchScheduleBarContainer>
-							<MatchScheduleBar upcomingGames={upcomingGames} teams={teams} />
+							<MatchScheduleBar
+								selectedLeague={RootStore.selectedLeague}
+								upcomingGames={upcomingGames}
+								teams={teams}
+							/>
 						</MatchScheduleBarContainer>
 					)}
 				</Observer>
