@@ -146,20 +146,8 @@ const MatchScheduleBar = (props: Props) => {
 												width: '100%',
 												height: '100%',
 											}}
-											src={
-												require(`./../images/league_banner/${
-													props.selectedLeague.filter(
-														(league: any) =>
-															league.id === RootStore.selectedLeague
-													).name
-												}.png`).default
-											}
-											alt={`${
-												props.selectedLeague.filter(
-													(league: any) =>
-														league.id === RootStore.selectedLeague
-												).name
-											} Logo`}
+											src={require(`./../images/league_banner/lcs.png`).default}
+											alt={`LCS Logo`}
 										/>
 									)}
 								</div>
