@@ -64,13 +64,8 @@ const StatsAnalysis = styled.div`
 `
 
 const MatchScheduleBarContainer = styled.div`
-	width: 100%;
-	height: calc(100vh - 101px);
-	overflow: scroll;
-	-ms-overflow-style: none;
-	::-webkit-scrollbar {
-		display: none;
-	}
+	width: 18%;
+	height: 100vh;
 `
 
 function App() {
@@ -178,47 +173,13 @@ function App() {
 					</StatsAnalysis>
 				</CenterInformationContainer>
 				{/* Right Side Bar */}
-				<div
-					style={{
-						display: 'flex',
-						flexDirection: 'column',
-						width: '18%',
-					}}
-				>
-					<div
-						style={{
-							width: '100%',
-							height: 100,
-							borderBottom: '1px solid black',
-						}}
-					>
-						{leagues && (
-							<img
-								style={{
-									objectFit: 'contain',
-									maxWidth: 280,
-									width: '85%',
-									height: '85%',
-								}}
-								src={
-									require(`./images/league_banner/${
-										leagues.find(
-											(league: any) => league.id === RootStore.selectedLeague
-										).name
-									}.png`).default
-								}
-								alt={`${
-									leagues.find(
-										(league: any) => league.id === RootStore.selectedLeague
-									).name
-								} Logo`}
-							/>
-						)}
-					</div>
-					<MatchScheduleBarContainer>
-						<MatchScheduleBar upcomingGames={upcomingGames} teams={teams} />
-					</MatchScheduleBarContainer>
-				</div>
+				<MatchScheduleBarContainer>
+					<MatchScheduleBar
+						selectedLeague={RootStore.selectedLeague}
+						upcomingGames={upcomingGames}
+						teams={teams}
+					/>
+				</MatchScheduleBarContainer>
 			</Container>
 		</div>
 	)
