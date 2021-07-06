@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import styled from 'styled-components'
 import RootStore from '../store'
 
@@ -116,6 +117,8 @@ const TeamMatchData = (props: Props) => {
 				game.red_team === props.selectedTeam
 		)
 
+	const divRef = useRef<HTMLDivElement>(null)
+
 	return (
 		<TableContainer>
 			{currentGames !== null && props.selectedTeam !== null && (
@@ -132,7 +135,9 @@ const TeamMatchData = (props: Props) => {
 						<TableHeader style={{ width: 60 }}>FBaron</TableHeader>
 						<TableHeader>W/L</TableHeader>
 					</TableHeaderContainer>
-					<TableBodyContainer>
+					<TableBodyContainer ref={divRef}>
+						{console.log('divRef: ', divRef)}
+						{console.log('divRef scrollTop: ', divRef.current?.scrollTop)}
 						{currentGames.length > 0 &&
 							currentGames.map((match: any, index: number) => (
 								<TableBodyRow>
@@ -169,11 +174,11 @@ const TeamMatchData = (props: Props) => {
 													? match.red_team === RootStore.selectedTeamTwo ||
 													  match.blue_team === RootStore.selectedTeamTwo
 														? 'darkgrey'
-														: 'none'
+														: 'transparent'
 													: match.red_team === RootStore.selectedTeamOne ||
 													  match.blue_team === RootStore.selectedTeamOne
 													? 'darkgrey'
-													: 'none',
+													: 'transparent',
 										}}
 									>
 										{props.selectedTeam === match.blue_team
