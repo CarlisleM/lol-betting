@@ -149,11 +149,11 @@ const TeamMatchData = (props: Props) => {
 													? match.red_team === RootStore.selectedTeamTwo ||
 													  match.blue_team === RootStore.selectedTeamTwo
 														? 'darkgrey'
-														: 'none'
+														: 'transparent'
 													: match.red_team === RootStore.selectedTeamOne ||
 													  match.blue_team === RootStore.selectedTeamOne
 													? 'darkgrey'
-													: 'none',
+													: 'transparent',
 										}}
 									>
 										{match.game_date.split('T')[0]}
