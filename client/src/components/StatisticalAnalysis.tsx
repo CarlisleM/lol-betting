@@ -203,19 +203,19 @@ const StatisticalAnalysis = (props: Props) => {
 									isSearchable={true}
 									maxMenuHeight={540}
 									options={
-										// [
-										// 	{ value: 'test1', label: 'test1' },
-										// 	{ value: 'test2', label: 'test2' },
-										// ]
-										props.teams !== null
-											? props.teams
-													.filter(
-														(team: any) => team === teamOne || team === teamTwo
-													)
-													.map((team: any) => {
-														return { value: team.name, label: team.name }
-													})
-											: []
+										[
+											{ value: 'test1', label: 'test1' },
+											{ value: 'test2', label: 'test2' },
+										]
+										// props.teams !== null
+										// 	? props.teams
+										// 			.filter(
+										// 				(team: any) => team === teamOne || team === teamTwo
+										// 			)
+										// 			.map((team: any) => {
+										// 				return { value: team.name, label: team.name }
+										// 			})
+										// 	: []
 									}
 									value={{
 										value: betOnTeam,
