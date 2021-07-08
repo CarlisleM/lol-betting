@@ -169,7 +169,7 @@ function App() {
 					</Teams>
 					{/* Bottom Bar */}
 					<StatsAnalysis>
-						<StatisticalAnalysis></StatisticalAnalysis>
+						<StatisticalAnalysis teams={teams} />
 					</StatsAnalysis>
 				</CenterInformationContainer>
 				{/* Right Side Bar */}

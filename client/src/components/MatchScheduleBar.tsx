@@ -105,9 +105,6 @@ const MatchScheduleBar = (props: Props) => {
 		// Scroll to the top of the table on load
 		const scheduleBarRef = useRef<HTMLDivElement>(null)
 		scheduleBarRef !== null && scheduleBarRef.current?.scrollTo(0, 0)
-		scheduleBarRef !== null && console.log('ref: ', scheduleBarRef.current)
-		scheduleBarRef !== null &&
-			console.log('scrollTop: ', scheduleBarRef.current?.scrollTop)
 
 		return (
 			<Observer>
