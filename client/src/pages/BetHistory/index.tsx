@@ -327,7 +327,7 @@ function BetHistory() {
 										// ]
 										leagues !== null
 											? leagues.map((league: any) => {
-													return { value: league.id, label: league.name }
+													return { value: league.name, label: league.name }
 											  })
 											: []
 									}
@@ -352,7 +352,13 @@ function BetHistory() {
 										// ]
 										upcomingGames !== null
 											? upcomingGames
-													.filter((game: any) => game.league_id === league)
+													.filter(
+														(game: any) =>
+															game.league_id ===
+															leagues.find(
+																(league: any) => league.name === league
+															).id
+													)
 													.map((game: any) => {
 														return {
 															value: game.blue_team + ' vs ' + game.red_team,
@@ -365,10 +371,7 @@ function BetHistory() {
 										value: match,
 										label: match,
 									}}
-									onChange={(e: any) => {
-										console.log('split: ', e.value.split(' '))
-										setMatch(e.value)
-									}}
+									onChange={(e: any) => setMatch(e.value)}
 								/>
 							</MatchSelect>
 
@@ -402,8 +405,6 @@ function BetHistory() {
 							<ObjectiveSelectLabel>Objective</ObjectiveSelectLabel>
 						</CreateBetRowLabels>
 
-						{/* {match && match !== null && console.log('split: ', match.split(' '))} */}
-
 						<CreateBetRow>
 							<TeamSelect>
 								<StyledSelect
@@ -425,8 +426,8 @@ function BetHistory() {
 														label: match.split(' ')[0],
 													},
 													{
-														value: match.split(' ')[4],
-														label: match.split(' ')[4],
+														value: match.split(' ')[2],
+														label: match.split(' ')[2],
 													},
 											  ]
 											: []
