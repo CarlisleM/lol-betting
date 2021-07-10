@@ -354,12 +354,14 @@ function BetHistory() {
 													.filter((game: any) => game.league_id === league)
 													.map((game: any) => {
 														return {
-															value: games.find(
-																(match: any) =>
-																	match.date === game.game_date &&
-																	match.blue_team === game.blue_team &&
-																	match.red_team === game.red_team
-															).id,
+															value:
+																games !== null &&
+																games.find(
+																	(match: any) =>
+																		match.date === game.game_date &&
+																		match.blue_team === game.blue_team &&
+																		match.red_team === game.red_team
+																).id,
 															label: game.blue_team + ' vs ' + game.red_team,
 														}
 													})
@@ -418,10 +420,11 @@ function BetHistory() {
 											? teams
 													.filter(
 														(team: any) =>
-															games.find((game: any) => game.id === match)
+															games !== null &&
+															(games.find((game: any) => game.id === match)
 																.blue_team === team ||
-															games.find((game: any) => game.id === match)
-																.red_team === team
+																games.find((game: any) => game.id === match)
+																	.red_team === team)
 													)
 													.map((team: any) => {
 														return { value: team.name, label: team.name }
@@ -481,7 +484,7 @@ function BetHistory() {
 								<StyledDateSelect>
 									{/* Replace this by looking up the match in the db and getting the game date */}
 									{map !== null && betOnTeam !== null && objective !== null
-										? games &&
+										? games !== null &&
 										  games
 												.find((game: any) => game.id === match)
 												.game_date.split('T')[0]
