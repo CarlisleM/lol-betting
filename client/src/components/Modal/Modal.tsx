@@ -1,4 +1,4 @@
-import { CloseOutlined, SaveOutlined } from '@ant-design/icons'
+import { CloseOutlined } from '@ant-design/icons'
 import { useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import { CSSTransition } from 'react-transition-group'
@@ -35,39 +35,12 @@ const Modal = (props: any) => {
 							backgroundColor: 'mintcream',
 						}}
 					>
-						<span>Create Bet</span>
-						<div
-							style={{
-								display: 'flex',
-								justifyContent: 'space-between',
-								flexDirection: 'row',
-								alignItems: 'center',
-								width: 170,
-							}}
-						>
-							<div
-								style={{
-									display: 'flex',
-									justifyContent: 'space-evenly',
-									alignItems: 'center',
-									height: 30,
-									width: 130,
-									border: '1px solid darkgreen',
-									color: 'white',
-									backgroundColor: 'green',
-									borderRadius: 4,
-									cursor: 'pointer',
-								}}
-								onClick={() => console.log('save')}
-							>
-								<span>Create Bets</span>
-								<SaveOutlined style={{ fontSize: '22px' }} />
-							</div>
-							<CloseOutlined
-								style={{ fontSize: '22px', opacity: 0.65 }}
-								onClick={props.onClose}
-							/>
-						</div>
+						<div />
+
+						<CloseOutlined
+							style={{ fontSize: '22px', opacity: 0.65 }}
+							onClick={props.onClose}
+						/>
 					</div>
 					<div className='modal-body'>{props.children}</div>
 				</div>

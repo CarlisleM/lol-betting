@@ -2,8 +2,9 @@ import { types, Instance, SnapshotIn } from 'mobx-state-tree'
 
 export const MatchBet = types.model('MatchBet', {
 	id: types.identifier,
-	teamOne: types.string,
-	teamTwo: types.string,
+	league: types.string,
+	match: types.string,
+	map: types.string,
 	betOnTeam: types.string,
 	matchObjective: types.string,
 	matchOdds: types.number,
