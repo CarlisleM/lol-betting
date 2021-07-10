@@ -356,7 +356,9 @@ function BetHistory() {
 														(game: any) =>
 															game.league_id ===
 															leagues.find(
-																(league: any) => league.name === league
+																(league: any) =>
+																	league.name.toLowerCase() ===
+																	league.toLowerCase()
 															).id
 													)
 													.map((game: any) => {
@@ -486,8 +488,7 @@ function BetHistory() {
 									{/* Replace this by looking up the match in the db and getting the game date */}
 									{/* {map !== null && betOnTeam !== null && objective !== null
 										? games !== null &&
-										  games
-												.find((game: any) => game.id === match)
+										  upcomingGames.find((game: any) => game.game_date === '1' && (game.blue_team === match.split(' ')[0] || game.blue_team === match.split(' ')[2]) && (game.ted_team === match.split(' ')[0] || game.red_team === match.split(' ')[2]))
 												.game_date.split('T')[0]
 										: ''} */}
 								</StyledDateSelect>
