@@ -505,7 +505,7 @@ function BetHistory() {
 										  upcomingGames.find((game: any) => game.game_date === '1' && (game.blue_team === match.split(' ')[0] || game.blue_team === match.split(' ')[2]) && (game.ted_team === match.split(' ')[0] || game.red_team === match.split(' ')[2]))
 												.game_date.split('T')[0]
 										: ''} */}
-									{matchDate ? matchDate : ''}
+									{league && matchDate ? matchDate : ''}
 								</StyledDateSelect>
 							</DateSelect>
 
