@@ -365,7 +365,10 @@ function BetHistory() {
 										value: match,
 										label: match,
 									}}
-									onChange={(e: any) => setMatch(e.value)}
+									onChange={(e: any) => {
+										console.log('split: ', e.value.split(' '))
+										setMatch(e.value)
+									}}
 								/>
 							</MatchSelect>
 
@@ -399,7 +402,7 @@ function BetHistory() {
 							<ObjectiveSelectLabel>Objective</ObjectiveSelectLabel>
 						</CreateBetRowLabels>
 
-						{match !== null && console.log('split: ', match.split(' '))}
+						{/* {match && match !== null && console.log('split: ', match.split(' '))} */}
 
 						<CreateBetRow>
 							<TeamSelect>
