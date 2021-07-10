@@ -484,12 +484,12 @@ function BetHistory() {
 							<DateSelect>
 								<StyledDateSelect>
 									{/* Replace this by looking up the match in the db and getting the game date */}
-									{map !== null && betOnTeam !== null && objective !== null
+									{/* {map !== null && betOnTeam !== null && objective !== null
 										? games !== null &&
 										  games
 												.find((game: any) => game.id === match)
 												.game_date.split('T')[0]
-										: ''}
+										: ''} */}
 								</StyledDateSelect>
 							</DateSelect>
 
