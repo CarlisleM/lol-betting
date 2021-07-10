@@ -336,18 +336,19 @@ function BetHistory() {
 										label: league,
 									}}
 									onChange={(e: any) => {
+										setLeague(e.value)
 										console.log('upcomingGames: ', upcomingGames)
-										console.log('league: ', league)
+										console.log('league: ', e.value)
 										console.log(
 											'upcomingGames filtered: ',
 											upcomingGames.filter(
-												(game: any) => game.league_id === league
+												(game: any) => game.league_id === e.value
 											)
 										)
 										console.log(
 											'all upcoming games mapped: ',
 											upcomingGames
-												.filter((game: any) => game.league_id === league)
+												.filter((game: any) => game.league_id === e.value)
 												.map((game: any) => {
 													return {
 														value: game.id,
@@ -358,7 +359,7 @@ function BetHistory() {
 										console.log(
 											'upcoming mapped cant find id: ',
 											upcomingGames
-												.filter((game: any) => game.league_id === league)
+												.filter((game: any) => game.league_id === e.value)
 												.map((game: any) => {
 													return {
 														value:
@@ -373,7 +374,6 @@ function BetHistory() {
 													}
 												})
 										)
-										setLeague(e.value)
 									}}
 								/>
 							</LeagueSelect>
