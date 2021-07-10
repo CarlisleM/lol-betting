@@ -94,10 +94,17 @@ const MatchScheduleBar = (props: Props) => {
 		/>
 	)
 
-	let today = new Date().toLocaleDateString('en-US', {
-		timeZone: 'America/Los_Angeles',
-		month: '2-digit',
+	// let today = new Date().toLocaleDateString('en-US', {
+	// 	timeZone: 'America/Los_Angeles',
+	// 	month: '2-digit',
+	// 	day: '2-digit',
+	// 	year: 'numeric',
+	// })
+
+	let today = new Date().toLocaleDateString('en-AU', {
+		timeZone: 'Australia/Brisbane',
 		day: '2-digit',
+		month: '2-digit',
 		year: 'numeric',
 	})
 

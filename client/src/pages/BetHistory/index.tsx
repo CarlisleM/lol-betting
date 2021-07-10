@@ -357,8 +357,8 @@ function BetHistory() {
 															game.league_id ===
 															leagues.find(
 																(league: any) =>
-																	league.name.toLowerCase() ===
-																	league.toLowerCase()
+																	String(league.name).toLowerCase() ===
+																	String(league).toLowerCase()
 															).id
 													)
 													.map((game: any) => {
