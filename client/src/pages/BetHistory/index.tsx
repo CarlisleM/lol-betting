@@ -350,7 +350,9 @@ function BetHistory() {
 										// 	{ value: 'TSM vs CLG', label: 'TSM vs CLG' },
 										// 	{ value: 'C9 vs FLY', label: 'C9 vs FLY' },
 										// ]
-										upcomingGames !== null
+										upcomingGames !== null &&
+										leagues !== null &&
+										league !== null
 											? upcomingGames
 													.filter(
 														(game: any) =>
