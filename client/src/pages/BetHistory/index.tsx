@@ -352,7 +352,9 @@ function BetHistory() {
 										// ]
 										upcomingGames !== null &&
 										leagues !== null &&
-										league !== null
+										league !== null &&
+										league &&
+										league !== undefined
 											? upcomingGames
 													.filter(
 														(game: any) =>
