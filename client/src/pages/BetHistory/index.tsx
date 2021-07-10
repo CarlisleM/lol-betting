@@ -388,8 +388,8 @@ function BetHistory() {
 										setMap(null)
 										setBetOnTeam(null)
 										setObjective(null)
-										setOdds(null)
-										setBetAmount(null)
+										setOdds('')
+										setBetAmount('')
 									}}
 								/>
 							</MatchSelect>
@@ -576,7 +576,7 @@ function BetHistory() {
 											betOnTeam: betOnTeam,
 											matchObjective: objective,
 											matchOdds: Number(odds),
-											matchDate: matchDate.toLocaleDateString(), // Replace this with the match date
+											matchDate: matchDate, // Replace this with the match date
 											betAmount: Number(betAmount),
 										})
 										betContainerRef.current?.scrollTo(
