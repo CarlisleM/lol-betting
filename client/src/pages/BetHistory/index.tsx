@@ -356,8 +356,8 @@ function BetHistory() {
 														(game: any) =>
 															game.league_id ===
 															leagues.find(
-																(league: any) =>
-																	String(league.name).toLowerCase() ===
+																(mappedLeague: any) =>
+																	String(mappedLeague.name).toLowerCase() ===
 																	String(league).toLowerCase()
 															).id
 													)
@@ -373,7 +373,10 @@ function BetHistory() {
 										value: match,
 										label: match,
 									}}
-									onChange={(e: any) => setMatch(e.value)}
+									onChange={(e: any) => {
+										console.log('split: ', e.value.split(' '))
+										setMatch(e.value)
+									}}
 								/>
 							</MatchSelect>
 
@@ -406,6 +409,8 @@ function BetHistory() {
 							<TeamSelectLabel>Bet On</TeamSelectLabel>
 							<ObjectiveSelectLabel>Objective</ObjectiveSelectLabel>
 						</CreateBetRowLabels>
+
+						{/* {match && match !== null && console.log('split: ', match.split(' '))} */}
 
 						<CreateBetRow>
 							<TeamSelect>
