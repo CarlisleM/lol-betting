@@ -57,7 +57,7 @@ function BetHistory() {
 	const [league, setLeague] = useState()
 	const [match, setMatch] = useState<any>()
 	const [map, setMap] = useState()
-	const [betOnTeam, setBetOnTeam] = useState()
+	const [betOnTeam, setBetOnTeam] = useState<any>()
 	const [objective, setObjective] = useState()
 	const [odds, setOdds] = useState<number>()
 	const [matchDate, setMatchDate] = useState(new Date())
@@ -150,14 +150,14 @@ function BetHistory() {
 
 	const validBet = () => {
 		return (
-			league !== undefined &&
-			match !== undefined &&
-			map !== undefined &&
-			betOnTeam !== undefined &&
-			objective !== undefined &&
-			odds !== undefined &&
-			matchDate !== undefined &&
-			betAmount !== undefined
+			league &&
+			match &&
+			map &&
+			betOnTeam &&
+			objective &&
+			odds &&
+			matchDate &&
+			betAmount
 		)
 	}
 
@@ -343,18 +343,14 @@ function BetHistory() {
 								<StyledSelect
 									placeholder={'Match'}
 									isSearchable={true}
-									isDisabled={league === undefined ? true : false}
+									isDisabled={league ? false : true}
 									maxMenuHeight={540}
 									options={
 										// [
 										// 	{ value: 'TSM vs CLG', label: 'TSM vs CLG' },
 										// 	{ value: 'C9 vs FLY', label: 'C9 vs FLY' },
 										// ]
-										upcomingGames !== null &&
-										leagues !== null &&
-										league !== null &&
-										league &&
-										league !== undefined
+										league
 											? upcomingGames
 													.filter(
 														(game: any) =>
@@ -378,8 +374,8 @@ function BetHistory() {
 										label: match,
 									}}
 									onChange={(e: any) => {
-										console.log('split: ', e.value.split(' '))
 										setMatch(e.value)
+										setBetOnTeam(null) // Verify this works
 									}}
 								/>
 							</MatchSelect>
@@ -388,7 +384,7 @@ function BetHistory() {
 								<StyledSelect
 									placeholder={'Map'}
 									isSearchable={true}
-									isDisabled={match === undefined ? true : false}
+									isDisabled={match ? false : true}
 									maxMenuHeight={540}
 									options={
 										// Can add some checks in here to default to 1
@@ -414,23 +410,18 @@ function BetHistory() {
 							<ObjectiveSelectLabel>Objective</ObjectiveSelectLabel>
 						</CreateBetRowLabels>
 
-						{/* {match && match !== null && console.log('split: ', match.split(' '))} */}
-
 						<CreateBetRow>
 							<TeamSelect>
 								<StyledSelect
 									placeholder={'Selected Team'}
-									isDisabled={match === undefined ? true : false}
+									isDisabled={match ? false : true}
 									maxMenuHeight={540}
 									options={
 										// [
 										// 	{ value: 'test1', label: 'test1' },
 										// 	{ value: 'test2', label: 'test2' },
 										// ]
-										match &&
-										match !== null &&
-										match !== undefined &&
-										match.length > 0
+										match
 											? [
 													{
 														value: match.split(' ')[0],
@@ -455,7 +446,7 @@ function BetHistory() {
 								<StyledSelect
 									placeholder={'Objective'}
 									isSearchable={true}
-									isDisabled={match === undefined ? true : false}
+									isDisabled={match ? false : true}
 									maxMenuHeight={540}
 									options={[
 										{ value: 'First Blood', label: 'First Blood' },
@@ -520,13 +511,7 @@ function BetHistory() {
 											borderRadius: 4,
 											textAlign: 'center',
 										}}
-										disabled={
-											map === undefined ||
-											betOnTeam === undefined ||
-											objective === undefined
-												? true
-												: false
-										}
+										disabled={map || betOnTeam || objective ? false : true}
 										type='number'
 										step='0.01'
 										min='0'
@@ -543,13 +528,7 @@ function BetHistory() {
 											borderRadius: 4,
 											textAlign: 'center',
 										}}
-										disabled={
-											map === undefined ||
-											betOnTeam === undefined ||
-											objective === undefined
-												? true
-												: false
-										}
+										disabled={map || betOnTeam || objective ? false : true}
 										type='number'
 										step='0.01'
 										min='0'
