@@ -338,7 +338,7 @@ function BetHistory() {
 									onChange={(e: any) => {
 										setLeague(e.value)
 										setMatch(null)
-										setMatchDate('17/07/2021')
+										setMatchDate('')
 										setMap(null)
 										setBetOnTeam(null)
 										setObjective(null)
@@ -505,6 +505,7 @@ function BetHistory() {
 										  upcomingGames.find((game: any) => game.game_date === '1' && (game.blue_team === match.split(' ')[0] || game.blue_team === match.split(' ')[2]) && (game.ted_team === match.split(' ')[0] || game.red_team === match.split(' ')[2]))
 												.game_date.split('T')[0]
 										: ''} */}
+									{matchDate ? matchDate : ''}
 								</StyledDateSelect>
 							</DateSelect>
 
