@@ -356,6 +356,18 @@ function BetHistory() {
 													}
 												})
 										)
+
+										console.log(
+											'data: ',
+											upcomingGames
+												.filter((game: any) => game.league_id === e.value)
+												.map((game: any) => {
+													console.log('game.game_date: ', game.game_date)
+													console.log('game.blue_team: ', game.blue_team)
+													console.log('game.red_team: ', game.red_team)
+												})
+										)
+
 										console.log(
 											'upcoming mapped cant find id: ',
 											upcomingGames
@@ -372,7 +384,7 @@ function BetHistory() {
 																	match.date === game.game_date &&
 																	match.blue_team === game.blue_team &&
 																	match.red_team === game.red_team
-															).id,
+															),
 														label: game.blue_team + ' vs ' + game.red_team,
 													}
 												})
