@@ -56,12 +56,12 @@ function BetHistory() {
 	const [show, setShow] = useState(false)
 	const [league, setLeague] = useState()
 	const [match, setMatch] = useState<any>()
-	const [map, setMap] = useState()
+	const [map, setMap] = useState<any>()
 	const [betOnTeam, setBetOnTeam] = useState<any>()
-	const [objective, setObjective] = useState()
-	const [odds, setOdds] = useState<number>()
-	const [matchDate, setMatchDate] = useState(new Date())
-	const [betAmount, setBetAmount] = useState<number>()
+	const [objective, setObjective] = useState<any>()
+	const [odds, setOdds] = useState<any>()
+	const [matchDate, setMatchDate] = useState<any>(new Date())
+	const [betAmount, setBetAmount] = useState<any>()
 
 	const betHistory = [
 		{
@@ -318,8 +318,8 @@ function BetHistory() {
 									placeholder={'League'}
 									isSearchable={true}
 									maxMenuHeight={540}
-									maxMenuWidth={500}
 									isDisabled={false}
+									// noOptionsMessage={'No leagues '}
 									options={
 										// [
 										// 	{ value: 'LCS', label: 'LCS' },
@@ -335,7 +335,16 @@ function BetHistory() {
 										value: league,
 										label: league,
 									}}
-									onChange={(e: any) => setLeague(e.value)}
+									onChange={(e: any) => {
+										setLeague(e.value)
+										setMatch(null)
+										setMatchDate('17/07/2021')
+										setMap(null)
+										setBetOnTeam(null)
+										setObjective(null)
+										setOdds(null)
+										setBetAmount(null)
+									}}
 								/>
 							</LeagueSelect>
 
@@ -375,7 +384,12 @@ function BetHistory() {
 									}}
 									onChange={(e: any) => {
 										setMatch(e.value)
-										setBetOnTeam(null) // Verify this works
+										setMatchDate('17/07/2021')
+										setMap(null)
+										setBetOnTeam(null)
+										setObjective(null)
+										setOdds(null)
+										setBetAmount(null)
 									}}
 								/>
 							</MatchSelect>
@@ -511,7 +525,7 @@ function BetHistory() {
 											borderRadius: 4,
 											textAlign: 'center',
 										}}
-										disabled={map || betOnTeam || objective ? false : true}
+										disabled={map && betOnTeam && objective ? false : true}
 										type='number'
 										step='0.01'
 										min='0'
@@ -528,7 +542,7 @@ function BetHistory() {
 											borderRadius: 4,
 											textAlign: 'center',
 										}}
-										disabled={map || betOnTeam || objective ? false : true}
+										disabled={map && betOnTeam && objective ? false : true}
 										type='number'
 										step='0.01'
 										min='0'
