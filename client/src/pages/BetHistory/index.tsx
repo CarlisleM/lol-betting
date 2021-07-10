@@ -55,7 +55,7 @@ import {
 function BetHistory() {
 	const [show, setShow] = useState(false)
 	const [league, setLeague] = useState()
-	const [match, setMatch] = useState()
+	const [match, setMatch] = useState<any>()
 	const [map, setMap] = useState()
 	const [betOnTeam, setBetOnTeam] = useState()
 	const [objective, setObjective] = useState()
@@ -335,61 +335,7 @@ function BetHistory() {
 										value: league,
 										label: league,
 									}}
-									onChange={(e: any) => {
-										setLeague(e.value)
-										console.log('upcomingGames: ', upcomingGames)
-										console.log('league: ', e.value)
-										console.log(
-											'upcomingGames filtered: ',
-											upcomingGames.filter(
-												(game: any) => game.league_id === e.value
-											)
-										)
-										console.log(
-											'all upcoming games mapped: ',
-											upcomingGames
-												.filter((game: any) => game.league_id === e.value)
-												.map((game: any) => {
-													return {
-														value: game.blue_team + ' vs ' + game.red_team,
-														label: game.blue_team + ' vs ' + game.red_team,
-													}
-												})
-										)
-
-										console.log(
-											'data: ',
-											upcomingGames
-												.filter((game: any) => game.league_id === e.value)
-												.map((game: any) => {
-													console.log('game.game_date: ', game.game_date)
-													console.log('game.blue_team: ', game.blue_team)
-													console.log('game.red_team: ', game.red_team)
-												})
-										)
-
-										console.log(
-											'upcoming mapped cant find id: ',
-											upcomingGames
-												.filter((game: any) => game.league_id === e.value)
-												.map((game: any) => {
-													return {
-														value:
-															games !== null &&
-															console.log('game.game_date: ', game.game_date) &&
-															console.log('game.blue_team: ', game.blue_team) &&
-															console.log('game.red_team: ', game.red_team) &&
-															games.find(
-																(match: any) =>
-																	match.date === game.game_date &&
-																	match.blue_team === game.blue_team &&
-																	match.red_team === game.red_team
-															),
-														label: game.blue_team + ' vs ' + game.red_team,
-													}
-												})
-										)
-									}}
+									onChange={(e: any) => setLeague(e.value)}
 								/>
 							</LeagueSelect>
 
@@ -404,19 +350,12 @@ function BetHistory() {
 										// 	{ value: 'TSM vs CLG', label: 'TSM vs CLG' },
 										// 	{ value: 'C9 vs FLY', label: 'C9 vs FLY' },
 										// ]
-										games !== null && upcomingGames !== null
+										upcomingGames !== null
 											? upcomingGames
 													.filter((game: any) => game.league_id === league)
 													.map((game: any) => {
 														return {
-															value:
-																games !== null &&
-																games.find(
-																	(match: any) =>
-																		match.date === game.game_date &&
-																		match.blue_team === game.blue_team &&
-																		match.red_team === game.red_team
-																).id,
+															value: game.blue_team + ' vs ' + game.red_team,
 															label: game.blue_team + ' vs ' + game.red_team,
 														}
 													})
@@ -460,6 +399,8 @@ function BetHistory() {
 							<ObjectiveSelectLabel>Objective</ObjectiveSelectLabel>
 						</CreateBetRowLabels>
 
+						{match !== null && console.log('split: ', match.split(' '))}
+
 						<CreateBetRow>
 							<TeamSelect>
 								<StyledSelect
@@ -471,21 +412,18 @@ function BetHistory() {
 										// 	{ value: 'test1', label: 'test1' },
 										// 	{ value: 'test2', label: 'test2' },
 										// ]
-										// teams !== null
-										// 	? teams
-										// 			.filter(
-										// 				(team: any) =>
-										// 					games !== null &&
-										// 					(games.find((game: any) => game.id === match)
-										// 						.blue_team === team ||
-										// 						games.find((game: any) => game.id === match)
-										// 							.red_team === team)
-										// 			)
-										// 			.map((team: any) => {
-										// 				return { value: team.name, label: team.name }
-										// 			})
-										// 	:
-										[]
+										match !== null
+											? [
+													{
+														value: match.split(' ')[0],
+														label: match.split(' ')[0],
+													},
+													{
+														value: match.split(' ')[4],
+														label: match.split(' ')[4],
+													},
+											  ]
+											: []
 									}
 									value={{
 										value: betOnTeam,
