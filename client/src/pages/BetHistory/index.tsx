@@ -415,7 +415,10 @@ function BetHistory() {
 										// 	{ value: 'test1', label: 'test1' },
 										// 	{ value: 'test2', label: 'test2' },
 										// ]
-										match !== null
+										match &&
+										match !== null &&
+										match !== undefined &&
+										match.length > 0
 											? [
 													{
 														value: match.split(' ')[0],
