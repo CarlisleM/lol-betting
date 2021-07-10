@@ -318,6 +318,7 @@ function BetHistory() {
 									placeholder={'League'}
 									isSearchable={true}
 									maxMenuHeight={540}
+									maxMenuWidth={500}
 									isDisabled={false}
 									options={
 										// [
@@ -334,7 +335,44 @@ function BetHistory() {
 										value: league,
 										label: league,
 									}}
-									onChange={(e: any) => setLeague(e.value)}
+									onChange={(e: any) => {
+										console.log(
+											'upcomingGames filtered: ',
+											upcomingGames.filter(
+												(game: any) => game.league_id === league
+											)
+										)
+										console.log(
+											'all upcoming games mapped: ',
+											upcomingGames
+												.filter((game: any) => game.league_id === league)
+												.map((game: any) => {
+													return {
+														value: game.id,
+														label: game.blue_team + ' vs ' + game.red_team,
+													}
+												})
+										)
+										console.log(
+											'upcoming mapped cant find id: ',
+											upcomingGames
+												.filter((game: any) => game.league_id === league)
+												.map((game: any) => {
+													return {
+														value:
+															games !== null &&
+															games.find(
+																(match: any) =>
+																	match.date === game.game_date &&
+																	match.blue_team === game.blue_team &&
+																	match.red_team === game.red_team
+															).id,
+														label: game.blue_team + ' vs ' + game.red_team,
+													}
+												})
+										)
+										setLeague(e.value)
+									}}
 								/>
 							</LeagueSelect>
 
