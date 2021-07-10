@@ -416,20 +416,21 @@ function BetHistory() {
 										// 	{ value: 'test1', label: 'test1' },
 										// 	{ value: 'test2', label: 'test2' },
 										// ]
-										teams !== null
-											? teams
-													.filter(
-														(team: any) =>
-															games !== null &&
-															(games.find((game: any) => game.id === match)
-																.blue_team === team ||
-																games.find((game: any) => game.id === match)
-																	.red_team === team)
-													)
-													.map((team: any) => {
-														return { value: team.name, label: team.name }
-													})
-											: []
+										// teams !== null
+										// 	? teams
+										// 			.filter(
+										// 				(team: any) =>
+										// 					games !== null &&
+										// 					(games.find((game: any) => game.id === match)
+										// 						.blue_team === team ||
+										// 						games.find((game: any) => game.id === match)
+										// 							.red_team === team)
+										// 			)
+										// 			.map((team: any) => {
+										// 				return { value: team.name, label: team.name }
+										// 			})
+										// 	:
+										[]
 									}
 									value={{
 										value: betOnTeam,
