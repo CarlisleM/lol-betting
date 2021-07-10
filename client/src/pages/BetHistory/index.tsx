@@ -336,6 +336,8 @@ function BetHistory() {
 										label: league,
 									}}
 									onChange={(e: any) => {
+										console.log('upcomingGames: ', upcomingGames)
+										console.log('league: ', league)
 										console.log(
 											'upcomingGames filtered: ',
 											upcomingGames.filter(
