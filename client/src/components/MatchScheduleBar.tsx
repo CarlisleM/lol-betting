@@ -117,25 +117,6 @@ const MatchScheduleBar = (props: Props) => {
 			<Observer>
 				{() => (
 					<>
-						{console.log('props.upcomingGames: ', props.upcomingGames)}
-						{console.log(
-							`props.upcomingGames.filter(
-								(upcomingGame: any) =>
-									upcomingGame.league_id === RootStore.selectedLeague
-							).length: `,
-							props.upcomingGames !== null &&
-								props.upcomingGames.filter(
-									(upcomingGame: any) =>
-										upcomingGame.league_id === RootStore.selectedLeague
-								).length
-						)}
-						{console.log(
-							'LCS upcoming: ',
-							props.upcomingGames !== null &&
-								props.upcomingGames.filter(
-									(upcomingGame: any) => upcomingGame.league_id === 1
-								).length
-						)}
 						<ScheduleBarContainer ref={scheduleBarRef}>
 							{props.upcomingGames !== null &&
 							props.upcomingGames.filter(
