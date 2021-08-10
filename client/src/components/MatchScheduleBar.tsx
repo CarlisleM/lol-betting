@@ -131,9 +131,10 @@ const MatchScheduleBar = (props: Props) => {
 						)}
 						{console.log(
 							'LCS upcoming: ',
-							props.upcomingGames.filter(
-								(upcomingGame: any) => upcomingGame.league_id === 1
-							).length
+							props.upcomingGames !== null &&
+								props.upcomingGames.filter(
+									(upcomingGame: any) => upcomingGame.league_id === 1
+								).length
 						)}
 						<ScheduleBarContainer ref={scheduleBarRef}>
 							{props.upcomingGames !== null &&
