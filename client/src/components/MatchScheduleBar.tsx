@@ -195,12 +195,30 @@ const MatchScheduleBar = (props: Props) => {
 									))
 							) : (
 								<Placeholder>
-									<QuestionCircleOutlined
-										style={{ fontSize: 100, paddingBottom: 10 }}
-									/>
-									<span style={{ fontSize: 30, width: '90%' }}>
-										Begin by selecting a league to display upcoming matches
-									</span>
+									{console.log(
+										'RootStore.selectedLeague: ',
+										RootStore.selectedLeague
+									)}
+
+									{RootStore.selectedLeague === null ? (
+										<>
+											<QuestionCircleOutlined
+												style={{ fontSize: 100, paddingBottom: 10 }}
+											/>
+											<span style={{ fontSize: 30, width: '90%' }}>
+												Begin by selecting a league to display upcoming matches
+											</span>
+										</>
+									) : (
+										<>
+											<QuestionCircleOutlined
+												style={{ fontSize: 100, paddingBottom: 10 }}
+											/>
+											<span style={{ fontSize: 30, width: '90%' }}>
+												Begin by selecting a league to display upcoming matches
+											</span>
+										</>
+									)}
 								</Placeholder>
 							)}
 						</ScheduleBarContainer>
