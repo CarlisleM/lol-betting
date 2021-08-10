@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import RootStore from '../store'
 import { Observer } from 'mobx-react'
-import { QuestionCircleOutlined } from '@ant-design/icons'
+import { DislikeOutlined, QuestionCircleOutlined } from '@ant-design/icons'
 import { mapAbvDayToFull } from '../helpers/mapDay'
 import { convertDateToPST } from '../helpers/convertDateTime'
 import { useRef } from 'react'
@@ -195,11 +195,6 @@ const MatchScheduleBar = (props: Props) => {
 									))
 							) : (
 								<Placeholder>
-									{console.log(
-										'RootStore.selectedLeague: ',
-										RootStore.selectedLeague
-									)}
-
 									{RootStore.selectedLeague === null ? (
 										<>
 											<QuestionCircleOutlined
@@ -211,11 +206,11 @@ const MatchScheduleBar = (props: Props) => {
 										</>
 									) : (
 										<>
-											<QuestionCircleOutlined
+											<DislikeOutlined
 												style={{ fontSize: 100, paddingBottom: 10 }}
 											/>
 											<span style={{ fontSize: 30, width: '90%' }}>
-												Begin by selecting a league to display upcoming matches
+												No upcoming games to display
 											</span>
 										</>
 									)}

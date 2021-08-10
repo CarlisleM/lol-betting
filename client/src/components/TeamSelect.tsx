@@ -45,6 +45,7 @@ interface Props {
 
 const TeamSelect = (props: Props) => {
 	const handleChange = (value: any) => {
+		console.log('called handle change in TeamSelect')
 		mapFullTeamNameToAbv(value.value) !== null
 			? mapFullTeamNameToAbv(value.value) && props.teamNumber === 1
 				? RootStore.updateSelectedTeamOne(mapFullTeamNameToAbv(value.value))

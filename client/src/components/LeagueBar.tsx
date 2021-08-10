@@ -64,8 +64,6 @@ const LeagueBar = (props: Props) => {
 							}
 							// Update the current league
 							RootStore.updateSelectedLeague(league.id)
-
-							console.log('Updated league to: ', RootStore.selectedLeague)
 						}}
 					>
 						{leagueLogo(league.name)}
