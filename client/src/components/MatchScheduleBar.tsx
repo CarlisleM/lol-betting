@@ -123,10 +123,11 @@ const MatchScheduleBar = (props: Props) => {
 								(upcomingGame: any) =>
 									upcomingGame.league_id === RootStore.selectedLeague
 							).length: `,
-							props.upcomingGames.filter(
-								(upcomingGame: any) =>
-									upcomingGame.league_id === RootStore.selectedLeague
-							).length
+							props.upcomingGames !== null &&
+								props.upcomingGames.filter(
+									(upcomingGame: any) =>
+										upcomingGame.league_id === RootStore.selectedLeague
+								).length
 						)}
 						<ScheduleBarContainer ref={scheduleBarRef}>
 							{props.upcomingGames !== null &&
