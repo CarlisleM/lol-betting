@@ -93,6 +93,22 @@ const TeamSelect = (props: Props) => {
 				</TeamLogo>
 			)}
 
+			{console.log(
+				'teams: ',
+				props.teams !== null &&
+					RootStore.selectedLeague !== null &&
+					props.teams
+						.filter(
+							(team: any) =>
+								team.league_id === RootStore.selectedLeague &&
+								team.name !== mapAbvTeamNameToFull(props.selectedTeam) &&
+								team.name !== mapAbvTeamNameToFull(props.otherSelectedTeam)
+						)
+						.map((team: any) => {
+							return { value: team.name, label: team.name }
+						})
+			)}
+
 			<TeamSelectDropdown>
 				<StyledSelect
 					isSearchable={true}
