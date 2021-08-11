@@ -63,6 +63,7 @@ const TeamSelect = (props: Props) => {
 
 	return (
 		<TeamSelectContainer>
+			{console.log('in team select container')}
 			{props.selectedTeam !== null ? (
 				<TeamLogo>
 					<img

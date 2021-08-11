@@ -123,6 +123,7 @@ const TeamMatchData = (props: Props) => {
 
 	return (
 		<TableContainer>
+			{console.log('in team match data')}
 			{currentGames !== null && props.selectedTeam !== null && (
 				<>
 					<TableHeaderContainer>

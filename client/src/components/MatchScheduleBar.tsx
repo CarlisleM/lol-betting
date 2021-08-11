@@ -117,6 +117,7 @@ const MatchScheduleBar = (props: Props) => {
 			<Observer>
 				{() => (
 					<>
+						{console.log('in match schedule bar')}
 						<ScheduleBarContainer ref={scheduleBarRef}>
 							{props.upcomingGames !== null &&
 							props.upcomingGames.filter(
