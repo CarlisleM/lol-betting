@@ -53,7 +53,6 @@ const LeagueBar = (props: Props) => {
 									(game: any) => game.league_id === league.id
 								).length > 0
 							) {
-								console.log('entered upcoming one')
 								RootStore.updateSelectedTeamOne(
 									props.upcomingGames.filter(
 										(game: any) => game.league_id === league.id
@@ -65,7 +64,6 @@ const LeagueBar = (props: Props) => {
 									)[0].red_team
 								)
 							} else {
-								console.log('entered no upcoming one')
 								RootStore.updateSelectedTeamOne(
 									props.games.filter(
 										(game: any) => game.league_id === league.id
@@ -79,8 +77,6 @@ const LeagueBar = (props: Props) => {
 							}
 							// Update the current league
 							RootStore.updateSelectedLeague(league.id)
-
-							console.log('Set current league to: ', RootStore.selectedLeague)
 						}}
 					>
 						{leagueLogo(league.name)}

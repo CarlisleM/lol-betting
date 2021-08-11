@@ -45,7 +45,6 @@ interface Props {
 
 const TeamSelect = (props: Props) => {
 	const handleChange = (value: any) => {
-		console.log('called handle change in TeamSelect')
 		mapFullTeamNameToAbv(value.value) !== null
 			? mapFullTeamNameToAbv(value.value) && props.teamNumber === 1
 				? RootStore.updateSelectedTeamOne(mapFullTeamNameToAbv(value.value))
@@ -63,7 +62,6 @@ const TeamSelect = (props: Props) => {
 
 	return (
 		<TeamSelectContainer>
-			{console.log('in team select container')}
 			{props.selectedTeam !== null ? (
 				<TeamLogo>
 					<img
@@ -92,22 +90,6 @@ const TeamSelect = (props: Props) => {
 						alt={`${props.selectedTeam} Logo`}
 					/>
 				</TeamLogo>
-			)}
-
-			{console.log(
-				'teams: ',
-				props.teams !== null &&
-					RootStore.selectedLeague !== null &&
-					props.teams
-						.filter(
-							(team: any) =>
-								team.league_id === RootStore.selectedLeague &&
-								team.name !== mapAbvTeamNameToFull(props.selectedTeam) &&
-								team.name !== mapAbvTeamNameToFull(props.otherSelectedTeam)
-						)
-						.map((team: any) => {
-							return { value: team.name, label: team.name }
-						})
 			)}
 
 			<TeamSelectDropdown>

@@ -117,7 +117,6 @@ const MatchScheduleBar = (props: Props) => {
 			<Observer>
 				{() => (
 					<>
-						{console.log('in match schedule bar')}
 						<ScheduleBarContainer ref={scheduleBarRef}>
 							{props.upcomingGames !== null &&
 							props.upcomingGames.filter(
@@ -169,7 +168,7 @@ const MatchScheduleBar = (props: Props) => {
 															  )[matchIndex + 1].match_week
 																? 'none'
 																: '1px solid black'
-															: 'none',
+															: '1px solid black',
 												}}
 												onClick={() => {
 													RootStore.updateSelectedTeamOne(match.blue_team)
