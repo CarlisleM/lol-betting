@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import RootStore from '../store'
 import { Observer } from 'mobx-react'
-import { DislikeOutlined, QuestionCircleOutlined } from '@ant-design/icons'
+import { QuestionCircleOutlined, StopOutlined } from '@ant-design/icons'
 import { mapAbvDayToFull } from '../helpers/mapDay'
 import { convertDateToPST } from '../helpers/convertDateTime'
 import { useRef } from 'react'
@@ -150,26 +150,18 @@ const MatchScheduleBar = (props: Props) => {
 												key={matchIndex}
 												style={{
 													borderBottom:
-														matchIndex !==
 														props.upcomingGames.filter(
 															(upcomingGame: any) =>
 																upcomingGame.league_id ===
 																RootStore.selectedLeague
-														).length -
-															1
-															? props.upcomingGames.filter(
-																	(upcomingGame: any) =>
-																		upcomingGame.league_id ===
-																		RootStore.selectedLeague
-															  )[matchIndex].match_week <
-															  props.upcomingGames.filter(
-																	(upcomingGame: any) =>
-																		upcomingGame.league_id ===
-																		RootStore.selectedLeague
-															  )[matchIndex + 1].match_week
-																? 'none'
-																: '1px solid black'
-															: 'none',
+														)[matchIndex].match_week <
+														props.upcomingGames.filter(
+															(upcomingGame: any) =>
+																upcomingGame.league_id ===
+																RootStore.selectedLeague
+														)[matchIndex + 1].match_week
+															? 'none'
+															: '1px solid black',
 												}}
 												onClick={() => {
 													RootStore.updateSelectedTeamOne(match.blue_team)
@@ -207,7 +199,7 @@ const MatchScheduleBar = (props: Props) => {
 										</>
 									) : (
 										<>
-											<DislikeOutlined
+											<StopOutlined
 												style={{ fontSize: 100, paddingBottom: 10 }}
 											/>
 											<span style={{ fontSize: 30, width: '90%' }}>

@@ -19,6 +19,7 @@ const Logo = styled.div`
 interface Props {
 	leagues: any
 	games: any
+	upcomingGames: any
 }
 
 const LeagueBar = (props: Props) => {
@@ -48,9 +49,21 @@ const LeagueBar = (props: Props) => {
 							// Set the two teams to the teams of the first upcoming game
 							if (
 								league.id !== RootStore.selectedLeague &&
-								props.games.filter((game: any) => game.league_id === league.id)
-									.length > 0
+								props.upcomingGames.filter(
+									(game: any) => game.league_id === league.id
+								).length > 0
 							) {
+								RootStore.updateSelectedTeamOne(
+									props.upcomingGames.filter(
+										(game: any) => game.league_id === league.id
+									)[0].blue_team
+								)
+								RootStore.updateSelectedTeamTwo(
+									props.upcomingGames.filter(
+										(game: any) => game.league_id === league.id
+									)[0].red_team
+								)
+							} else {
 								RootStore.updateSelectedTeamOne(
 									props.games.filter(
 										(game: any) => game.league_id === league.id

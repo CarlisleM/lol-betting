@@ -70,7 +70,6 @@ const MatchScheduleBarContainer = styled.div`
 
 function MatchStats() {
 	const excludeLeagues = ['LCK', 'LFL', 'LPL', 'PCS', 'VCS']
-
 	const [leagues, setLeagues] = useState(null)
 	const [teams, setTeams] = useState(null)
 	const [upcomingGames, setUpcomingGames] = useState(null)
@@ -109,7 +108,11 @@ function MatchStats() {
 			<Container>
 				{/* Left Side Bar */}
 				<LeagueBarContainer>
-					<LeagueBar leagues={leagues} games={upcomingGames} />
+					<LeagueBar
+						leagues={leagues}
+						upcomingGames={upcomingGames}
+						games={games}
+					/>
 				</LeagueBarContainer>
 				{/* Center Information */}
 				<CenterInformationContainer>
