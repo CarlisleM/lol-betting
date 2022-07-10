@@ -1,8 +1,7 @@
-import path from 'path';
-
 const express = require('express'); 
 const cors = require('cors');
 const app = express(); 
+var path = require('path');
 var bodyParser = require('body-parser');
 
 const services = require('./services/requests')
