@@ -22,7 +22,8 @@ export default function App() {
 						flexDirection: 'row',
 					}}
 				>
-					<div>
+					{/* TODO: Update the about page and the bet history page */}
+					{/* <div>
 						<Link style={{ padding: '0px 5px' }} to='/'>
 							<HomeOutlined
 								style={{ fontSize: '24px', color: 'black', paddingTop: 10 }}
@@ -42,7 +43,7 @@ export default function App() {
 								style={{ fontSize: '24px', color: 'black', paddingTop: 10 }}
 							/>
 						</Link>
-					</div>
+					</div> */}
 				</div>
 
 				<Switch>

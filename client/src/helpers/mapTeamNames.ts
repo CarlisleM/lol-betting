@@ -124,7 +124,7 @@ const mappedNames = [
 	['dp', 'Dark Passage'],
 	['iw', 'İstanbul Wildcats'],
 	['gal', 'Galakticos'],
-	['sup', 'SuperMassive Blaze'],
+	['smb', 'SuperMassive Blaze'],
 	['bjk', 'Beşiktaş Esports'],
 	['gs', 'Galatasaray Esports'],
 	['aur', 'Team AURORA'],
