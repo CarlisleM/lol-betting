@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import RootStore from '../store'
 import Select from 'react-select'
-import {
-	mapAbvTeamNameToFull,
-	mapFullTeamNameToAbv,
-} from '../helpers/mapTeamNames'
+// import {
+// 	mapAbvTeamNameToFull,
+// 	mapFullTeamNameToAbv,
+// } from '../helpers/mapTeamNames'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -45,10 +45,10 @@ interface Props {
 
 const TeamSelect = (props: Props) => {
 	const handleChange = (value: any) => {
-		mapFullTeamNameToAbv(value.value) !== null
-			? mapFullTeamNameToAbv(value.value) && props.teamNumber === 1
-				? RootStore.updateSelectedTeamOne(mapFullTeamNameToAbv(value.value))
-				: RootStore.updateSelectedTeamTwo(mapFullTeamNameToAbv(value.value))
+		value.value !== null
+			? value.value && props.teamNumber === 1
+				? RootStore.updateSelectedTeamOne(value.value)
+				: RootStore.updateSelectedTeamTwo(value.value)
 			: toast.error('Unable to find selected team data', {
 					position: 'bottom-center',
 					autoClose: 3000,
@@ -102,9 +102,8 @@ const TeamSelect = (props: Props) => {
 									.filter(
 										(team: any) =>
 											team.league_id === RootStore.selectedLeague &&
-											team.name !== mapAbvTeamNameToFull(props.selectedTeam) &&
-											team.name !==
-												mapAbvTeamNameToFull(props.otherSelectedTeam)
+											team.name !== props.selectedTeam &&
+											team.name !== props.otherSelectedTeam
 									)
 									.map((team: any) => {
 										return { value: team.name, label: team.name }
@@ -113,7 +112,7 @@ const TeamSelect = (props: Props) => {
 					}
 					value={{
 						value: props.selectedTeam,
-						label: mapAbvTeamNameToFull(props.selectedTeam),
+						label: props.selectedTeam, // Update this to map to a readable name
 					}}
 					onChange={(value: any) => handleChange(value)}
 				/>

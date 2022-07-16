@@ -161,7 +161,7 @@ function BetHistory() {
 		)
 	}
 
-	const excludeLeagues = ['LCK', 'LFL', 'LPL', 'PCS', 'VCS']
+	const excludeLeagues = ['LCK', 'LPL', 'VCS', 'NA_Academy_League']
 	const [leagues, setLeagues] = useState<any>(null)
 	const [teams, setTeams] = useState<any>(null)
 	const [upcomingGames, setUpcomingGames] = useState<any>(null)
