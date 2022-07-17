@@ -11,7 +11,7 @@ const League = styled.div`
 	border-bottom: 1px solid black;
 
 	&:hover {
-		background-color: #71419e;
+		background-color: #e8e8e8 !important;
 	}
 `
 
