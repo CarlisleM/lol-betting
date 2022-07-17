@@ -161,7 +161,7 @@ function BetHistory() {
 		)
 	}
 
-	const excludeLeagues = ['LCK', 'LPL', 'VCS', 'NA_Academy_League']
+	const excludeLeagues = ['LPL']
 	const [leagues, setLeagues] = useState<any>(null)
 	const [teams, setTeams] = useState<any>(null)
 	const [upcomingGames, setUpcomingGames] = useState<any>(null)
@@ -355,10 +355,6 @@ function BetHistory() {
 									isDisabled={league ? false : true}
 									maxMenuHeight={540}
 									options={
-										// [
-										// 	{ value: 'TSM vs CLG', label: 'TSM vs CLG' },
-										// 	{ value: 'C9 vs FLY', label: 'C9 vs FLY' },
-										// ]
 										league
 											? upcomingGames
 													.filter(

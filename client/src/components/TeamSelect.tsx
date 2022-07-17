@@ -1,10 +1,6 @@
 import styled from 'styled-components'
 import RootStore from '../store'
 import Select from 'react-select'
-// import {
-// 	mapAbvTeamNameToFull,
-// 	mapFullTeamNameToAbv,
-// } from '../helpers/mapTeamNames'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 

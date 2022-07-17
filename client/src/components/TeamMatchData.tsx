@@ -66,9 +66,11 @@ const TableFooterContainer = styled.div`
 `
 
 interface Props {
+	leagueId: any
 	teamNumber: number
 	selectedTeam: any
 	games: any
+	teams: any
 }
 
 const TeamMatchData = (props: Props) => {
@@ -116,6 +118,13 @@ const TeamMatchData = (props: Props) => {
 				game.blue_team === props.selectedTeam ||
 				game.red_team === props.selectedTeam
 		)
+
+	let currentTeams =
+		props.teams &&
+		props.teams.filter((team: any) => team.league_id === props.leagueId)
+
+	console.log('props.leagueId: ', props.leagueId)
+	console.log('currentTeams:', currentTeams)
 
 	// Scroll to the top of the table on load
 	const matchContainerRef = useRef<HTMLDivElement>(null)
@@ -181,6 +190,7 @@ const TeamMatchData = (props: Props) => {
 													: 'transparent',
 										}}
 									>
+										{/* TODO: Update this to be the abbreviated version */}
 										{props.selectedTeam === match.blue_team
 											? match.red_team
 											: match.blue_team}

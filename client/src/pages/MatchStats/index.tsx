@@ -69,14 +69,13 @@ const MatchScheduleBarContainer = styled.div`
 `
 
 function MatchStats() {
-	const excludeLeagues = ['LCK', 'LPL', 'VCS', 'NA_Academy_League']
+	const excludeLeagues = ['LPL']
 	const [leagues, setLeagues] = useState(null)
 	const [teams, setTeams] = useState(null)
 	const [upcomingGames, setUpcomingGames] = useState(null)
 	const [games, setGames] = useState(null)
 
 	useEffect(() => {
-		// All leagues excluding ones currently not being tracked
 		fetch('/api/leagues')
 			.then((res) => res.json())
 			.then((leagues) =>
@@ -135,9 +134,11 @@ function MatchStats() {
 								<Observer>
 									{() => (
 										<TeamMatchData
+											leagueId={RootStore.selectedLeague}
 											teamNumber={1}
 											selectedTeam={RootStore.selectedTeamOne}
 											games={games}
+											teams={teams}
 										/>
 									)}
 								</Observer>
@@ -161,9 +162,11 @@ function MatchStats() {
 								<Observer>
 									{() => (
 										<TeamMatchData
+											leagueId={RootStore.selectedLeague}
 											teamNumber={2}
 											selectedTeam={RootStore.selectedTeamTwo}
 											games={games}
+											teams={teams}
 										/>
 									)}
 								</Observer>
