@@ -210,7 +210,10 @@ const TeamMatchData = (props: Props) => {
 													: match.blue_team === match.first_blood ||
 													  match.red_team === match.first_blood
 													? 'salmon'
-													: 'yellow',
+													: match.blue_team === match.winner ||
+													  match.red_team === match.winner
+													? 'cornflowerblue'
+													: 'black',
 											borderBottom:
 												index < currentGames.length - 1
 													? '1px solid black'
@@ -232,7 +235,10 @@ const TeamMatchData = (props: Props) => {
 													: match.blue_team === match.first_tower ||
 													  match.red_team === match.first_tower
 													? 'salmon'
-													: 'yellow',
+													: match.blue_team === match.winner ||
+													  match.red_team === match.winner
+													? 'cornflowerblue'
+													: 'black',
 											borderBottom:
 												index < currentGames.length - 1
 													? '1px solid black'
@@ -254,7 +260,10 @@ const TeamMatchData = (props: Props) => {
 													: match.blue_team === match.first_dragon ||
 													  match.red_team === match.first_dragon
 													? 'salmon'
-													: 'yellow',
+													: match.blue_team === match.winner ||
+													  match.red_team === match.winner
+													? 'cornflowerblue'
+													: 'black',
 											borderBottom:
 												index < currentGames.length - 1
 													? '1px solid black'
@@ -276,7 +285,10 @@ const TeamMatchData = (props: Props) => {
 													: match.blue_team === match.first_inhibitor ||
 													  match.red_team === match.first_inhibitor
 													? 'salmon'
-													: 'yellow',
+													: match.blue_team === match.winner ||
+													  match.red_team === match.winner
+													? 'cornflowerblue'
+													: 'black',
 											borderBottom:
 												index < currentGames.length - 1
 													? '1px solid black'
@@ -299,7 +311,10 @@ const TeamMatchData = (props: Props) => {
 													: match.blue_team === match.first_baron ||
 													  match.red_team === match.first_baron
 													? 'salmon'
-													: 'yellow',
+													: match.blue_team === match.winner ||
+													  match.red_team === match.winner
+													? 'cornflowerblue'
+													: 'black',
 											borderBottom:
 												index < currentGames.length - 1
 													? '1px solid black'
@@ -321,7 +336,10 @@ const TeamMatchData = (props: Props) => {
 													: match.blue_team === match.winner ||
 													  match.red_team === match.winner
 													? 'salmon'
-													: 'yellow',
+													: match.blue_team === match.winner ||
+													  match.red_team === match.winner
+													? 'cornflowerblue'
+													: 'black',
 											borderBottom:
 												index < currentGames.length - 1
 													? '1px solid black'
