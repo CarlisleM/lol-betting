@@ -44,9 +44,18 @@ const LeagueBar = (props: Props) => {
 			{props.leagues &&
 				props.leagues.map((league: any, index: number) => (
 					<League
+						style={{
+							backgroundColor:
+								league.id !== RootStore.selectedLeague ? 'darkgrey' : 'white',
+						}}
 						key={index}
 						onClick={() => {
 							// Set the two teams to the teams of the first upcoming game
+							console.log('league.id: ', league.id)
+							console.log(
+								'RootStore.selectedLeague: ',
+								RootStore.selectedLeague
+							)
 							if (
 								league.id !== RootStore.selectedLeague &&
 								props.upcomingGames.filter(
