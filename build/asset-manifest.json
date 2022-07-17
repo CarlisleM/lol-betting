@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.bea8bade.chunk.css",
-    "main.js": "/static/js/main.682bf374.chunk.js",
-    "main.js.map": "/static/js/main.682bf374.chunk.js.map",
+    "main.js": "/static/js/main.1f6dfbe0.chunk.js",
+    "main.js.map": "/static/js/main.1f6dfbe0.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.c1babaef.js",
     "runtime-main.js.map": "/static/js/runtime-main.c1babaef.js.map",
     "static/css/2.68b64559.chunk.css": "/static/css/2.68b64559.chunk.css",
@@ -167,7 +167,7 @@
     "static/media/av.png": "/static/media/av.63e619fa.png",
     "static/media/bjd.png": "/static/media/bjd.ffad4654.png",
     "static/media/bts.png": "/static/media/bts.b017538f.png",
-    "static/media/cblol.png": "/static/media/cblol.1cbb7f8f.png",
+    "static/media/cblol.png": "/static/media/cblol.3550e454.png",
     "static/media/devils.one.png": "/static/media/devils.one.f15c3dad.png",
     "static/media/dwg.png": "/static/media/dwg.8a82fc09.png",
     "static/media/dyn.png": "/static/media/dyn.c7a49b84.png",
@@ -183,7 +183,6 @@
     "static/media/klg.png": "/static/media/klg.a3ba88dc.png",
     "static/media/lck.png": "/static/media/lck.48d65f5d.png",
     "static/media/lcknav.png": "/static/media/lcknav.3a807761.png",
-    "static/media/lco.png": "/static/media/lco.46cb5a82.png",
     "static/media/lcs.png": "/static/media/lcs.7d64d128.png",
     "static/media/lec.png": "/static/media/lec.d8411548.png",
     "static/media/lecnav.png": "/static/media/lecnav.26738065.png",
@@ -192,7 +191,7 @@
     "static/media/lla.png": "/static/media/lla.0efd1801.png",
     "static/media/llanav.png": "/static/media/llanav.4d0e1c07.png",
     "static/media/lpl.png": "/static/media/lpl.bc39baf2.png",
-    "static/media/lvp_superliga.png": "/static/media/lvp_superliga.00230cdc.png",
+    "static/media/lvp_superliga.png": "/static/media/lvp_superliga.d12d19b3.png",
     "static/media/lyb.png": "/static/media/lyb.7d3bfc2a.png",
     "static/media/mces.png": "/static/media/mces.6f9be2a3.png",
     "static/media/mcx.png": "/static/media/mcx.b799fdfb.png",
@@ -230,6 +229,6 @@
     "static/css/2.68b64559.chunk.css",
     "static/js/2.4facc5a3.chunk.js",
     "static/css/main.bea8bade.chunk.css",
-    "static/js/main.682bf374.chunk.js"
+    "static/js/main.1f6dfbe0.chunk.js"
   ]
 }
