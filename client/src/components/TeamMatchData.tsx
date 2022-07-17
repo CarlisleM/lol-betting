@@ -217,7 +217,12 @@ const TeamMatchData = (props: Props) => {
 													: 'none',
 										}}
 									>
-										{props.selectedTeam === match.first_blood ? '✓' : '✘'}
+										{props.selectedTeam === match.first_blood
+											? '✓'
+											: match.blue_team === match.first_blood ||
+											  match.red_team === match.first_blood
+											? '✘'
+											: '〜'}
 									</TableBody>
 									<TableBody
 										style={{
@@ -234,7 +239,12 @@ const TeamMatchData = (props: Props) => {
 													: 'none',
 										}}
 									>
-										{props.selectedTeam === match.first_tower ? '✓' : '✘'}
+										{props.selectedTeam === match.first_tower
+											? '✓'
+											: match.blue_team === match.first_tower ||
+											  match.red_team === match.first_tower
+											? '✘'
+											: '〜'}
 									</TableBody>
 									<TableBody
 										style={{
@@ -251,7 +261,12 @@ const TeamMatchData = (props: Props) => {
 													: 'none',
 										}}
 									>
-										{props.selectedTeam === match.first_dragon ? '✓' : '✘'}
+										{props.selectedTeam === match.first_dragon
+											? '✓'
+											: match.blue_team === match.first_dragon ||
+											  match.red_team === match.first_dragon
+											? '✘'
+											: '〜'}
 									</TableBody>
 									<TableBody
 										style={{
@@ -268,7 +283,12 @@ const TeamMatchData = (props: Props) => {
 													: 'none',
 										}}
 									>
-										{props.selectedTeam === match.first_inhibitor ? '✓' : '✘'}
+										{props.selectedTeam === match.first_inhibitor
+											? '✓'
+											: match.blue_team === match.first_inhibitor ||
+											  match.red_team === match.first_inhibitor
+											? '✘'
+											: '〜'}
 									</TableBody>
 									<TableBody
 										style={{
@@ -286,7 +306,12 @@ const TeamMatchData = (props: Props) => {
 													: 'none',
 										}}
 									>
-										{props.selectedTeam === match.first_baron ? '✓' : '✘'}
+										{props.selectedTeam === match.first_baron
+											? '✓'
+											: match.blue_team === match.first_baron ||
+											  match.red_team === match.first_baron
+											? '✘'
+											: '〜'}
 									</TableBody>
 									<TableBody
 										style={{
@@ -303,7 +328,12 @@ const TeamMatchData = (props: Props) => {
 													: 'none',
 										}}
 									>
-										{props.selectedTeam === match.winner ? '✓' : '✘'}
+										{props.selectedTeam === match.winner
+											? '✓'
+											: match.blue_team === match.winner ||
+											  match.red_team === match.winner
+											? '✘'
+											: '〜'}
 									</TableBody>
 								</TableBodyRow>
 							))}
