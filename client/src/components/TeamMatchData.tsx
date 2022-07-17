@@ -124,15 +124,17 @@ const TeamMatchData = (props: Props) => {
 	}
 
 	const getTeamAbbreviation = (selectedTeam: string) => {
-		console.log('currentTeams: ', currentTeams)
+		let abbreviationMatched = false
 		currentTeams.forEach((element: any) => {
 			if (element['name'] === selectedTeam) {
-				console.log('Returning abbreviation: ', element['abbreviation'])
+				abbreviationMatched = true
 				return element['abbreviation']
 			}
 		})
-		console.log('returning selectedTeam: ', selectedTeam)
-		return selectedTeam
+
+		if (!abbreviationMatched) {
+			return selectedTeam
+		}
 	}
 
 	// Scroll to the top of the table on load
