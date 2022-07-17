@@ -86,6 +86,31 @@ const TeamMatchData = (props: Props) => {
 		props.teams &&
 		props.teams.filter((team: any) => team.league_id === props.leagueId)
 
+	const countTeamKills = () => {
+		let count = 0
+		let games = props.games.filter(
+			(game: any) =>
+				game.blue_team === props.selectedTeam ||
+				game.red_team === props.selectedTeam
+		)
+
+		if (games.length > 10) {
+			games = games.slice(-10)
+		}
+
+		games.forEach((element: any) => {
+			if (element['blue_team'] === props.selectedTeam) {
+				count = count + element['blue_team_kills']
+			}
+
+			if (element['red_team'] === props.selectedTeam) {
+				count = count + element['red_team_kills']
+			}
+		})
+
+		return count
+	}
+
 	const countOccurrences = (key: string) => {
 		let count = 0
 		let games = props.games.filter(
@@ -415,11 +440,13 @@ const TeamMatchData = (props: Props) => {
 						<TableFooter>{countOccurrences('first_blood')}</TableFooter>
 						<TableFooter>{countOccurrences('first_tower')}</TableFooter>
 						<TableFooter>{countOccurrences('first_dragon')}</TableFooter>
+						<TableFooter>{countOccurrences('first_rift_herald')}</TableFooter>
 						<TableFooter>{countOccurrences('first_inhibitor')}</TableFooter>
 						<TableFooter style={{ width: 60 }}>
 							{countOccurrences('first_baron')}
 						</TableFooter>
 						<TableFooter>{countOccurrences('winner')}</TableFooter>
+						<TableFooter>{countTeamKills()}</TableFooter>
 					</TableFooterContainer>
 				</>
 			)}
