@@ -67,7 +67,12 @@ const TeamSelect = (props: Props) => {
 							width: '85%',
 							height: '85%',
 						}}
-						src={require(`../images/teams/${props.selectedTeam}.png`).default}
+						src={
+							require(`../images/teams/${props.selectedTeam.replace(
+								'!',
+								''
+							)}.png`).default
+						}
 						alt={`${props.selectedTeam} Logo`}
 					/>
 				</TeamLogo>

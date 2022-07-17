@@ -126,14 +126,12 @@ const TeamMatchData = (props: Props) => {
 	const getTeamAbbreviation = (selectedTeam: string) => {
 		console.log('currentTeams: ', currentTeams)
 		currentTeams.forEach((element: any) => {
-			console.log('element: ', element)
-			console.log('element[key]: ', element['name'])
-			console.log('selectedTeam: ', selectedTeam)
-
 			if (element['name'] === selectedTeam) {
+				console.log('Returning abbreviation: ', element['abbreviation'])
 				return element['abbreviation']
 			}
 		})
+		console.log('returning selectedTeam: ', selectedTeam)
 		return selectedTeam
 	}
 

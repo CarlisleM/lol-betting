@@ -89,7 +89,7 @@ const MatchScheduleBar = (props: Props) => {
 	const teamLogo = (team: any) => (
 		<img
 			style={{ objectFit: 'contain', width: '85%', height: '85%' }}
-			src={require(`../images/teams/${team}.png`).default}
+			src={require(`../images/teams/${team.replace('!', '')}.png`).default}
 			alt={`${team} Logo`}
 		/>
 	)
