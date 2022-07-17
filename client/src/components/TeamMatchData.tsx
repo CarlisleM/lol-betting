@@ -111,6 +111,15 @@ const TeamMatchData = (props: Props) => {
 		}
 	}
 
+	const getTeamAbbreviation = (key: string) => {
+		currentTeams.forEach((element: any) => {
+			if (element[key] === props.selectedTeam) {
+				return element['abbreviation']
+			}
+		})
+		return key
+	}
+
 	let currentGames =
 		props.games &&
 		props.games.filter(
@@ -122,9 +131,6 @@ const TeamMatchData = (props: Props) => {
 	let currentTeams =
 		props.teams &&
 		props.teams.filter((team: any) => team.league_id === props.leagueId)
-
-	console.log('props.leagueId: ', props.leagueId)
-	console.log('currentTeams:', currentTeams)
 
 	// Scroll to the top of the table on load
 	const matchContainerRef = useRef<HTMLDivElement>(null)
@@ -190,10 +196,9 @@ const TeamMatchData = (props: Props) => {
 													: 'transparent',
 										}}
 									>
-										{/* TODO: Update this to be the abbreviated version */}
 										{props.selectedTeam === match.blue_team
-											? match.red_team
-											: match.blue_team}
+											? getTeamAbbreviation(match.red_team)
+											: getTeamAbbreviation(match.blue_team)}
 									</TableBody>
 									<TableBody
 										style={{
