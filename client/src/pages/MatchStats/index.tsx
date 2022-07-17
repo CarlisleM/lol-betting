@@ -137,7 +137,6 @@ function MatchStats() {
 											leagueId={RootStore.selectedLeague}
 											teamNumber={1}
 											selectedTeam={RootStore.selectedTeamOne}
-											otherSelectedTeam={RootStore.selectedTeamTwo}
 											games={games}
 											teams={teams}
 										/>
@@ -166,7 +165,6 @@ function MatchStats() {
 											leagueId={RootStore.selectedLeague}
 											teamNumber={2}
 											selectedTeam={RootStore.selectedTeamTwo}
-											otherSelectedTeam={RootStore.selectedTeamOne}
 											games={games}
 											teams={teams}
 										/>
