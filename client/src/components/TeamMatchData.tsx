@@ -207,7 +207,10 @@ const TeamMatchData = (props: Props) => {
 											backgroundColor:
 												props.selectedTeam === match.first_blood
 													? 'lightgreen'
-													: 'salmon',
+													: match.blue_team === match.first_blood ||
+													  match.red_team === match.first_blood
+													? 'salmon'
+													: 'yellow',
 											borderBottom:
 												index < currentGames.length - 1
 													? '1px solid black'
@@ -221,7 +224,10 @@ const TeamMatchData = (props: Props) => {
 											backgroundColor:
 												props.selectedTeam === match.first_tower
 													? 'lightgreen'
-													: 'salmon',
+													: match.blue_team === match.first_tower ||
+													  match.red_team === match.first_tower
+													? 'salmon'
+													: 'yellow',
 											borderBottom:
 												index < currentGames.length - 1
 													? '1px solid black'
@@ -235,7 +241,10 @@ const TeamMatchData = (props: Props) => {
 											backgroundColor:
 												props.selectedTeam === match.first_dragon
 													? 'lightgreen'
-													: 'salmon',
+													: match.blue_team === match.first_dragon ||
+													  match.red_team === match.first_dragon
+													? 'salmon'
+													: 'yellow',
 											borderBottom:
 												index < currentGames.length - 1
 													? '1px solid black'
@@ -249,7 +258,10 @@ const TeamMatchData = (props: Props) => {
 											backgroundColor:
 												props.selectedTeam === match.first_inhibitor
 													? 'lightgreen'
-													: 'salmon',
+													: match.blue_team === match.first_inhibitor ||
+													  match.red_team === match.first_inhibitor
+													? 'salmon'
+													: 'yellow',
 											borderBottom:
 												index < currentGames.length - 1
 													? '1px solid black'
@@ -264,7 +276,10 @@ const TeamMatchData = (props: Props) => {
 											backgroundColor:
 												props.selectedTeam === match.first_baron
 													? 'lightgreen'
-													: 'salmon',
+													: match.blue_team === match.first_baron ||
+													  match.red_team === match.first_baron
+													? 'salmon'
+													: 'yellow',
 											borderBottom:
 												index < currentGames.length - 1
 													? '1px solid black'
@@ -278,7 +293,10 @@ const TeamMatchData = (props: Props) => {
 											backgroundColor:
 												props.selectedTeam === match.winner
 													? 'lightgreen'
-													: 'salmon',
+													: match.blue_team === match.winner ||
+													  match.red_team === match.winner
+													? 'salmon'
+													: 'yellow',
 											borderBottom:
 												index < currentGames.length - 1
 													? '1px solid black'
