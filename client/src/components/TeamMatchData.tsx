@@ -69,6 +69,7 @@ interface Props {
 	leagueId: any
 	teamNumber: number
 	selectedTeam: any
+	otherSelectedTeam: any
 	games: any
 	teams: any
 }
@@ -205,7 +206,10 @@ const TeamMatchData = (props: Props) => {
 									<TableBody
 										style={{
 											backgroundColor:
-												props.selectedTeam === match.first_blood
+												props.selectedTeam !== match.first_blood &&
+												props.otherSelectedTeam !== match.first_blood
+													? 'yellow'
+													: props.selectedTeam === match.first_blood
 													? 'lightgreen'
 													: 'salmon',
 											borderBottom:
@@ -214,12 +218,20 @@ const TeamMatchData = (props: Props) => {
 													: 'none',
 										}}
 									>
-										{props.selectedTeam === match.first_blood ? '✓' : '✘'}
+										{props.selectedTeam !== match.first_blood &&
+										props.otherSelectedTeam !== match.first_blood
+											? '〜'
+											: props.selectedTeam === match.first_blood
+											? '✓'
+											: '✘'}
 									</TableBody>
 									<TableBody
 										style={{
 											backgroundColor:
-												props.selectedTeam === match.first_tower
+												props.selectedTeam !== match.first_tower &&
+												props.otherSelectedTeam !== match.first_tower
+													? 'yellow'
+													: props.selectedTeam === match.first_tower
 													? 'lightgreen'
 													: 'salmon',
 											borderBottom:
@@ -228,12 +240,20 @@ const TeamMatchData = (props: Props) => {
 													: 'none',
 										}}
 									>
-										{props.selectedTeam === match.first_tower ? '✓' : '✘'}
+										{props.selectedTeam !== match.first_tower &&
+										props.otherSelectedTeam !== match.first_tower
+											? '〜'
+											: props.selectedTeam === match.first_tower
+											? '✓'
+											: '✘'}
 									</TableBody>
 									<TableBody
 										style={{
 											backgroundColor:
-												props.selectedTeam === match.first_dragon
+												props.selectedTeam !== match.first_dragon &&
+												props.otherSelectedTeam !== match.first_dragon
+													? 'yellow'
+													: props.selectedTeam === match.first_dragon
 													? 'lightgreen'
 													: 'salmon',
 											borderBottom:
@@ -242,12 +262,20 @@ const TeamMatchData = (props: Props) => {
 													: 'none',
 										}}
 									>
-										{props.selectedTeam === match.first_dragon ? '✓' : '✘'}
+										{props.selectedTeam !== match.first_dragon &&
+										props.otherSelectedTeam !== match.first_dragon
+											? '〜'
+											: props.selectedTeam === match.first_dragon
+											? '✓'
+											: '✘'}
 									</TableBody>
 									<TableBody
 										style={{
 											backgroundColor:
-												props.selectedTeam === match.first_inhibitor
+												props.selectedTeam !== match.first_inhibitor &&
+												props.otherSelectedTeam !== match.first_inhibitor
+													? 'yellow'
+													: props.selectedTeam === match.first_inhibitor
 													? 'lightgreen'
 													: 'salmon',
 											borderBottom:
@@ -256,13 +284,21 @@ const TeamMatchData = (props: Props) => {
 													: 'none',
 										}}
 									>
-										{props.selectedTeam === match.first_inhibitor ? '✓' : '✘'}
+										{props.selectedTeam !== match.first_inhibitor &&
+										props.otherSelectedTeam !== match.first_inhibitor
+											? '〜'
+											: props.selectedTeam === match.first_inhibitor
+											? '✓'
+											: '✘'}
 									</TableBody>
 									<TableBody
 										style={{
 											width: 60,
 											backgroundColor:
-												props.selectedTeam === match.first_baron
+												props.selectedTeam !== match.first_baron &&
+												props.otherSelectedTeam !== match.first_baron
+													? 'yellow'
+													: props.selectedTeam === match.first_baron
 													? 'lightgreen'
 													: 'salmon',
 											borderBottom:
@@ -271,12 +307,20 @@ const TeamMatchData = (props: Props) => {
 													: 'none',
 										}}
 									>
-										{props.selectedTeam === match.first_baron ? '✓' : '✘'}
+										{props.selectedTeam !== match.first_baron &&
+										props.otherSelectedTeam !== match.first_baron
+											? '〜'
+											: props.selectedTeam === match.first_baron
+											? '✓'
+											: '✘'}
 									</TableBody>
 									<TableBody
 										style={{
 											backgroundColor:
-												props.selectedTeam === match.winner
+												props.selectedTeam !== match.winner &&
+												props.otherSelectedTeam !== match.winner
+													? 'yellow'
+													: props.selectedTeam === match.winner
 													? 'lightgreen'
 													: 'salmon',
 											borderBottom:
@@ -285,7 +329,12 @@ const TeamMatchData = (props: Props) => {
 													: 'none',
 										}}
 									>
-										{props.selectedTeam === match.winner ? '✓' : '✘'}
+										{props.selectedTeam !== match.winner &&
+										props.otherSelectedTeam !== match.winner
+											? '〜'
+											: props.selectedTeam === match.winner
+											? '✓'
+											: '✘'}
 									</TableBody>
 								</TableBodyRow>
 							))}
