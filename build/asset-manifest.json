@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.bea8bade.chunk.css",
-    "main.js": "/static/js/main.d214a09b.chunk.js",
-    "main.js.map": "/static/js/main.d214a09b.chunk.js.map",
+    "main.js": "/static/js/main.682bf374.chunk.js",
+    "main.js.map": "/static/js/main.682bf374.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.c1babaef.js",
     "runtime-main.js.map": "/static/js/runtime-main.c1babaef.js.map",
     "static/css/2.68b64559.chunk.css": "/static/css/2.68b64559.chunk.css",
@@ -135,7 +135,7 @@
     "static/media/SuperMassive Blaze.png": "/static/media/SuperMassive Blaze.d8097267.png",
     "static/media/T1.png": "/static/media/T1.5a788a67.png",
     "static/media/TSM Academy.png": "/static/media/TSM Academy.b34d1d81.png",
-    "static/media/TSM.png": "/static/media/TSM.b34d1d81.png",
+    "static/media/TSM.png": "/static/media/TSM.0ee8b6e2.png",
     "static/media/Team AURORA.png": "/static/media/Team AURORA.76805cad.png",
     "static/media/Team BDS Academy.png": "/static/media/Team BDS Academy.d7ad0b22.png",
     "static/media/Team BDS.png": "/static/media/Team BDS.d7ad0b22.png",
@@ -185,11 +185,11 @@
     "static/media/lcknav.png": "/static/media/lcknav.3a807761.png",
     "static/media/lco.png": "/static/media/lco.46cb5a82.png",
     "static/media/lcs.png": "/static/media/lcs.7d64d128.png",
-    "static/media/lec.png": "/static/media/lec.753c08c0.png",
+    "static/media/lec.png": "/static/media/lec.d8411548.png",
     "static/media/lecnav.png": "/static/media/lecnav.26738065.png",
     "static/media/lfl.png": "/static/media/lfl.10128592.png",
     "static/media/ljl.png": "/static/media/ljl.c09b02dd.png",
-    "static/media/lla.png": "/static/media/lla.b049951a.png",
+    "static/media/lla.png": "/static/media/lla.0efd1801.png",
     "static/media/llanav.png": "/static/media/llanav.4d0e1c07.png",
     "static/media/lpl.png": "/static/media/lpl.bc39baf2.png",
     "static/media/lvp_superliga.png": "/static/media/lvp_superliga.00230cdc.png",
@@ -201,7 +201,6 @@
     "static/media/nov.png": "/static/media/nov.5bf49a4a.png",
     "static/media/opg.png": "/static/media/opg.9e10b8e6.png",
     "static/media/paiN Gaming.png": "/static/media/paiN Gaming.dfd14a0b.png",
-    "static/media/pcs.png": "/static/media/pcs.181b048a.png",
     "static/media/pdw.png": "/static/media/pdw.4bf62858.png",
     "static/media/per.png": "/static/media/per.76ab9cf6.png",
     "static/media/pix.png": "/static/media/pix.2bcfdb0d.png",
@@ -231,6 +230,6 @@
     "static/css/2.68b64559.chunk.css",
     "static/js/2.4facc5a3.chunk.js",
     "static/css/main.bea8bade.chunk.css",
-    "static/js/main.d214a09b.chunk.js"
+    "static/js/main.682bf374.chunk.js"
   ]
 }
