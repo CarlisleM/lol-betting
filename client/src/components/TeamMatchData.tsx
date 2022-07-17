@@ -150,9 +150,11 @@ const TeamMatchData = (props: Props) => {
 						<TableHeader>FB</TableHeader>
 						<TableHeader>FT</TableHeader>
 						<TableHeader>FD</TableHeader>
+						<TableHeader>FRH</TableHeader>
 						<TableHeader>FI</TableHeader>
 						<TableHeader style={{ width: 60 }}>FBaron</TableHeader>
 						<TableHeader>W/L</TableHeader>
+						<TableHeader>Kills</TableHeader>
 					</TableHeaderContainer>
 					<TableBodyContainer ref={matchContainerRef}>
 						{currentGames.length > 0 &&
@@ -280,6 +282,31 @@ const TeamMatchData = (props: Props) => {
 									<TableBody
 										style={{
 											backgroundColor:
+												props.selectedTeam === match.first_rift_herald
+													? 'lightgreen'
+													: match.blue_team === match.first_rift_herald ||
+													  match.red_team === match.first_rift_herald
+													? 'salmon'
+													: match.blue_team === match.winner ||
+													  match.red_team === match.winner
+													? 'cornflowerblue'
+													: 'black',
+											borderBottom:
+												index < currentGames.length - 1
+													? '1px solid black'
+													: 'none',
+										}}
+									>
+										{props.selectedTeam === match.first_rift_herald
+											? '✓'
+											: match.blue_team === match.first_rift_herald ||
+											  match.red_team === match.first_rift_herald
+											? '✘'
+											: '〜'}
+									</TableBody>
+									<TableBody
+										style={{
+											backgroundColor:
 												props.selectedTeam === match.first_inhibitor
 													? 'lightgreen'
 													: match.blue_team === match.first_inhibitor ||
@@ -352,6 +379,30 @@ const TeamMatchData = (props: Props) => {
 											  match.red_team === match.winner
 											? '✘'
 											: '〜'}
+									</TableBody>
+
+									<TableBody
+										style={{
+											backgroundColor:
+												match.blue_team === match.winner ||
+												match.red_team === match.winner
+													? props.selectedTeam === match.blue_team
+														? match.blue_team_kills > match.red_team_kills
+															? 'lightgreen'
+															: 'salmon'
+														: match.red_team_kills > match.blue_team_kills
+														? 'lightgreen'
+														: 'salmon'
+													: 'black',
+											borderBottom:
+												index < currentGames.length - 1
+													? '1px solid black'
+													: 'none',
+										}}
+									>
+										{props.selectedTeam === match.blue_team
+											? match.blue_team_kills
+											: match.red_team_kills}
 									</TableBody>
 								</TableBodyRow>
 							))}
