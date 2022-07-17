@@ -11,7 +11,7 @@ const League = styled.div`
 	border-bottom: 1px solid black;
 
 	&:hover {
-		background-color: #e8e8e8;
+		background-color: #71419e;
 	}
 `
 
@@ -53,11 +53,10 @@ const LeagueBar = (props: Props) => {
 							<League
 								style={{
 									backgroundColor:
-										league.id == RootStore.selectedLeague ? 'cyan' : 'unset',
+										league.id == RootStore.selectedLeague ? 'gold' : 'unset',
 								}}
 								key={index}
 								onClick={() => {
-									// Set the two teams to the teams of the first upcoming game
 									if (
 										league.id !== RootStore.selectedLeague &&
 										props.upcomingGames.filter(
@@ -74,7 +73,12 @@ const LeagueBar = (props: Props) => {
 												(game: any) => game.league_id === league.id
 											)[0].red_team
 										)
-									} else {
+									} else if (
+										league.id !== RootStore.selectedLeague &&
+										props.upcomingGames.filter(
+											(game: any) => game.league_id === league.id
+										).length == 0
+									) {
 										RootStore.updateSelectedTeamOne(
 											props.games.filter(
 												(game: any) => game.league_id === league.id
@@ -86,15 +90,8 @@ const LeagueBar = (props: Props) => {
 											)[0].red_team
 										)
 									}
-									// Update the current league
+
 									RootStore.updateSelectedLeague(league.id)
-									console.log('league.id: ', league.id)
-									console.log(typeof league.id)
-									console.log(
-										'RootStore.selectedLeague: ',
-										RootStore.selectedLeague
-									)
-									console.log(typeof RootStore.selectedLeague)
 								}}
 							>
 								{leagueLogo(league.name)}
