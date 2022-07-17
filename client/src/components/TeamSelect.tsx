@@ -42,11 +42,13 @@ interface Props {
 const TeamSelect = (props: Props) => {
 	const updateTeamOne = (newTeam: any, otherTeam: any) => {
 		RootStore.updateSelectedTeamOne(newTeam)
+		RootStore.updateSelectedTeamTwo('')
 		RootStore.updateSelectedTeamTwo(otherTeam)
 	}
 
 	const updateTeamTwo = (newTeam: any, otherTeam: any) => {
 		RootStore.updateSelectedTeamTwo(newTeam)
+		RootStore.updateSelectedTeamOne('')
 		RootStore.updateSelectedTeamOne(otherTeam)
 	}
 
