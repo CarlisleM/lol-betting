@@ -46,7 +46,7 @@ const LeagueBar = (props: Props) => {
 					<League
 						style={{
 							backgroundColor:
-								league.id !== RootStore.selectedLeague ? 'darkgrey' : 'white',
+								league.id == RootStore.selectedLeague ? 'cyan' : 'unset',
 						}}
 						key={index}
 						onClick={() => {
