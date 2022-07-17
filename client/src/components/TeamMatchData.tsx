@@ -74,6 +74,18 @@ interface Props {
 }
 
 const TeamMatchData = (props: Props) => {
+	let currentGames =
+		props.games &&
+		props.games.filter(
+			(game: any) =>
+				game.blue_team === props.selectedTeam ||
+				game.red_team === props.selectedTeam
+		)
+
+	let currentTeams =
+		props.teams &&
+		props.teams.filter((team: any) => team.league_id === props.leagueId)
+
 	const countOccurrences = (key: string) => {
 		let count = 0
 		let games = props.games.filter(
@@ -111,29 +123,19 @@ const TeamMatchData = (props: Props) => {
 		}
 	}
 
-	const getTeamAbbreviation = (key: string) => {
+	const getTeamAbbreviation = (selectedTeam: string) => {
+		console.log('currentTeams: ', currentTeams)
 		currentTeams.forEach((element: any) => {
-			console.log('element[key]: ', element[key])
-			console.log('props.selectedTeam: ', props.selectedTeam)
+			console.log('element: ', element)
+			console.log('element[key]: ', element['name'])
+			console.log('selectedTeam: ', selectedTeam)
 
-			if (element[key] === props.selectedTeam) {
+			if (element['name'] === selectedTeam) {
 				return element['abbreviation']
 			}
 		})
-		return key
+		return selectedTeam
 	}
-
-	let currentGames =
-		props.games &&
-		props.games.filter(
-			(game: any) =>
-				game.blue_team === props.selectedTeam ||
-				game.red_team === props.selectedTeam
-		)
-
-	let currentTeams =
-		props.teams &&
-		props.teams.filter((team: any) => team.league_id === props.leagueId)
 
 	// Scroll to the top of the table on load
 	const matchContainerRef = useRef<HTMLDivElement>(null)
