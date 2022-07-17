@@ -107,15 +107,11 @@ function MatchStats() {
 			<Container>
 				{/* Left Side Bar */}
 				<LeagueBarContainer>
-					<Observer>
-						{() => (
-							<LeagueBar
-								leagues={leagues}
-								upcomingGames={upcomingGames}
-								games={games}
-							/>
-						)}
-					</Observer>
+					<LeagueBar
+						leagues={leagues}
+						upcomingGames={upcomingGames}
+						games={games}
+					/>
 				</LeagueBarContainer>
 				{/* Center Information */}
 				<CenterInformationContainer>

@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/static/css/main.bea8bade.chunk.css",
-    "main.js": "/static/js/main.2e8bfaef.chunk.js",
-    "main.js.map": "/static/js/main.2e8bfaef.chunk.js.map",
+    "main.js": "/static/js/main.2cccca1c.chunk.js",
+    "main.js.map": "/static/js/main.2cccca1c.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.c1babaef.js",
     "runtime-main.js.map": "/static/js/runtime-main.c1babaef.js.map",
     "static/css/2.68b64559.chunk.css": "/static/css/2.68b64559.chunk.css",
-    "static/js/2.4facc5a3.chunk.js": "/static/js/2.4facc5a3.chunk.js",
-    "static/js/2.4facc5a3.chunk.js.map": "/static/js/2.4facc5a3.chunk.js.map",
+    "static/js/2.9a7d7fa7.chunk.js": "/static/js/2.9a7d7fa7.chunk.js",
+    "static/js/2.9a7d7fa7.chunk.js.map": "/static/js/2.9a7d7fa7.chunk.js.map",
     "static/js/3.3e979c6e.chunk.js": "/static/js/3.3e979c6e.chunk.js",
     "static/js/3.3e979c6e.chunk.js.map": "/static/js/3.3e979c6e.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.68b64559.chunk.css.map": "/static/css/2.68b64559.chunk.css.map",
     "static/css/main.bea8bade.chunk.css.map": "/static/css/main.bea8bade.chunk.css.map",
-    "static/js/2.4facc5a3.chunk.js.LICENSE.txt": "/static/js/2.4facc5a3.chunk.js.LICENSE.txt",
+    "static/js/2.9a7d7fa7.chunk.js.LICENSE.txt": "/static/js/2.9a7d7fa7.chunk.js.LICENSE.txt",
     "static/media/100 Thieves Academy.png": "/static/media/100 Thieves Academy.6f67ce13.png",
     "static/media/100 Thieves.png": "/static/media/100 Thieves.6f67ce13.png",
     "static/media/5 Ronin.png": "/static/media/5 Ronin.fe1e2aa2.png",
@@ -227,8 +227,8 @@
   "entrypoints": [
     "static/js/runtime-main.c1babaef.js",
     "static/css/2.68b64559.chunk.css",
-    "static/js/2.4facc5a3.chunk.js",
+    "static/js/2.9a7d7fa7.chunk.js",
     "static/css/main.bea8bade.chunk.css",
-    "static/js/main.2e8bfaef.chunk.js"
+    "static/js/main.2cccca1c.chunk.js"
   ]
 }
