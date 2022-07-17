@@ -40,12 +40,25 @@ interface Props {
 }
 
 const TeamSelect = (props: Props) => {
+	const updateTeamOne = (newTeam: any, otherTeam: any) => {
+		RootStore.updateSelectedTeamOne(newTeam)
+		RootStore.updateSelectedTeamTwo(otherTeam)
+	}
+
+	const updateTeamTwo = (newTeam: any, otherTeam: any) => {
+		RootStore.updateSelectedTeamTwo(newTeam)
+		RootStore.updateSelectedTeamOne(otherTeam)
+	}
+
 	const handleChange = (value: any) => {
 		value.value !== null
 			? value.value && props.teamNumber === 1
-				? RootStore.updateSelectedTeamOne(value.value)
-				: RootStore.updateSelectedTeamTwo(value.value)
-			: toast.error('Unable to find selected team data', {
+				? updateTeamOne(value.value, props.otherSelectedTeam)
+				: // RootStore.updateSelectedTeamOne(value.value)
+				  //   RootStore.updateSelectedTeamTwo(props.otherSelectedTeam)
+				  updateTeamTwo(value.value, props.otherSelectedTeam)
+			: // RootStore.updateSelectedTeamTwo(value.value)
+			  toast.error('Unable to find selected team data', {
 					position: 'bottom-center',
 					autoClose: 3000,
 					hideProgressBar: true,

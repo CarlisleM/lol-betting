@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.bea8bade.chunk.css",
-    "main.js": "/static/js/main.1f6dfbe0.chunk.js",
-    "main.js.map": "/static/js/main.1f6dfbe0.chunk.js.map",
+    "main.js": "/static/js/main.109a235c.chunk.js",
+    "main.js.map": "/static/js/main.109a235c.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.c1babaef.js",
     "runtime-main.js.map": "/static/js/runtime-main.c1babaef.js.map",
     "static/css/2.68b64559.chunk.css": "/static/css/2.68b64559.chunk.css",
@@ -38,7 +38,7 @@
     "static/media/Cloud9.png": "/static/media/Cloud9.14950839.png",
     "static/media/Counter Logic Gaming.png": "/static/media/Counter Logic Gaming.abae0f8c.png",
     "static/media/Crest Gaming Act.png": "/static/media/Crest Gaming Act.c4044434.png",
-    "static/media/DRX.png": "/static/media/DRX.c3e40b37.png",
+    "static/media/DRX.png": "/static/media/DRX.f198d7ce.png",
     "static/media/DWG KIA.png": "/static/media/DWG KIA.10667f45.png",
     "static/media/Dark Passage.png": "/static/media/Dark Passage.a036408c.png",
     "static/media/Deep Cross Gaming.png": "/static/media/Deep Cross Gaming.724f2210.png",
@@ -133,7 +133,7 @@
     "static/media/Sengoku Gaming.png": "/static/media/Sengoku Gaming.c255fd85.png",
     "static/media/Solary.png": "/static/media/Solary.932d0dd6.png",
     "static/media/SuperMassive Blaze.png": "/static/media/SuperMassive Blaze.d8097267.png",
-    "static/media/T1.png": "/static/media/T1.5a788a67.png",
+    "static/media/T1.png": "/static/media/T1.5449c168.png",
     "static/media/TSM Academy.png": "/static/media/TSM Academy.b34d1d81.png",
     "static/media/TSM.png": "/static/media/TSM.0ee8b6e2.png",
     "static/media/Team AURORA.png": "/static/media/Team AURORA.76805cad.png",
@@ -229,6 +229,6 @@
     "static/css/2.68b64559.chunk.css",
     "static/js/2.4facc5a3.chunk.js",
     "static/css/main.bea8bade.chunk.css",
-    "static/js/main.1f6dfbe0.chunk.js"
+    "static/js/main.109a235c.chunk.js"
   ]
 }
