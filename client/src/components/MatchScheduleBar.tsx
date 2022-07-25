@@ -201,7 +201,8 @@ const MatchScheduleBar = (props: Props) => {
 												style={{ fontSize: 100, paddingBottom: 10 }}
 											/>
 											<span style={{ fontSize: 30, width: '90%' }}>
-												Begin by selecting a league to display upcoming matches
+												Begin by selecting a league on the left to display
+												upcoming matches
 											</span>
 										</>
 									) : (

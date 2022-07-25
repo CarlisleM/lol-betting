@@ -128,7 +128,7 @@ const TeamSelect = (props: Props) => {
 					}
 					value={{
 						value: props.selectedTeam,
-						label: props.selectedTeam, // Update this to map to a readable name
+						label: props.selectedTeam,
 					}}
 					onChange={(value: any) => handleChange(value)}
 				/>
