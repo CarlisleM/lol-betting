@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.bea8bade.chunk.css",
-    "main.js": "/static/js/main.f6b47780.chunk.js",
-    "main.js.map": "/static/js/main.f6b47780.chunk.js.map",
+    "main.js": "/static/js/main.0ef32e0c.chunk.js",
+    "main.js.map": "/static/js/main.0ef32e0c.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.48971481.js",
     "runtime-main.js.map": "/static/js/runtime-main.48971481.js.map",
     "static/css/2.68b64559.chunk.css": "/static/css/2.68b64559.chunk.css",
@@ -247,7 +247,7 @@
     "static/media/fg.png": "/static/media/fg.e86b6c44.png",
     "static/media/gentlemens.png": "/static/media/gentlemens.5e16a980.png",
     "static/media/hit.png": "/static/media/hit.f71c2056.png",
-    "static/media/hitpoint_masters.png": "/static/media/hitpoint_masters.0d166c07.png",
+    "static/media/hitpoint_masters.png": "/static/media/hitpoint_masters.ef6c6e83.png",
     "static/media/hka.png": "/static/media/hka.2127da41.png",
     "static/media/izi.png": "/static/media/izi.361c54f6.png",
     "static/media/k1.png": "/static/media/k1.cd5d65e1.png",
@@ -271,7 +271,7 @@
     "static/media/mces.png": "/static/media/mces.6f9be2a3.png",
     "static/media/mcx.png": "/static/media/mcx.b799fdfb.png",
     "static/media/na_academy_league.png": "/static/media/na_academy_league.1c23ddd5.png",
-    "static/media/nlc.png": "/static/media/nlc.11ccaa97.png",
+    "static/media/nlc.png": "/static/media/nlc.1c8fd2d9.png",
     "static/media/nov.png": "/static/media/nov.5bf49a4a.png",
     "static/media/opg.png": "/static/media/opg.9e10b8e6.png",
     "static/media/paiN Gaming.png": "/static/media/paiN Gaming.dfd14a0b.png",
@@ -305,6 +305,6 @@
     "static/css/2.68b64559.chunk.css",
     "static/js/2.5abcd5d0.chunk.js",
     "static/css/main.bea8bade.chunk.css",
-    "static/js/main.f6b47780.chunk.js"
+    "static/js/main.0ef32e0c.chunk.js"
   ]
 }
