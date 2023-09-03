@@ -1,26 +1,69 @@
 {
-  "name": "deploying-fullstack-with-heroku-sample",
-  "version": "1.0.0",
-  "description": "back-end for the front-end to be used as an example for how to deploy a fullstack app using Heroku.",
-  "main": "app.js",
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
   "engines": {
     "node": "14.15.3"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:ui": "rm -rf build && cd ./client && npm run build --prod && cp -r build ../"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
+    "@ant-design/icons": "^4.6.2",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
     "@types/express": "^4.17.12",
-    "@types/node": "^15.12.5",
-    "cors": "^2.8.5",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react-dom": "^17.0.0",
     "express": "^4.17.1",
-    "node-fetch": "^2.6.1",
-    "nodemon": "^2.0.9",
-    "pg": "^8.5.1",
-    "ts-node": "^10.0.0",
-    "typescript": "^4.3.5"
+    "mobx": "^6.3.2",
+    "mobx-react": "^7.2.0",
+    "mobx-react-lite": "^3.2.0",
+    "mobx-state-tree": "^5.0.2",
+    "react": "^17.0.2",
+    "react-datepicker": "^4.1.1",
+    "react-dom": "^17.0.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-select": "^4.3.1",
+    "react-toastify": "^7.0.4",
+    "styled-components": "^5.2.3",
+    "typescript": "^4.3.5",
+    "uuid": "^8.3.2",
+    "web-vitals": "^1.0.1",
+    "yarn": "^1.22.19"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "postinstall": "tsc"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.3",
+    "@types/react-datepicker": "^4.1.1",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/react-select": "^4.0.16",
+    "@types/styled-components": "^5.1.9",
+    "@types/uuid": "^8.3.1"
   }
 }
