@@ -1,0 +1,79 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+self["webpackHotUpdate_N_E"]("app/page",{
+
+/***/ "(app-pages-browser)/./src/images/leagues sync recursive ^\\.\\/.*\\.png$":
+/*!************************************************!*\
+  !*** ./src/images/leagues/ sync ^\.\/.*\.png$ ***!
+  \************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+var map = {
+	"./cblol.png": "(app-pages-browser)/./src/images/leagues/cblol.png",
+	"./elite_series.png": "(app-pages-browser)/./src/images/leagues/elite_series.png",
+	"./esports_balkan_league.png": "(app-pages-browser)/./src/images/leagues/esports_balkan_league.png",
+	"./hitpoint_masters.png": "(app-pages-browser)/./src/images/leagues/hitpoint_masters.png",
+	"./lck.png": "(app-pages-browser)/./src/images/leagues/lck.png",
+	"./lck_cl.png": "(app-pages-browser)/./src/images/leagues/lck_cl.png",
+	"./lcknav.png": "(app-pages-browser)/./src/images/leagues/lcknav.png",
+	"./lco.png": "(app-pages-browser)/./src/images/leagues/lco.png",
+	"./lcs.png": "(app-pages-browser)/./src/images/leagues/lcs.png",
+	"./lec.png": "(app-pages-browser)/./src/images/leagues/lec.png",
+	"./lecnav.png": "(app-pages-browser)/./src/images/leagues/lecnav.png",
+	"./lfl.png": "(app-pages-browser)/./src/images/leagues/lfl.png",
+	"./ljl.png": "(app-pages-browser)/./src/images/leagues/ljl.png",
+	"./lla.png": "(app-pages-browser)/./src/images/leagues/lla.png",
+	"./llanav.png": "(app-pages-browser)/./src/images/leagues/llanav.png",
+	"./lpl.png": "(app-pages-browser)/./src/images/leagues/lpl.png",
+	"./lplol.png": "(app-pages-browser)/./src/images/leagues/lplol.png",
+	"./lvp_superliga.png": "(app-pages-browser)/./src/images/leagues/lvp_superliga.png",
+	"./na_academy_league.png": "(app-pages-browser)/./src/images/leagues/na_academy_league.png",
+	"./nlc.png": "(app-pages-browser)/./src/images/leagues/nlc.png",
+	"./pcs.png": "(app-pages-browser)/./src/images/leagues/pcs.png",
+	"./prime_league_1st_division.png": "(app-pages-browser)/./src/images/leagues/prime_league_1st_division.png",
+	"./tcl.png": "(app-pages-browser)/./src/images/leagues/tcl.png",
+	"./turkey_academy_league.png": "(app-pages-browser)/./src/images/leagues/turkey_academy_league.png",
+	"./ultraliga.png": "(app-pages-browser)/./src/images/leagues/ultraliga.png",
+	"./vcs.png": "(app-pages-browser)/./src/images/leagues/vcs.png"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "(app-pages-browser)/./src/images/leagues sync recursive ^\\.\\/.*\\.png$";
+
+/***/ }),
+
+/***/ "(app-pages-browser)/./src/images/leagues/turkey_academy_league.png":
+/*!******************************************************!*\
+  !*** ./src/images/leagues/turkey_academy_league.png ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval(__webpack_require__.ts("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\"src\":\"/_next/static/media/turkey_academy_league.ae6961c0.png\",\"height\":444,\"width\":820,\"blurDataURL\":\"/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fturkey_academy_league.ae6961c0.png&w=8&q=70\",\"blurWidth\":8,\"blurHeight\":4});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwcC1wYWdlcy1icm93c2VyKS8uL3NyYy9pbWFnZXMvbGVhZ3Vlcy90dXJrZXlfYWNhZGVteV9sZWFndWUucG5nIiwibWFwcGluZ3MiOiI7QUFBQSwrREFBZSxDQUFDLDhOQUE4TiIsInNvdXJjZXMiOlsid2VicGFjazovL19OX0UvLi9zcmMvaW1hZ2VzL2xlYWd1ZXMvdHVya2V5X2FjYWRlbXlfbGVhZ3VlLnBuZz8wMDE4Il0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IHtcInNyY1wiOlwiL19uZXh0L3N0YXRpYy9tZWRpYS90dXJrZXlfYWNhZGVteV9sZWFndWUuYWU2OTYxYzAucG5nXCIsXCJoZWlnaHRcIjo0NDQsXCJ3aWR0aFwiOjgyMCxcImJsdXJEYXRhVVJMXCI6XCIvX25leHQvaW1hZ2U/dXJsPSUyRl9uZXh0JTJGc3RhdGljJTJGbWVkaWElMkZ0dXJrZXlfYWNhZGVteV9sZWFndWUuYWU2OTYxYzAucG5nJnc9OCZxPTcwXCIsXCJibHVyV2lkdGhcIjo4LFwiYmx1ckhlaWdodFwiOjR9OyJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(app-pages-browser)/./src/images/leagues/turkey_academy_league.png\n"));
+
+/***/ })
+
+});
