@@ -145,7 +145,7 @@ const TeamMatchData = (props: Props) => {
                 if (((100 * count) / games.length) % 1 === 0) {
                     return (100 * count) / games.length + "%"
                 } else {
-                    return ((100 * count) / games.length).toFixed(2) + "%"
+                    return ((100 * count) / games.length).toFixed(1) + "%"
                 }
             }
         }
