@@ -25,6 +25,7 @@ const MatchWeek = styled.div`
     border-top: thick double;
     border-bottom: thick double;
     font-weight: 700;
+    color: black;
 `
 
 const MatchSchedule = styled.div`
@@ -55,6 +56,7 @@ const MatchScheduleTime = styled.div`
     flex-direction: column;
     width: 40%;
     height: 100%;
+    color: black;
 `
 
 const TodayMatch = styled.div`
