@@ -167,6 +167,7 @@ function MatchStats() {
                                 <Observer>
                                     {() => (
                                         <TeamMatchData
+                                            key={"team-1-data-container"}
                                             leagueId={RootStore.selectedLeague}
                                             teamNumber={1}
                                             selectedTeam={
@@ -202,6 +203,7 @@ function MatchStats() {
                                 <Observer>
                                     {() => (
                                         <TeamMatchData
+                                            key={"team-2-data-container"}
                                             leagueId={RootStore.selectedLeague}
                                             teamNumber={2}
                                             selectedTeam={
@@ -217,7 +219,7 @@ function MatchStats() {
                     </Teams>
                     {/* Bottom Bar */}
                     <StatsAnalysis>
-                        {/* <StatisticalAnalysis teams={teams} /> */}
+                        <StatisticalAnalysis teams={teams} />
                     </StatsAnalysis>
                 </CenterInformationContainer>
                 {/* Right Side Bar */}

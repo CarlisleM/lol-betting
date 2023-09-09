@@ -61,6 +61,7 @@ const TableFooter = styled.div`
     border-top: 1px solid black;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
+    color: black;
 `
 
 const TableFooterContainer = styled.div`
@@ -102,11 +103,11 @@ const TeamMatchData = (props: Props) => {
 
         games.forEach((element: any) => {
             if (element["blue_team"] === props.selectedTeam) {
-                count = count + element["blue_team_kills"]
+                count += element.match_results[0]["blue_team_kills"]
             }
 
             if (element["red_team"] === props.selectedTeam) {
-                count = count + element["red_team_kills"]
+                count += element.match_results[0]["red_team_kills"]
             }
         })
 
@@ -126,7 +127,7 @@ const TeamMatchData = (props: Props) => {
         }
 
         games.forEach((element: any) => {
-            if (element[key] === props.selectedTeam) {
+            if (element.match_results[0][key] === props.selectedTeam) {
                 count += 1
             }
         })
